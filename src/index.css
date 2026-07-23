@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+@theme {
+  --font-at-surt: "AT Surt", sans-serif;
+  --font-founders: "Founders Grotesk", sans-serif;
+  --font-woodland: "PP Woodland", serif;
+  --font-basic-sans: "Basic Sans", sans-serif;
+
+  --color-verde-confianza: #0b392d;
+  --color-verde-dinamico: #e0ffae;
+  --color-verde-gradiente: #003c2c;
+  --color-beige-hogar: #fff7ec;
+  --color-celeste-bienestar: #bcdcea;
+  --color-gris-profundo: #27282b;
+  --color-gris-gradiente: #26292b;
+  --color-azul-integro: #004056;
+  --color-rosa-bienestar: #f8b7a5;
+
+  --text-button: clamp(8px, 1.406vw, 18px);
+  --text-paragraph1: clamp(18px, 2.188vw, 28px);
+  --text-paragraph2: clamp(8px, 1.406vw, 18px);
+  --text-paragraph3: clamp(6px, 1.094vw, 14px);
+  --text-paragraph4: clamp(11px, 1.875vw, 24px);
+  --text-display1: clamp(15px, 2.5vw, 32px);
+  --text-display2: clamp(18px, 3.125vw, 40px);
+  --text-display3: clamp(33px, 5.625vw, 72px);
+  --text-display4: clamp(30px, 5.078vw, 65px);
+  --text-display-min: clamp(13px, 2.188vw, 28px);
+  --text-min: clamp(12px, 2.031vw, 26px);
+}

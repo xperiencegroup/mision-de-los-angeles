@@ -1,0 +1,47 @@
+/* AT Surt */
+
+@font-face {
+  font-family: "AT Surt";
+  src: url("/src/assets/fonts/ATSurt-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AT Surt";
+  src: url("/src/assets/fonts/ATSurt-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Founders Grotesk */
+
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("/src/assets/fonts/FoundersGrotesk-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* PP Woodland */
+
+@font-face {
+  font-family: "PP Woodland";
+  src: url("/src/assets/fonts/PPWoodland-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Basic Sans */
+
+@font-face {
+  font-family: "Basic Sans";
+  src: url("/src/assets/fonts/BasicSans.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
