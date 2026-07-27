@@ -1,5 +1,8 @@
 import Navbar from "../layout/navbar";
+import Amenidades from "./components/amenidades";
+import ConoceProyecto from "./components/conoce-proyecto";
 import Hero from "./components/hero";
+import Nosotros from "./components/nosotros";
 
 export default function Home() {
   return (
@@ -7,6 +10,12 @@ export default function Home() {
       <Navbar />
 
       <Hero />
+
+      <Nosotros />
+
+      <ConoceProyecto />
+
+      <Amenidades />
     </div>
   );
 }

@@ -36,4 +36,5 @@
 
 body {
   background-color: var(--color-beige-hogar);
+  font-family: var(--font-basic-sans);
 }
