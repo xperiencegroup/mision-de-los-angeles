@@ -20,7 +20,7 @@ const beneficios = [
 
 export default function ConoceProyecto() {
   return (
-    <div className="relative flex justify-center items-center w-full max-w-[1280px] h-[640px] py-[60px]">
+    <div className="relative flex justify-center items-center w-full h-[640px] py-[60px]">
       {/* Background image */}
       <div className="absolute -z-10 inset-0 w-full h-full overflow-hidden">
         <img

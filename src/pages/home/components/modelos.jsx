@@ -4,7 +4,7 @@ import reveImage from "../../../assets/images/modelos/reve.jpg";
 
 export default function Modelos() {
   return (
-    <div className="relative flex justify-center items-center w-full max-w-[1280px] p-[60px]">
+    <div className="relative flex justify-center items-center w-full p-[60px]">
       {/* Background image */}
       <div className="absolute -z-10 inset-0 w-full h-full overflow-hidden">
         <img

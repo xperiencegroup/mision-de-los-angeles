@@ -1,9 +1,11 @@
 import Navbar from "../layout/navbar";
 import Amenidades from "./components/amenidades";
 import ConoceProyecto from "./components/conoce-proyecto";
+import Cotiza from "./components/cotiza";
 import Hero from "./components/hero";
 import Modelos from "./components/modelos";
 import Nosotros from "./components/nosotros";
+import Ubicacion from "./components/ubicacion";
 
 export default function Home() {
   return (
@@ -19,6 +21,10 @@ export default function Home() {
       <Amenidades />
 
       <Modelos />
+
+      <Ubicacion />
+
+      <Cotiza />
     </div>
   );
 }
