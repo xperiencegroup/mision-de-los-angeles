@@ -11,13 +11,14 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "4.3.3",
-    "react": "19.2.7",
-    "react-dom": "19.2.7",
-    "react-router": "8.3.0",
     "embla-carousel": "8.6.0",
     "embla-carousel-auto-scroll": "8.6.0",
     "embla-carousel-autoplay": "8.6.0",
     "embla-carousel-react": "8.6.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-hook-form": "7.83.0",
+    "react-router": "8.3.0",
     "tailwindcss": "4.3.3"
   },
   "devDependencies": {

@@ -1,7 +1,9 @@
 import Navbar from "../layout/navbar";
 import Amenidades from "./components/amenidades";
+import ClosingBanner from "./components/closing-banner";
 import ConoceProyecto from "./components/conoce-proyecto";
 import Cotiza from "./components/cotiza";
+import Formulario from "./components/formulario";
 import Hero from "./components/hero";
 import Modelos from "./components/modelos";
 import Nosotros from "./components/nosotros";
@@ -25,6 +27,10 @@ export default function Home() {
       <Ubicacion />
 
       <Cotiza />
+
+      <Formulario />
+
+      <ClosingBanner />
     </div>
   );
 }
