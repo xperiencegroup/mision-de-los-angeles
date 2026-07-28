@@ -20,7 +20,7 @@ const beneficios = [
 
 export default function ConoceProyecto() {
   return (
-    <div className="relative flex justify-center items-center w-full h-[640px] px-[51px] py-[60px]">
+    <div className="relative flex justify-center items-center w-full max-w-[1280px] h-[640px] py-[60px]">
       {/* Background image */}
       <div className="absolute -z-10 inset-0 w-full h-full overflow-hidden">
         <img
@@ -31,8 +31,8 @@ export default function ConoceProyecto() {
       </div>
 
       {/* Text */}
-      <div className="flex flex-col w-full h-full gap-[40px]">
-        <div className="flex flex-col gap-[20px]">
+      <div className="flex flex-col w-full h-full justify-center items-center gap-[40px]">
+        <div className="flex flex-col gap-[20px] px-[51px]">
           <h2 className="text-[30px] text-center font-woodland font-bold leading-[110%] text-verde-confianza">
             Conoce Misión de los Ángeles:
             <br />
@@ -47,7 +47,7 @@ export default function ConoceProyecto() {
         </div>
 
         {/* Cuadros */}
-        <div className="flex gap-[40px]">
+        <div className="flex gap-[30px]">
           {beneficios.map((beneficio, index) => {
             return (
               <div

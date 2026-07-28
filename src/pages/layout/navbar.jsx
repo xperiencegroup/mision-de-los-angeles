@@ -45,9 +45,10 @@ export default function Navbar() {
         </button>
 
         {/* Botónes de navegación */}
-        {BUTTONS.map((button) => {
+        {BUTTONS.map((button, index) => {
           return (
             <button
+              key={index}
               className={`px-[24px] py-[15px] text-button font-at-surt text-beige-hogar hover:cursor-pointer ${button.id === "cotiza" && "text-verde-confianza bg-celeste-bienestar"}`}
             >
               {button.label}

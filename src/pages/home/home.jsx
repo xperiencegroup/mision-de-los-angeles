@@ -6,7 +6,7 @@ import Nosotros from "./components/nosotros";
 
 export default function Home() {
   return (
-    <div className="flex flex-col w-full gap-[50px]">
+    <div className="flex flex-col items-center w-full gap-[50px]">
       <Navbar />
 
       <Hero />

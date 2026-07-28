@@ -38,3 +38,18 @@ body {
   background-color: var(--color-beige-hogar);
   font-family: var(--font-basic-sans);
 }
+
+/* EMBLA Carousel */
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  flex: 0 0 70%;
+  min-width: 0;
+}
