@@ -2,6 +2,7 @@ import Navbar from "../layout/navbar";
 import Amenidades from "./components/amenidades";
 import ConoceProyecto from "./components/conoce-proyecto";
 import Hero from "./components/hero";
+import Modelos from "./components/modelos";
 import Nosotros from "./components/nosotros";
 
 export default function Home() {
@@ -16,6 +17,8 @@ export default function Home() {
       <ConoceProyecto />
 
       <Amenidades />
+
+      <Modelos />
     </div>
   );
 }
