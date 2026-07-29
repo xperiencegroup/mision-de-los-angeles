@@ -1,4 +1,6 @@
 import background from "../../../assets/images/background-texture.jpg";
+import decorationRight from "../../../assets/images/decoration/conoce-right.svg";
+import decorationLeft from "../../../assets/images/decoration/conoce-left.svg";
 
 const beneficios = [
   {
@@ -21,6 +23,14 @@ const beneficios = [
 export default function ConoceProyecto() {
   return (
     <div className="relative flex justify-center items-center w-full h-[640px] py-[60px]">
+      {/* Imagenes decorativas */}
+      <div className="absolute -top-48 w-full h-fit max-w-[1280px]">
+        <div className="flex justify-between relative w-full h-full">
+          <img src={decorationLeft} alt="Imagen decorativa" />
+          <img src={decorationRight} alt="Imagen decorativa" />
+        </div>
+      </div>
+
       {/* Background image */}
       <div className="absolute -z-10 inset-0 w-full h-full overflow-hidden">
         <img

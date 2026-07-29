@@ -15,7 +15,7 @@ export default function Hero() {
       <div className="absolute w-full h-full bg-linear-210 from-verde-gradiente/0 from-21% via-verde-gradiente/90 via-79% to-verde-gradiente" />
 
       {/* Botón de whatsapp */}
-      <a className="absolute flex justify-center items-center size-[56px] bg-verde-dinamico bottom-[20px] right-[34px]">
+      <a className="fixed z-50 flex justify-center items-center size-[56px] bg-verde-dinamico bottom-[20px] right-[34px]">
         <img
           src={whatsappIcon}
           alt="Ícono de whatsapp"

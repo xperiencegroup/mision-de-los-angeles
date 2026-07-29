@@ -1,11 +1,13 @@
 import background from "../../../assets/images/background-texture.jpg";
 import cotizaImg from "../../../assets/images/cotiza.jpg";
+import decorationRight from "../../../assets/images/decoration/horario-left.svg";
+import decorationLeft from "../../../assets/images/decoration/horario-right.svg";
 
 export default function Cotiza() {
   return (
     <div className="flex flex-col w-full">
       {/* Horario de atención */}
-      <div className="flex flex-col w-full justify-center items-center py-[30px] gap-[20px] bg-verde-confianza">
+      <div className="relative flex flex-col w-full justify-center items-center py-[30px] gap-[20px] bg-verde-confianza">
         <h3 className="text-[30px] text-center font-woodland font-bold text-beige-hogar">
           Horario de atención
         </h3>
@@ -16,6 +18,22 @@ export default function Cotiza() {
           Sábados: 10:00 AM - 5:00 PM
         </p>
         <p className="text-paragraph1 text-beige-hogar">Domingos: Cerrado</p>
+
+        {/* Decoración */}
+        <div className="absolute w-full max-w-[1280px] h-full pointer-events-none">
+          <div className="flex justify-between relative w-full h-full">
+            <img
+              src={decorationLeft}
+              alt="Decoración del lado izquierdo"
+              className="absolute bottom-4 left-0 h-[400px]"
+            />
+            <img
+              src={decorationRight}
+              alt="Decoración del lado derecho"
+              className="absolute bottom-7 right-0 h-[400px]"
+            />
+          </div>
+        </div>
       </div>
 
       <div className="relative flex justify-center items-center w-full h-[715px] gap-[32px]">

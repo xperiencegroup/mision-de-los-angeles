@@ -1,10 +1,20 @@
 import background from "../../../assets/images/background-texture.jpg";
 import kinzoImage from "../../../assets/images/modelos/kinzo.jpg";
 import reveImage from "../../../assets/images/modelos/reve.jpg";
+import decorationLeft from "../../../assets/images/decoration/modelos-left.svg";
+import decorationRight from "../../../assets/images/decoration/modelos-right.svg";
 
 export default function Modelos() {
   return (
     <div className="relative flex justify-center items-center w-full p-[60px]">
+      {/* Imagenes decorativas */}
+      <div className="absolute w-full max-w-[1280px] h-fit top-0">
+        <div className="flex justify-between relative w-full h-full">
+          <img src={decorationLeft} alt="Decoración del lado izquierdo" />
+          <img src={decorationRight} alt="Decoración del lado derecho" />
+        </div>
+      </div>
+
       {/* Background image */}
       <div className="absolute -z-10 inset-0 w-full h-full overflow-hidden">
         <img
