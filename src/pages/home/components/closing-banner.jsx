@@ -11,7 +11,7 @@ export default function ClosingBanner() {
       />
 
       {/* Overlay */}
-      <div className="absolute w-full h-full bg-linear-210 from-verde-gradiente/0 from-21% via-verde-gradiente/90 via-79% to-verde-gradiente" />
+      <div className="absolute w-full h-full bg-linear-to-b from-verde-gradiente/0 from-7% via-verde-gradiente/30 via-48% to-verde-gradiente" />
 
       {/* Texto */}
       <div className="relative flex flex-col w-full h-full justify-end items-center p-[60px] gap-[20px]">

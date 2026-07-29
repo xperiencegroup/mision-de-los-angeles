@@ -1,3 +1,4 @@
+import Footer from "../layout/footer";
 import Navbar from "../layout/navbar";
 import Amenidades from "./components/amenidades";
 import ClosingBanner from "./components/closing-banner";
@@ -30,7 +31,10 @@ export default function Home() {
 
       <Formulario />
 
-      <ClosingBanner />
+      <div className="w-full">
+        <ClosingBanner />
+        <Footer />
+      </div>
     </div>
   );
 }
