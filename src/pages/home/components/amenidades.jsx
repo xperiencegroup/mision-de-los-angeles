@@ -129,7 +129,10 @@ export default function Amenidades() {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-[1280px] py-[60px] gap-[20px]">
+    <div
+      id="amenidades"
+      className="flex flex-col w-full max-w-[1280px] py-[60px] gap-[20px]"
+    >
       {/* Texto */}
       <div className="flex flex-col gap-[20px]">
         <h2 className="text-[30px] text-center font-woodland font-bold leading-[110%] text-verde-confianza">

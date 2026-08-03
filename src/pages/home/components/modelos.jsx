@@ -6,7 +6,10 @@ import decorationRight from "../../../assets/images/decoration/modelos-right.svg
 
 export default function Modelos() {
   return (
-    <div className="relative flex justify-center items-center w-full p-[60px]">
+    <div
+      id="modelo"
+      className="relative flex justify-center items-center w-full p-[60px]"
+    >
       {/* Imagenes decorativas */}
       <div className="absolute w-full max-w-[1280px] h-fit top-0">
         <div className="flex justify-between relative w-full h-full">

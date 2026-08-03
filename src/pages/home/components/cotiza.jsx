@@ -5,7 +5,7 @@ import decorationLeft from "../../../assets/images/decoration/horario-right.svg"
 
 export default function Cotiza() {
   return (
-    <div className="flex flex-col w-full">
+    <div id="cotiza" className="flex flex-col w-full">
       {/* Horario de atención */}
       <div className="relative flex flex-col w-full justify-center items-center py-[30px] gap-[20px] bg-verde-confianza">
         <h3 className="text-[30px] text-center font-woodland font-bold text-beige-hogar">

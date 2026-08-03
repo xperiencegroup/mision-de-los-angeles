@@ -2,7 +2,7 @@ import benevaCertified from "../../../assets/images/beneva-certificate.png";
 
 export default function Nosotros() {
   return (
-    <div className="flex flex-col">
+    <div id="nosotros" className="flex flex-col">
       {/* Primer bloque */}
       <div className="flex flex-col w-full max-w-[1280px] justify-center items-center p-[60px] gap-[40px]">
         <div className="flex flex-col gap-[20px]">

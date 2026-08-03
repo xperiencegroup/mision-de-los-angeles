@@ -22,7 +22,10 @@ const beneficios = [
 
 export default function ConoceProyecto() {
   return (
-    <div className="relative flex justify-center items-center w-full h-[640px] py-[60px]">
+    <div
+      id="conoce"
+      className="relative flex justify-center items-center w-full h-[640px] py-[60px]"
+    >
       {/* Imagenes decorativas */}
       <div className="absolute -top-48 w-full h-fit max-w-[1280px]">
         <div className="flex justify-between relative w-full h-full">

@@ -3,7 +3,10 @@ import whatsappIcon from "../../../assets/icons/whatsapp.svg";
 
 export default function Hero() {
   return (
-    <div className="relative w-full h-[850px] rounded-bl-[200px] overflow-hidden">
+    <div
+      id="hero"
+      className="relative w-full h-[850px] rounded-bl-[200px] overflow-hidden"
+    >
       {/* Imagen de fondo */}
       <img
         src={banner}
