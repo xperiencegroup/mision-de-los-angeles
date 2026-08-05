@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router";
 import logo from "../../assets/logos/misionLogo.png";
 
 const BUTTONS = [
@@ -24,7 +25,7 @@ const BUTTONS = [
   {
     id: "financiamiento",
     label: "Financiamiento",
-    to: "#financiamiento",
+    to: "#",
   },
   {
     id: "ubicacion",
@@ -39,6 +40,7 @@ const BUTTONS = [
 ];
 
 export default function Navbar() {
+  const [, setSearchParams] = useSearchParams();
   return (
     <div className="fixed top-0 right-0 z-10 w-full flex justify-center bg-verde-confianza">
       <div className="w-full flex justify-around items-center max-w-[1280px] px-[20px] py-[15px]">
@@ -56,6 +58,17 @@ export default function Navbar() {
 
         {/* Botónes de navegación */}
         {BUTTONS.map((button, index) => {
+          // Botón de financiamiento
+          if (button.id === "financiamiento")
+            return (
+              <button
+                onClick={() => setSearchParams({ modal: "financiamiento" })}
+                key={index}
+                className={`px-[24px] py-[15px] text-button font-at-surt text-beige-hogar hover:cursor-pointer`}
+              >
+                {button.label}
+              </button>
+            );
           return (
             <a
               href={button.to}
