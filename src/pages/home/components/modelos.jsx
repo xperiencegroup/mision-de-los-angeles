@@ -3,8 +3,14 @@ import kinzoImage from "../../../assets/images/modelos/kinzo.jpg";
 import reveImage from "../../../assets/images/modelos/reve.jpg";
 import decorationLeft from "../../../assets/images/decoration/modelos-left.svg";
 import decorationRight from "../../../assets/images/decoration/modelos-right.svg";
+import { useSearchParams } from "react-router";
 
 export default function Modelos() {
+  const [, setSearchParams] = useSearchParams();
+  const handleOpenModel = (model) => {
+    setSearchParams({ modal: "modelo", id: model });
+  };
+
   return (
     <div
       id="modelo"
@@ -63,7 +69,10 @@ export default function Modelos() {
               <p className="text-[30px] font-woodland text-beige-hogar">
                 Casa de 2 Niveles
               </p>
-              <button className="px-[24px] py-[15px] text-button font-at-surt text-verde-confianza bg-celeste-bienestar">
+              <button
+                onClick={() => handleOpenModel("kinzo")}
+                className="px-[24px] py-[15px] text-button font-at-surt text-verde-confianza bg-celeste-bienestar"
+              >
                 Ver modelo
               </button>
             </div>
@@ -81,12 +90,15 @@ export default function Modelos() {
             {/* Texto */}
             <div className="flex flex-col w-full justify-center items-center px-[24px] py-[30px] gap-[20px]">
               <h4 className="text-[30px] font-woodland leading-none text-beige-hogar">
-                Modelo Kinzo
+                Modelo Revé
               </h4>
               <p className="text-[30px] font-woodland text-beige-hogar">
-                Casa de 2 Niveles
+                Casa de 3 Niveles
               </p>
-              <button className="px-[24px] py-[15px] text-button font-at-surt text-verde-confianza bg-celeste-bienestar">
+              <button
+                onClick={() => handleOpenModel("reve")}
+                className="px-[24px] py-[15px] text-button font-at-surt text-verde-confianza bg-celeste-bienestar"
+              >
                 Ver modelo
               </button>
             </div>

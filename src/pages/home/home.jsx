@@ -11,10 +11,13 @@ import Hero from "./components/hero";
 import Modelos from "./components/modelos";
 import Nosotros from "./components/nosotros";
 import Ubicacion from "./components/ubicacion";
+import ModeloKinzo from "../popup/home/modelo-kinzo";
+import ModeloReve from "../popup/home/modelo-reve";
 
 export default function Home() {
   const [params] = useSearchParams();
-  const isModalActive = params.get("modal");
+  const activeModal = params.get("modal");
+  const id = params.get("id");
 
   return (
     <div className="flex flex-col items-center w-full gap-[50px]">
@@ -41,7 +44,9 @@ export default function Home() {
         <Footer />
       </div>
 
-      {isModalActive && <Financiamiento />}
+      {activeModal === "financiamiento" && <Financiamiento />}
+      {activeModal === "modelo" && id === "kinzo" && <ModeloKinzo />}
+      {activeModal === "modelo" && id === "reve" && <ModeloReve />}
     </div>
   );
 }
