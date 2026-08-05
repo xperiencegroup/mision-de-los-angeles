@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function Formulario() {
@@ -7,11 +8,39 @@ export default function Formulario() {
     formState: { errors },
     reset,
   } = useForm();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = (data) => {
-    console.log(data);
-    // Aquí tu lógica de envío (API, email, etc.)
-    reset();
+  const onSubmit = async (values) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        "https://beneva-backend.vercel.app/api/form",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            source: "Mision de los Ángeles",
+            page: "Inicio",
+            data: {
+              ...values,
+            },
+          }),
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error("Error en la respuesta del servidor");
+      }
+
+      setIsLoading(false);
+      reset();
+    } catch (error) {
+      console.log("Error: ", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -36,17 +65,17 @@ export default function Formulario() {
         {/* Nombre completo */}
         <div className="flex flex-col gap-[8px]">
           <label
-            htmlFor="nombre"
+            htmlFor="name"
             className="text-[16px] font-bold font-at-surt text-verde-confianza"
           >
             Nombre completo *
           </label>
           <input
-            id="nombre"
+            id="name"
             type="text"
             placeholder="Tu nombre completo"
             className="w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
-            {...register("nombre", { required: "El nombre es obligatorio" })}
+            {...register("name", { required: "El nombre es obligatorio" })}
           />
           {errors.nombre && (
             <span className="text-red-500 text-[12px]">
@@ -86,17 +115,17 @@ export default function Formulario() {
 
           <div className="flex flex-col flex-1 gap-[8px]">
             <label
-              htmlFor="telefono"
+              htmlFor="phone"
               className="text-[16px] font-at-surt font-bold"
             >
               Teléfono *
             </label>
             <input
-              id="telefono"
+              id="phone"
               type="tel"
               placeholder="81 1234 5678"
               className="w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
-              {...register("telefono", {
+              {...register("phone", {
                 required: "El teléfono es obligatorio",
                 pattern: {
                   value: /^[0-9\s]{10,}$/,
@@ -115,26 +144,27 @@ export default function Formulario() {
         {/* Mensaje */}
         <div className="flex flex-col gap-[8px]">
           <label
-            htmlFor="mensaje"
+            htmlFor="message"
             className="text-[16px] font-at-surt font-bold"
           >
             Mensaje
           </label>
           <textarea
-            id="mensaje"
+            id="message"
             rows={5}
             placeholder="Cuéntanos más sobre lo que estás buscando..."
             className="w-full px-[16px] py-[12px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none resize-none"
-            {...register("mensaje")}
+            {...register("message")}
           />
         </div>
 
         {/* Botón */}
         <button
           type="submit"
-          className="w-full py-[20px] bg-celeste-bienestar text-[17px] text-verde-confianza hover:cursor-pointer transition-colors"
+          disabled={isLoading}
+          className="w-full py-[20px] bg-celeste-bienestar text-[17px] text-verde-confianza hover:cursor-pointer transition-colors disabled:opacity-80 disabled:cursor-not-allowed"
         >
-          Quiero recibir información
+          {isLoading ? "Enviando..." : "Quiero recibir información"}
         </button>
       </form>
     </div>
