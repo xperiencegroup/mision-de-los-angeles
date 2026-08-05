@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSearchParams } from "react-router";
 import closeIcon from "../../../assets/icons/close.svg";
 import infonavitLogo from "../../../assets/images/marcas/Logoinfonavit.svg";
@@ -14,6 +15,23 @@ export default function Financiamiento() {
   const handleCloseModal = () => {
     setSearchParams({});
   };
+
+  // Bloquear scroll del body mientras el modal está abierto
+  useEffect(() => {
+    const scrollBarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+    const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
+
+    document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = `${scrollBarWidth}px`;
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
+    };
+  }, []);
+
   return (
     <div className="fixed inset-0 z-50 flex justify-center w-full bg-black/30 backdrop-blur-sm overflow-y-auto">
       <div className="relative flex flex-col w-full max-w-[1280px] h-fit px-[51px] py-[60px] gap-[26px] bg-verde-confianza">
