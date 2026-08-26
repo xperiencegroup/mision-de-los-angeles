@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { useInView } from "../../../hooks/useInView";
 import { Carousel } from "../../../components/carousel/Carousel";
-import { motion, AnimatePresence } from "motion/react";
 
 // Images
 import casetaImage from "../../../assets/images/amenidades/caseta.jpg";
@@ -18,6 +17,7 @@ import casaClub from "../../../assets/icons/amenidades/club.svg";
 import parque from "../../../assets/icons/amenidades/park.svg";
 import parqueCentral from "../../../assets/icons/amenidades/parque-central.svg";
 import asador from "../../../assets/icons/amenidades/asador.svg";
+import { AmenidadButton } from "../../../components/buttons/amenidad-button";
 
 const amenidades = [
   {
@@ -127,58 +127,16 @@ export default function Amenidades() {
         ref={iconsRef}
         className="flex justify-center items-center gap-[20px]"
       >
-        {amenidades.map((amenidad, index) => {
-          const isActive = index === activeIndex;
-          const [isHovered, setIsHovered] = useState(false);
-          const isExpanded = isActive || isHovered;
-
-          return (
-            <div
-              key={amenidad.id}
-              className={`reveal-scale ${isIconsVisible ? "is-visible" : ""}`}
-              style={{
-                transitionDelay: isIconsVisible ? `${index * 0.08}s` : "0s",
-              }}
-            >
-              <motion.button
-                layout
-                onClick={() => handleAmenidadClick(index)}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-                transition={{
-                  layout: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
-                }}
-                className={`relative flex justify-center items-center px-[17px] py-[10px] hover:cursor-pointer overflow-hidden ${
-                  isExpanded
-                    ? "h-[56px] gap-[7px] before:absolute before:w-full before:h-[3px] before:bg-verde-confianza before:bottom-0"
-                    : "size-[56px] bg-celeste-bienestar"
-                }`}
-              >
-                <motion.img
-                  layout
-                  src={amenidad.icon}
-                  alt={amenidad.id}
-                  className="h-[24.5px]"
-                />
-
-                <AnimatePresence initial={false}>
-                  {isExpanded && (
-                    <motion.p
-                      layout
-                      initial={{ opacity: 0, width: 0 }}
-                      animate={{ opacity: 1, width: "auto" }}
-                      exit={{ opacity: 0, width: 0 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="whitespace-nowrap overflow-hidden"
-                    >
-                      {amenidad.label}
-                    </motion.p>
-                  )}
-                </AnimatePresence>
-              </motion.button>
-            </div>
-          );
-        })}
+        {amenidades.map((amenidad, index) => (
+          <AmenidadButton
+            key={amenidad.id}
+            amenidad={amenidad}
+            index={index}
+            isActive={index === activeIndex}
+            isIconsVisible={isIconsVisible}
+            onSelect={() => handleAmenidadClick(index)}
+          />
+        ))}
       </div>
 
       {/* Carrusel */}
