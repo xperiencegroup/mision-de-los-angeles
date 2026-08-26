@@ -1,31 +1,30 @@
+import { useInView } from "../../../hooks/useInView";
 import { useRef, useState } from "react";
 import { Carousel } from "../../../components/carousel/Carousel";
 
 // Images
+import casetaImage from "../../../assets/images/amenidades/caseta.jpg";
 import albercaImage from "../../../assets/images/amenidades/alberca.jpg";
 import casaClubImage from "../../../assets/images/amenidades/casa.jpg";
-import parkingImage from "../../../assets/images/amenidades/parking.jpg";
 import parqueImage from "../../../assets/images/amenidades/park.jpg";
+import parqueCentralImage from "../../../assets/images/amenidades/parque-central.jpg";
 import asadorImage from "../../../assets/images/amenidades/asador.jpg";
-import pistaImage from "../../../assets/images/amenidades/pista.jpg";
-import canchaImage from "../../../assets/images/amenidades/cancha.jpg";
-import gymImage from "../../../assets/images/amenidades/gym.jpg";
-import yogaImage from "../../../assets/images/amenidades/yoga.jpg";
-import petImage from "../../../assets/images/amenidades/pet.jpg";
 
 // Icons
+import caseta from "../../../assets/icons/amenidades/caseta.svg";
 import alberca from "../../../assets/icons/amenidades/pool.svg";
 import casaClub from "../../../assets/icons/amenidades/club.svg";
-import parking from "../../../assets/icons/amenidades/parking.svg";
 import parque from "../../../assets/icons/amenidades/park.svg";
+import parqueCentral from "../../../assets/icons/amenidades/parque-central.svg";
 import asador from "../../../assets/icons/amenidades/asador.svg";
-import pista from "../../../assets/icons/amenidades/vita-pista.svg";
-import cancha from "../../../assets/icons/amenidades/ball.svg";
-import gym from "../../../assets/icons/amenidades/gym.svg";
-import yoga from "../../../assets/icons/amenidades/yoga.svg";
-import pet from "../../../assets/icons/amenidades/pet.svg";
 
 const amenidades = [
+  {
+    id: "caseta",
+    label: "Caseta",
+    icon: caseta,
+    image: casetaImage,
+  },
   {
     id: "alberca",
     label: "Alberca",
@@ -39,52 +38,22 @@ const amenidades = [
     image: casaClubImage,
   },
   {
-    id: "parking",
-    label: "Estacionamiento",
-    icon: parking,
-    image: parkingImage,
-  },
-  {
-    id: "parque",
+    id: "juegos",
     label: "Área de juegos infantiles",
     icon: parque,
     image: parqueImage,
+  },
+  {
+    id: "parque",
+    label: "Parque Central",
+    icon: parqueCentral,
+    image: parqueCentralImage,
   },
   {
     id: "asador",
     label: "Asadores",
     icon: asador,
     image: asadorImage,
-  },
-  {
-    id: "pista",
-    label: "Vista Pista",
-    icon: pista,
-    image: pistaImage,
-  },
-  {
-    id: "cancha",
-    label: "Canchas",
-    icon: cancha,
-    image: canchaImage,
-  },
-  {
-    id: "gym",
-    label: "Gimnasio",
-    icon: gym,
-    image: gymImage,
-  },
-  {
-    id: "yoga",
-    label: "Área Zen",
-    icon: yoga,
-    image: yogaImage,
-  },
-  {
-    id: "pet",
-    label: "Área Pet Friendly",
-    icon: pet,
-    image: petImage,
   },
 ];
 
@@ -124,9 +93,11 @@ export default function Amenidades() {
 
   const handleAmenidadClick = (index) => {
     carouselRef.current?.scrollTo(index);
-    // no hace falta setActiveIndex aquí manualmente,
-    // el onSlideChange del carousel lo va a actualizar
   };
+
+  const [titleRef, isTitleVisible] = useInView();
+  const [iconsRef, isIconsVisible] = useInView();
+  const [carouselWrapRef, isCarouselVisible] = useInView();
 
   return (
     <div
@@ -134,7 +105,10 @@ export default function Amenidades() {
       className="flex flex-col w-full max-w-[1280px] py-[60px] gap-[20px]"
     >
       {/* Texto */}
-      <div className="flex flex-col gap-[20px]">
+      <div
+        ref={titleRef}
+        className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[20px]`}
+      >
         <h2 className="text-[30px] text-center font-woodland font-bold leading-[110%] text-verde-confianza">
           Amenidades
         </h2>
@@ -148,23 +122,27 @@ export default function Amenidades() {
       </div>
 
       {/* Amenidades */}
-      <div className="flex justify-center items-center gap-[20px]">
+      <div
+        ref={iconsRef}
+        className="flex justify-center items-center gap-[20px]"
+      >
         {amenidades.map((amenidad, index) => {
           const isActive = index === activeIndex;
           return (
             <button
               key={amenidad.id}
               onClick={() => handleAmenidadClick(index)}
-              className={`flex justify-center items-center size-[56px] hover:cursor-pointer transition-colors ${
+              className={`reveal-scale ${isIconsVisible ? "is-visible" : ""} flex justify-center items-center size-[56px] hover:cursor-pointer transition-colors ${
                 isActive ? "bg-verde-confianza" : "bg-celeste-bienestar"
               }`}
+              style={{
+                transitionDelay: isIconsVisible ? `${index * 0.08}s` : "0s",
+              }}
             >
               <img
                 src={amenidad.icon}
                 alt={amenidad.id}
-                className={`h-[24.5px] ${
-                  isActive ? "brightness-0 invert" : ""
-                }`}
+                className={`h-[24.5px] ${isActive ? "brightness-0 invert" : ""}`}
               />
             </button>
           );
@@ -172,7 +150,10 @@ export default function Amenidades() {
       </div>
 
       {/* Carrusel */}
-      <div className="w-full max-w-[1280px] h-[600px] overflow-hidden">
+      <div
+        ref={carouselWrapRef}
+        className={`reveal-fade ${isCarouselVisible ? "is-visible" : ""} w-full max-w-[1280px] h-[570px] overflow-hidden`}
+      >
         <Carousel
           ref={carouselRef}
           slides={slides}

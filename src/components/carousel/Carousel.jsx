@@ -62,7 +62,7 @@ export const Carousel = forwardRef(function Carousel(
   return (
     <div className="relative embla flex flex-col justify-center w-full h-full">
       <div className="embla__viewport w-full h-full flex" ref={emblaRef}>
-        <div className="embla__container flex w-full h-full">
+        <div className="embla__container flex items-end w-full h-full">
           {variant === "image" && (
             <>
               {slides.map((slide, index) => (
@@ -90,7 +90,7 @@ export const Carousel = forwardRef(function Carousel(
       </div>
 
       {/* Arrows */}
-      <div className="absolute bottom-0 right-1/2 translate-x-[50%] -translate-y-[30px] flex justify-center items-center w-[132px] h-[56px] gap-[20px]">
+      <div className="absolute top-0 right-1/2 translate-x-[50%] flex justify-center items-center w-[132px] h-[56px] gap-[20px]">
         <button
           onClick={scrollPrev}
           className="group flex justify-center items-center size-[56px] bg-verde-confianza hover:bg-transparent hover:cursor-pointer"
