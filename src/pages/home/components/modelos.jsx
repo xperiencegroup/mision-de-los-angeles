@@ -19,8 +19,16 @@ export default function Modelos() {
       {/* Imagenes decorativas */}
       <div className="absolute w-full max-w-[1280px] h-fit top-0">
         <div className="flex justify-between relative w-full h-full">
-          <img src={decorationLeft} alt="Decoración del lado izquierdo" />
-          <img src={decorationRight} alt="Decoración del lado derecho" />
+          <img
+            src={decorationLeft}
+            alt="Decoración del lado izquierdo"
+            className="w-[240px]"
+          />
+          <img
+            src={decorationRight}
+            alt="Decoración del lado derecho"
+            className="w-[240px]"
+          />
         </div>
       </div>
 

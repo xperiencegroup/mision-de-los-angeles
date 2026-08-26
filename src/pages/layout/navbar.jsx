@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router";
-import logo from "../../assets/logos/misionLogo.png";
+import logo from "../../assets/logos/logo-mision-angeles.svg";
 
 const BUTTONS = [
   {
@@ -42,7 +42,7 @@ const BUTTONS = [
 export default function Navbar() {
   const [, setSearchParams] = useSearchParams();
   return (
-    <div className="fixed top-0 right-0 z-10 w-full flex justify-center bg-verde-confianza">
+    <div className="navbar-enter fixed top-0 right-0 z-10 w-full flex justify-center bg-verde-confianza">
       <div className="w-full flex justify-around items-center max-w-[1280px] px-[20px] py-[15px]">
         {/* Logo de misión de los ángeles */}
         <a

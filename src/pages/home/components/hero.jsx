@@ -28,13 +28,15 @@ export default function Hero() {
 
       {/* Texto */}
       <div className="relative flex flex-col w-full h-full justify-end items-start px-[80px] pb-[120px] gap-[clamp(24px,4.063vw,52px)]">
-        <h1 className="text-[76px] font-woodland font-bold leading-[110%] text-beige-hogar">
-          Visualiza. <br />
-          Tranforma. <br />
-          Trasciende.
+        <h1 className="text-[76px] font-woodland font-bold leading-[110%] text-beige-hogar animate-hero-1">
+          <span className="animate-hero-1 delay-100">Visualiza.</span>
+          <br />
+          <span className="animate-hero-1 delay-250">Transforma.</span>
+          <br />
+          <span className="animate-hero-1 delay-400">Trasciende.</span>
         </h1>
 
-        <p className="text-[34px] font-woodland leading-[110%] text-beige-hogar">
+        <p className="text-[34px] font-woodland leading-[110%] text-beige-hogar animate-hero-3 delay-600">
           Vive en Misión de los Ángeles: <br />
           Sector Serafines
         </p>

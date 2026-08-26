@@ -1,6 +1,7 @@
 import background from "../../../assets/images/background-texture.jpg";
 import decorationRight from "../../../assets/images/decoration/conoce-right.svg";
 import decorationLeft from "../../../assets/images/decoration/conoce-left.svg";
+import { useInView } from "../../../hooks/useInView";
 
 const beneficios = [
   {
@@ -21,6 +22,8 @@ const beneficios = [
 ];
 
 export default function ConoceProyecto() {
+  const [titleRef, isTitleVisible] = useInView();
+  const [cardsRef, isCardsVisible] = useInView();
   return (
     <div
       id="conoce"
@@ -29,8 +32,16 @@ export default function ConoceProyecto() {
       {/* Imagenes decorativas */}
       <div className="absolute -top-48 w-full h-fit max-w-[1280px]">
         <div className="flex justify-between relative w-full h-full">
-          <img src={decorationLeft} alt="Imagen decorativa" />
-          <img src={decorationRight} alt="Imagen decorativa" />
+          <img
+            src={decorationLeft}
+            alt="Imagen decorativa"
+            className="h-[333px]"
+          />
+          <img
+            src={decorationRight}
+            alt="Imagen decorativa"
+            className="h-[333px]"
+          />
         </div>
       </div>
 
@@ -44,8 +55,12 @@ export default function ConoceProyecto() {
       </div>
 
       {/* Text */}
+      {/* Text */}
       <div className="flex flex-col w-full h-full justify-center items-center gap-[40px]">
-        <div className="flex flex-col gap-[20px] px-[51px]">
+        <div
+          ref={titleRef}
+          className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[20px] px-[51px]`}
+        >
           <h2 className="text-[30px] text-center font-woodland font-bold leading-[110%] text-verde-confianza">
             Conoce Misión de los Ángeles:
             <br />
@@ -60,22 +75,23 @@ export default function ConoceProyecto() {
         </div>
 
         {/* Cuadros */}
-        <div className="flex gap-[30px]">
-          {beneficios.map((beneficio, index) => {
-            return (
-              <div
-                key={index}
-                className="flex flex-col w-[400px] h-[347px] p-[40px] gap-[25px] rounded-tl-[50px] bg-verde-confianza"
-              >
-                <h3 className="text-[30px] text-center font-woodland font-bold tracking-tight leading-none text-beige-hogar">
-                  {beneficio.titulo}
-                </h3>
-                <p className="text-[25px] text-center leading-none text-beige-hogar">
-                  {beneficio.descripcion}
-                </p>
-              </div>
-            );
-          })}
+        <div ref={cardsRef} className="flex gap-[30px]">
+          {beneficios.map((beneficio, index) => (
+            <div
+              key={index}
+              className={`reveal ${isCardsVisible ? "is-visible" : ""} flex flex-col w-[400px] h-[347px] p-[40px] gap-[25px] rounded-tl-[50px] bg-verde-confianza`}
+              style={{
+                transitionDelay: isCardsVisible ? `${index * 0.15}s` : "0s",
+              }}
+            >
+              <h3 className="text-[30px] text-center font-woodland font-bold tracking-tight leading-none text-beige-hogar">
+                {beneficio.titulo}
+              </h3>
+              <p className="text-[25px] text-center leading-none text-beige-hogar">
+                {beneficio.descripcion}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
