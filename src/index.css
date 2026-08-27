@@ -43,17 +43,6 @@ body {
   font-family: var(--font-basic-sans);
 }
 
-/* Medidas de textos */
-.title {
-  @apply text-[26px] lg:text-[40px];
-}
-.subtitle {
-  @apply text-[20px] md:text-[28px];
-}
-.paragraph {
-  @apply text-[18px] md:text-[25px];
-}
-
 /* EMBLA Carousel */
 .embla__viewport {
   overflow: hidden;
@@ -67,6 +56,17 @@ body {
 .embla__slide {
   flex: 0 0 70%;
   min-width: 0;
+}
+
+/* -------- Tamaños de textos -------- */
+.titulos-grandes {
+  @apply text-[35px] md:text-[45px] lg:text-[60px];
+}
+.titulos {
+  @apply text-[25px] md:text-[35px] lg:text-[40px];
+}
+.boton {
+  @apply text-[13px] md:text-[12px] lg:text-[17px];
 }
 
 /* ---------- Animaciones -------- */

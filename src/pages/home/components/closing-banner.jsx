@@ -1,6 +1,10 @@
 import bgImage from "../../../assets/images/closing-banner-bg.jpg";
+import { useInView } from "../../../hooks/useInView";
 
 export default function ClosingBanner() {
+  const [textRef, isTextInView] = useInView();
+  const [buttonsRef, isButtonsInView] = useInView();
+
   return (
     <div className="relative w-full h-[755px] overflow-hidden">
       {/* Imagen de fondo */}
@@ -15,16 +19,26 @@ export default function ClosingBanner() {
 
       {/* Texto */}
       <div className="relative flex flex-col w-full h-full justify-end items-center p-[60px] gap-[20px]">
-        <h3 className="text-[40px] font-woodland font-bold leading-[110%] text-beige-hogar">
-          ¿Listo para conocer Misión de los Ángeles?
-        </h3>
+        <div
+          ref={textRef}
+          className={`reveal ${isTextInView ? "is-visible" : ""} flex flex-col items-center gap-[20px]`}
+        >
+          <h3 className="text-[40px] font-woodland font-bold leading-[110%] text-beige-hogar text-center">
+            ¿Listo para conocer Misión de los Ángeles?
+          </h3>
 
-        <p className="text-[30px] text-center font-woodland leading-[110%] text-beige-hogar">
-          Descubre sus espacios, amenidades y modelos disponibles. <br />
-          Nuestro equipo está listo para acompañarte y resolver todas tus dudas.
-        </p>
+          <p className="text-[30px] text-center font-woodland leading-[110%] text-beige-hogar">
+            Descubre sus espacios, amenidades y modelos disponibles. <br />
+            Nuestro equipo está listo para acompañarte y resolver todas tus
+            dudas.
+          </p>
+        </div>
 
-        <div className="flex gap-[24px]">
+        <div
+          ref={buttonsRef}
+          className={`reveal-scale ${isButtonsInView ? "is-visible" : ""} flex gap-[24px]`}
+          style={{ transitionDelay: isButtonsInView ? "0.25s" : "0s" }}
+        >
           <button className="w-[150px] text-[17px] px-[24px] py-[15px] text-verde-confianza bg-beige-hogar">
             Amenidades
           </button>

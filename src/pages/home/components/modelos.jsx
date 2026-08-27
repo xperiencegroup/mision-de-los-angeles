@@ -4,6 +4,7 @@ import reveImage from "../../../assets/images/modelos/reve.jpg";
 import decorationLeft from "../../../assets/images/decoration/modelos-left.svg";
 import decorationRight from "../../../assets/images/decoration/modelos-right.svg";
 import { useSearchParams } from "react-router";
+import { useInView } from "../../../hooks/useInView";
 
 export default function Modelos() {
   const [, setSearchParams] = useSearchParams();
@@ -11,23 +12,30 @@ export default function Modelos() {
     setSearchParams({ modal: "modelo", id: model });
   };
 
+  const [decorRef, isDecorVisible] = useInView();
+  const [titleRef, isTitleVisible] = useInView();
+  const [cardsRef, isCardsVisible] = useInView();
+
   return (
     <div
       id="modelo"
       className="relative flex justify-center items-center w-full p-[60px]"
     >
       {/* Imagenes decorativas */}
-      <div className="absolute w-full max-w-[1280px] h-fit top-0">
+      <div
+        ref={decorRef}
+        className="absolute w-full max-w-[1280px] h-fit top-0"
+      >
         <div className="flex justify-between relative w-full h-full">
           <img
             src={decorationLeft}
             alt="Decoración del lado izquierdo"
-            className="w-[240px]"
+            className={`reveal-left ${isDecorVisible ? "is-visible" : ""} w-[240px]`}
           />
           <img
             src={decorationRight}
             alt="Decoración del lado derecho"
-            className="w-[240px]"
+            className={`reveal-right ${isDecorVisible ? "is-visible" : ""} w-[240px]`}
           />
         </div>
       </div>
@@ -43,7 +51,10 @@ export default function Modelos() {
 
       {/* Text */}
       <div className="flex flex-col w-full h-full justify-center items-center gap-[40px]">
-        <div className="flex flex-col gap-[20px] px-[51px]">
+        <div
+          ref={titleRef}
+          className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[20px] px-[51px]`}
+        >
           <h2 className="text-[30px] text-center font-woodland font-bold leading-[110%] text-verde-confianza">
             Modelos
           </h2>
@@ -59,9 +70,14 @@ export default function Modelos() {
         </div>
 
         {/* Cuadros */}
-        <div className="flex justify-center items-center gap-[60px]">
+        <div
+          ref={cardsRef}
+          className="flex justify-center items-center gap-[60px]"
+        >
           {/* Modelo Kinzo */}
-          <div className="w-[546px] bg-verde-confianza rounded-br-[100px] overflow-hidden">
+          <div
+            className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-[546px] bg-verde-confianza rounded-br-[100px] overflow-hidden`}
+          >
             <div className="relative w-full h-[326px]">
               <img
                 src={kinzoImage}
@@ -72,7 +88,7 @@ export default function Modelos() {
             {/* Texto */}
             <div className="flex flex-col w-full justify-center items-center px-[24px] py-[30px] gap-[20px]">
               <h4 className="text-[30px] font-woodland leading-none text-beige-hogar">
-                Modelo Kinzo
+                Modelo Kinzo Plus
               </h4>
               <p className="text-[30px] font-woodland text-beige-hogar">
                 Casa de 2 Niveles
@@ -87,7 +103,9 @@ export default function Modelos() {
           </div>
 
           {/* Modelo Revé */}
-          <div className="w-[546px] bg-verde-confianza rounded-br-[100px] overflow-hidden">
+          <div
+            className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-[546px] bg-verde-confianza rounded-br-[100px] overflow-hidden`}
+          >
             <div className="relative w-full h-[326px]">
               <img
                 src={reveImage}
@@ -98,7 +116,7 @@ export default function Modelos() {
             {/* Texto */}
             <div className="flex flex-col w-full justify-center items-center px-[24px] py-[30px] gap-[20px]">
               <h4 className="text-[30px] font-woodland leading-none text-beige-hogar">
-                Modelo Revé
+                Modelo Revé Plus
               </h4>
               <p className="text-[30px] font-woodland text-beige-hogar">
                 Casa de 3 Niveles

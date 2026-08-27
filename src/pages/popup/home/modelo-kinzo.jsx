@@ -108,7 +108,7 @@ export default function ModeloKinzo() {
         {/* Texts */}
         <div className="flex flex-col gap-5">
           <h2 className="text-display2 text-center font-woodland font-bold text-verde-confianza">
-            Modelo Kinzo
+            Modelo Kinzo Plus
           </h2>
           <p className="text-paragraph4 text-center leading-[110%] text-gris-profundo">
             Dos plantas diseñadas para disfrutar cada espacio en familia. Kinzo
@@ -124,7 +124,7 @@ export default function ModeloKinzo() {
               <div className="relative w-[423px] h-[607px]">
                 <img
                   src={plantaBaja}
-                  alt="Modelo Kinzo planta baja"
+                  alt="Modelo Kinzo Plus planta baja"
                   className="absolute inset-0 w-full h-full object-fill"
                 />
               </div>
@@ -138,7 +138,7 @@ export default function ModeloKinzo() {
               <div className="relative w-[423px] h-[607px]">
                 <img
                   src={plantaAlta}
-                  alt="Modelo Kinzo planta baja"
+                  alt="Modelo Kinzo Plus planta baja"
                   className="absolute inset-0 w-full h-full object-fill"
                 />
               </div>

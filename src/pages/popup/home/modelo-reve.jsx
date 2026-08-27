@@ -129,7 +129,7 @@ export default function ModeloReve() {
         {/* Texts */}
         <div className="flex flex-col gap-5">
           <h2 className="text-display2 text-center font-woodland font-bold text-verde-confianza">
-            Modelo Revé
+            Modelo Revé Plus
           </h2>
           <p className="text-paragraph4 text-center leading-[110%] text-gris-profundo">
             Tres plantas que ofrecen mayor amplitud y versatilidad para la vida
@@ -144,7 +144,7 @@ export default function ModeloReve() {
               <div className="relative w-[378px] h-[607px]">
                 <img
                   src={plantaBaja}
-                  alt="Modelo Kinzo planta baja"
+                  alt="Modelo Revé Plus planta baja"
                   className="absolute inset-0 w-full h-full object-fill"
                 />
               </div>
@@ -158,7 +158,7 @@ export default function ModeloReve() {
               <div className="relative w-[378px] h-[607px]">
                 <img
                   src={planta2}
-                  alt="Modelo Kinzo planta baja"
+                  alt="Modelo Revé Plus planta baja"
                   className="absolute inset-0 w-full h-full object-fill"
                 />
               </div>
@@ -172,7 +172,7 @@ export default function ModeloReve() {
               <div className="relative w-[378px] h-[607px]">
                 <img
                   src={planta3}
-                  alt="Modelo Kinzo planta baja"
+                  alt="Modelo Revé Plus planta baja"
                   className="absolute inset-0 w-full h-full object-fill"
                 />
               </div>

@@ -1,11 +1,20 @@
 import background from "../../../assets/images/background-texture.jpg";
 import cotizaImg from "../../../assets/images/cotiza.jpg";
+import { useInView } from "../../../hooks/useInView";
 
 export default function Cotiza() {
+  const [scheduleRef, isScheduleInView] = useInView();
+
+  // Cotiza
+  const [imageRef, isImageInView] = useInView();
+  const [textRef, isTextInView] = useInView();
   return (
     <div id="cotiza" className="flex flex-col w-full">
       {/* Horario de atención */}
-      <div className="relative flex flex-col w-full justify-center items-center py-[30px] gap-[20px] bg-verde-confianza">
+      <div
+        ref={scheduleRef}
+        className={`reveal ${isScheduleInView ? "is-visible" : ""} relative flex flex-col w-full justify-center items-center py-[30px] gap-[20px] bg-verde-confianza`}
+      >
         <h3 className="text-[30px] text-center font-woodland font-bold text-beige-hogar">
           Horario de atención
         </h3>
@@ -29,7 +38,10 @@ export default function Cotiza() {
         </div>
 
         {/* Image */}
-        <div className="relative flex-1 h-full rounded-br-[200px] overflow-hidden">
+        <div
+          ref={imageRef}
+          className={`reveal-left ${isImageInView ? "is-visible" : ""} relative flex-1 h-full rounded-br-[200px] overflow-hidden`}
+        >
           <img
             src={cotizaImg}
             alt="Imagen de Misión de los Ángeles"
@@ -38,7 +50,10 @@ export default function Cotiza() {
         </div>
 
         {/* Text */}
-        <div className="flex flex-1 flex-col w-full h-full justify-center">
+        <div
+          ref={textRef}
+          className={`reveal-right ${isTextInView ? "is-visible" : ""} flex flex-1 flex-col w-full h-full justify-center`}
+        >
           <div className="flex flex-col gap-[20px]">
             <h2 className="text-[30px] text-left font-woodland font-bold leading-[110%] text-verde-confianza">
               Cotiza y aprovecha <br /> tu promoción

@@ -44,17 +44,20 @@ export default function Navbar() {
   return (
     <div className="navbar-enter fixed top-0 right-0 z-10 w-full flex justify-center bg-verde-confianza">
       <div className="w-full flex justify-around items-center max-w-[1280px] px-[20px] py-[15px]">
-        {/* Logo de misión de los ángeles */}
+        {/* Logo de misión de los ángeles desktop*/}
         <a
           href="#hero"
-          className="relative w-[122px] h-[40px] hover:cursor-pointer"
+          className="relative w-[54px] h-[24px] lg:w-[122px] lg:h-[40px] hover:cursor-pointer"
         >
           <img
+            draggable={false}
             src={logo}
             alt="Logo Misión de los Ángeles"
-            className="absolute inset-0 w-full h-full object-contain"
+            className="max-md:hidden absolute inset-0 w-full h-full object-contain"
           />
         </a>
+
+        {/* Logo mobile */}
 
         {/* Botónes de navegación */}
         {BUTTONS.map((button, index) => {
@@ -64,7 +67,7 @@ export default function Navbar() {
               <button
                 onClick={() => setSearchParams({ modal: "financiamiento" })}
                 key={index}
-                className={`px-[24px] py-[15px] text-button font-at-surt text-beige-hogar hover:cursor-pointer`}
+                className={`max-md:hidden px-[15px] lg:px-[24px] py-[15px] boton font-at-surt text-beige-hogar hover:cursor-pointer leading-[115%]`}
               >
                 {button.label}
               </button>
@@ -73,7 +76,7 @@ export default function Navbar() {
             <a
               href={button.to}
               key={index}
-              className={`px-[24px] py-[15px] text-button font-at-surt text-beige-hogar hover:cursor-pointer ${button.id === "cotiza" && "text-verde-confianza bg-celeste-bienestar"}`}
+              className={`max-md:hidden px-[15px] lg:px-[24px] py-[15px] text-button font-at-surt text-beige-hogar hover:cursor-pointer whitespace-nowrap leading-[115%] ${button.id === "cotiza" && "text-verde-confianza bg-celeste-bienestar"}`}
             >
               {button.label}
             </a>

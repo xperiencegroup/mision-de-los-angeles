@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useInView } from "../../../hooks/useInView";
 
 export default function Formulario() {
   const {
@@ -9,6 +10,10 @@ export default function Formulario() {
     reset,
   } = useForm();
   const [isLoading, setIsLoading] = useState(false);
+
+  // Animaciones
+  const [titleRef, isTitleInView] = useInView();
+  const [formRef, isFormInView] = useInView();
 
   const onSubmit = async (values) => {
     setIsLoading(true);
@@ -46,7 +51,10 @@ export default function Formulario() {
   return (
     <div className="flex flex-col w-full max-w-[1280px] justify-center items-center px-[60px] py-[34px] gap-[20px]">
       {/* Texto */}
-      <div className="flex flex-col gap-[20px]">
+      <div
+        ref={titleRef}
+        className={`reveal ${isTitleInView ? "is-visible" : ""} flex flex-col gap-[20px]`}
+      >
         <h2 className="text-[40px] text-center font-woodland font-bold text-verde-confianza">
           Conoce tu próximo hogar en Misión de los Ángeles
         </h2>
@@ -58,8 +66,9 @@ export default function Formulario() {
 
       {/* Formulario */}
       <form
+        ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col w-full gap-[20px] mt-[40px]"
+        className={`reveal ${isFormInView ? "is-visible" : ""} flex flex-col w-full gap-[20px] mt-[40px]`}
         noValidate
       >
         {/* Nombre completo */}

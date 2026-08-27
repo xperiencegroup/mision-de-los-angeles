@@ -20,7 +20,7 @@ export default function Home() {
   const id = params.get("id");
 
   return (
-    <div className="flex flex-col items-center w-full gap-[50px]">
+    <div className="flex flex-col items-center w-full gap-[50px] overflow-hidden">
       <Navbar />
 
       <Hero />
