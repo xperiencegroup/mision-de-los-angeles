@@ -75,7 +75,7 @@ export default function Formulario() {
         <div className="flex flex-col gap-[8px]">
           <label
             htmlFor="name"
-            className="text-[16px] font-bold font-at-surt text-verde-confianza"
+            className="text-[16px] font-bold text-verde-confianza"
           >
             Nombre completo *
           </label>
@@ -96,10 +96,7 @@ export default function Formulario() {
         {/* Correo y Teléfono */}
         <div className="flex w-full gap-[44px]">
           <div className="flex flex-col flex-1 gap-[8px]">
-            <label
-              htmlFor="email"
-              className="text-[16px] font-at-surt font-bold"
-            >
+            <label htmlFor="email" className="text-[16px] font-bold">
               Correo electrónico *
             </label>
             <input
@@ -123,10 +120,7 @@ export default function Formulario() {
           </div>
 
           <div className="flex flex-col flex-1 gap-[8px]">
-            <label
-              htmlFor="phone"
-              className="text-[16px] font-at-surt font-bold"
-            >
+            <label htmlFor="phone" className="text-[16px] font-bold">
               Teléfono *
             </label>
             <input
@@ -152,10 +146,7 @@ export default function Formulario() {
 
         {/* Mensaje */}
         <div className="flex flex-col gap-[8px]">
-          <label
-            htmlFor="message"
-            className="text-[16px] font-at-surt font-bold"
-          >
+          <label htmlFor="message" className="text-[16px] font-bold">
             Mensaje
           </label>
           <textarea

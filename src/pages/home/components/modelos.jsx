@@ -95,7 +95,7 @@ export default function Modelos() {
               </p>
               <button
                 onClick={() => handleOpenModel("kinzo")}
-                className="px-[24px] py-[15px] text-button font-at-surt text-verde-confianza bg-celeste-bienestar"
+                className="px-[24px] py-[15px] text-button text-verde-confianza bg-celeste-bienestar"
               >
                 Ver modelo
               </button>
@@ -123,7 +123,7 @@ export default function Modelos() {
               </p>
               <button
                 onClick={() => handleOpenModel("reve")}
-                className="px-[24px] py-[15px] text-button font-at-surt text-verde-confianza bg-celeste-bienestar"
+                className="px-[24px] py-[15px] text-button text-verde-confianza bg-celeste-bienestar"
               >
                 Ver modelo
               </button>

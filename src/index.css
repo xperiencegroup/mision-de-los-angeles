@@ -15,18 +15,6 @@
   --color-gris-gradiente: #26292b;
   --color-azul-integro: #004056;
   --color-rosa-bienestar: #f8b7a5;
-
-  --text-button: clamp(8px, 1.406vw, 18px);
-  --text-paragraph1: clamp(18px, 2.188vw, 28px);
-  --text-paragraph2: clamp(8px, 1.406vw, 18px);
-  --text-paragraph3: clamp(6px, 1.094vw, 14px);
-  --text-paragraph4: clamp(11px, 1.875vw, 24px);
-  --text-display1: clamp(15px, 2.5vw, 32px);
-  --text-display2: clamp(18px, 3.125vw, 40px);
-  --text-display3: clamp(33px, 5.625vw, 72px);
-  --text-display4: clamp(30px, 5.078vw, 65px);
-  --text-display-min: clamp(13px, 2.188vw, 28px);
-  --text-min: clamp(12px, 2.031vw, 26px);
 }
 
 * {
@@ -40,7 +28,7 @@ html {
 
 body {
   background-color: var(--color-beige-hogar);
-  font-family: var(--font-basic-sans);
+  font-family: var(--font-founders);
 }
 
 /* EMBLA Carousel */
@@ -60,10 +48,16 @@ body {
 
 /* -------- Tamaños de textos -------- */
 .titulos-grandes {
-  @apply text-[35px] md:text-[45px] lg:text-[60px];
+  @apply text-[35px] md:text-[45px] lg:text-[60px] leading-[110%];
 }
 .titulos {
-  @apply text-[25px] md:text-[35px] lg:text-[40px];
+  @apply text-[25px] md:text-[35px] lg:text-[40px] leading-[110%];
+}
+.subtitulos {
+  @apply text-[20px] md:text-[25px] lg:text-[30px] leading-[95%] tracking-tight;
+}
+.parrafos {
+  @apply text-[20px] md:text-[22px] lg:text-[24px] leading-[130%];
 }
 .boton {
   @apply text-[13px] md:text-[12px] lg:text-[17px];
