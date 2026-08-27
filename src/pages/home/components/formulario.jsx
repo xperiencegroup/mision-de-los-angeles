@@ -49,18 +49,19 @@ export default function Formulario() {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-[1280px] justify-center items-center px-[60px] py-[34px] gap-[20px]">
+    <div className="flex flex-col w-full max-w-[1280px] justify-center items-center px-[44px] md:px-[60px] py-[34px] gap-[20px]">
       {/* Texto */}
       <div
         ref={titleRef}
         className={`reveal ${isTitleInView ? "is-visible" : ""} flex flex-col gap-[20px]`}
       >
-        <h2 className="text-[40px] text-center font-woodland font-bold text-verde-confianza">
+        <h2 className="titulos text-center font-woodland font-bold text-verde-confianza">
           Conoce tu próximo hogar en Misión de los Ángeles
         </h2>
-        <p className="text-paragraph4 text-center leading-[115%]">
+        <p className="parrafos text-center leading-[115%]">
           Déjanos tus datos y recibe información sobre modelos, disponibilidad y
-          opciones para encontrar el <br /> espacio ideal para tu familia.
+          opciones para encontrar el <br className="max-sm:hidden" /> espacio
+          ideal para tu familia.
         </p>
       </div>
 
@@ -75,7 +76,7 @@ export default function Formulario() {
         <div className="flex flex-col gap-[8px]">
           <label
             htmlFor="name"
-            className="text-[16px] font-bold text-verde-confianza"
+            className="boton-label font-bold text-verde-confianza"
           >
             Nombre completo *
           </label>
@@ -83,7 +84,7 @@ export default function Formulario() {
             id="name"
             type="text"
             placeholder="Tu nombre completo"
-            className="w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
+            className="input placeholder:input w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
             {...register("name", { required: "El nombre es obligatorio" })}
           />
           {errors.nombre && (
@@ -94,16 +95,16 @@ export default function Formulario() {
         </div>
 
         {/* Correo y Teléfono */}
-        <div className="flex w-full gap-[44px]">
+        <div className="flex flex-col md:flex-row w-full gap-[20px] lg:gap-[44px]">
           <div className="flex flex-col flex-1 gap-[8px]">
-            <label htmlFor="email" className="text-[16px] font-bold">
+            <label htmlFor="email" className="boton-label font-bold">
               Correo electrónico *
             </label>
             <input
               id="email"
               type="email"
               placeholder="tu@email.com"
-              className="w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
+              className="input placeholder:input w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
               {...register("email", {
                 required: "El correo es obligatorio",
                 pattern: {
@@ -120,14 +121,14 @@ export default function Formulario() {
           </div>
 
           <div className="flex flex-col flex-1 gap-[8px]">
-            <label htmlFor="phone" className="text-[16px] font-bold">
+            <label htmlFor="phone" className="boton-label font-bold">
               Teléfono *
             </label>
             <input
               id="phone"
               type="tel"
               placeholder="81 1234 5678"
-              className="w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
+              className="input placeholder:input w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
               {...register("phone", {
                 required: "El teléfono es obligatorio",
                 pattern: {
@@ -146,14 +147,14 @@ export default function Formulario() {
 
         {/* Mensaje */}
         <div className="flex flex-col gap-[8px]">
-          <label htmlFor="message" className="text-[16px] font-bold">
+          <label htmlFor="message" className="boton-label font-bold">
             Mensaje
           </label>
           <textarea
             id="message"
             rows={5}
             placeholder="Cuéntanos más sobre lo que estás buscando..."
-            className="w-full px-[16px] py-[12px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none resize-none"
+            className="input placeholder:input w-full px-[16px] py-[12px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none resize-none"
             {...register("message")}
           />
         </div>
@@ -162,7 +163,7 @@ export default function Formulario() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-[20px] bg-celeste-bienestar text-[17px] text-verde-confianza hover:cursor-pointer transition-colors disabled:opacity-80 disabled:cursor-not-allowed"
+          className="w-full py-[20px] bg-celeste-bienestar boton text-verde-confianza hover:cursor-pointer transition-colors disabled:opacity-80 disabled:cursor-not-allowed"
         >
           {isLoading ? "Enviando..." : "Quiero recibir información"}
         </button>

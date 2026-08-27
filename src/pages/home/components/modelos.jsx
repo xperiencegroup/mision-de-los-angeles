@@ -19,12 +19,12 @@ export default function Modelos() {
   return (
     <div
       id="modelo"
-      className="relative flex justify-center items-center w-full p-[60px]"
+      className="relative flex justify-center items-center w-full p-[44px] md:p-[60px]"
     >
       {/* Imagenes decorativas */}
       <div
         ref={decorRef}
-        className="absolute w-full max-w-[1280px] h-fit top-0"
+        className="absolute w-full max-w-[1280px] h-fit top-0 max-lg:hidden"
       >
         <div className="flex justify-between relative w-full h-full">
           <img
@@ -50,21 +50,23 @@ export default function Modelos() {
       </div>
 
       {/* Text */}
-      <div className="flex flex-col w-full h-full justify-center items-center gap-[40px]">
+      <div className="flex flex-col w-full h-full justify-center items-center gap-[20px] md:gap-[40px]">
         <div
           ref={titleRef}
           className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[20px] px-[51px]`}
         >
-          <h2 className="text-[30px] text-center font-woodland font-bold leading-[110%] text-verde-confianza">
+          <h2 className="titulos text-center font-woodland font-bold leading-[110%] text-verde-confianza">
             Modelos
           </h2>
 
-          <h3 className="text-[30px] text-center font-woodland font-bold leading-[110%] text-verde-confianza">
-            Elige el espacio <br /> que se adapta a tu familia
+          <h3 className="subtitulos text-center font-woodland font-bold leading-[110%] text-verde-confianza">
+            Elige el espacio <br className="max-md:hidden" /> que se adapta a tu
+            familia
           </h3>
 
           <p className="text-paragraph4 text-center leading-[115%] text-gris-profundo">
-            Dos opciones diseñadas con inteligencia: desde la cochera <br />
+            Dos opciones diseñadas con inteligencia: desde la cochera{" "}
+            <br className="max-md:hidden" />
             hasta la terraza, cada espacio tiene una razón de ser.
           </p>
         </div>
@@ -72,11 +74,11 @@ export default function Modelos() {
         {/* Cuadros */}
         <div
           ref={cardsRef}
-          className="flex justify-center items-center gap-[60px]"
+          className="flex flex-row flex-wrap justify-center items-center gap-[40px] md:gap-[60px]"
         >
           {/* Modelo Kinzo */}
           <div
-            className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-[546px] bg-verde-confianza rounded-br-[100px] overflow-hidden`}
+            className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-full max-w-[546px] lg:w-[546px] bg-verde-confianza rounded-br-[80px] lg:rounded-br-[100px] overflow-hidden`}
           >
             <div className="relative w-full h-[326px]">
               <img
@@ -87,10 +89,10 @@ export default function Modelos() {
             </div>
             {/* Texto */}
             <div className="flex flex-col w-full justify-center items-center px-[24px] py-[30px] gap-[20px]">
-              <h4 className="text-[30px] font-woodland leading-none text-beige-hogar">
+              <h4 className="titulos font-woodland font-bold text-center text-beige-hogar">
                 Modelo Kinzo Plus
               </h4>
-              <p className="text-[30px] font-woodland text-beige-hogar">
+              <p className="subtitulos font-woodland text-beige-hogar">
                 Casa de 2 Niveles
               </p>
               <button
@@ -104,7 +106,7 @@ export default function Modelos() {
 
           {/* Modelo Revé */}
           <div
-            className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-[546px] bg-verde-confianza rounded-br-[100px] overflow-hidden`}
+            className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-full max-w-[546px] lg:w-[546px] bg-verde-confianza rounded-br-[80px] md:rounded-br-[100px] overflow-hidden`}
           >
             <div className="relative w-full h-[326px]">
               <img
@@ -115,10 +117,10 @@ export default function Modelos() {
             </div>
             {/* Texto */}
             <div className="flex flex-col w-full justify-center items-center px-[24px] py-[30px] gap-[20px]">
-              <h4 className="text-[30px] font-woodland leading-none text-beige-hogar">
+              <h4 className="titulos font-woodland font-bold text-center text-beige-hogar">
                 Modelo Revé Plus
               </h4>
-              <p className="text-[30px] font-woodland text-beige-hogar">
+              <p className="subtitulos font-woodland text-beige-hogar">
                 Casa de 3 Niveles
               </p>
               <button

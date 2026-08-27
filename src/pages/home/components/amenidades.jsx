@@ -64,25 +64,25 @@ export default function Amenidades() {
 
   const slides = amenidades.map((amenidad) => {
     return (
-      <div className="w-[891px] h-[491px] px-[10px] overflow-hidden">
+      <div className="w-[clamp(261px,69.61vw,891px)] h-[clamp(144px,38.34vw,491px)] px-[10px] overflow-hidden">
         <div className="relative w-full h-full">
           {/* Background image */}
           <img
             src={amenidad.image}
             alt={amenidad.id}
             draggable={false}
-            className="absolute inset-0 w-full h-full object-cover rounded-tl-[150px]"
+            className="absolute inset-0 w-full h-full object-cover rounded-tl-[50px] md:rounded-tl-[100px] lg:rounded-tl-[150px]"
           />
 
           {/* Text */}
           <div className="relative flex flex-col justify-end w-full h-full">
-            <div className="flex flex-col w-full h-[114px] justify-center items-center gap-[10px] rounded-tl-[50px] bg-verde-confianza">
+            <div className="flex w-full h-fit justify-center items-center gap-[15px] py-[10px] md:py-[20px] rounded-tl-[50px] bg-verde-confianza">
               <img
                 src={amenidad.icon}
                 alt={amenidad.id + "icon"}
                 className="h-[35px] brightness-0 invert"
               />
-              <p className="text-display-min font-woodland leading-none text-beige-hogar">
+              <p className="parrafos font-woodland leading-none text-beige-hogar">
                 {amenidad.label}
               </p>
             </div>
@@ -110,10 +110,10 @@ export default function Amenidades() {
         ref={titleRef}
         className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[20px]`}
       >
-        <h2 className="text-[30px] text-center font-woodland font-bold leading-[110%] text-verde-confianza">
+        <h2 className="titulos text-center font-woodland font-bold leading-[110%] text-verde-confianza">
           Amenidades
         </h2>
-        <h3 className="text-[30px] text-center font-woodland font-bold leading-[110%] text-verde-confianza">
+        <h3 className="subtitulos text-center font-woodland font-bold leading-[110%] text-verde-confianza">
           Más que propiedades, construimos patrimonio
         </h3>
         <p className="text-paragraph4 text-center leading-[115%] text-gris-profundo">

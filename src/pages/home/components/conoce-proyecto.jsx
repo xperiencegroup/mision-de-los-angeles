@@ -55,7 +55,7 @@ export default function ConoceProyecto() {
       </div>
 
       {/* Text */}
-      <div className="flex flex-col w-full h-full justify-center items-center gap-[40px]">
+      <div className="flex flex-col w-full h-full justify-center items-center gap-[30px] md:gap-[40px]">
         <div
           ref={titleRef}
           className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[20px] px-[51px]`}
@@ -76,12 +76,12 @@ export default function ConoceProyecto() {
         {/* Cuadros */}
         <div
           ref={cardsRef}
-          className="flex flex-wrap gap-[30px] justify-center items-center"
+          className="flex flex-wrap gap-[15px] md:gap-[30px] justify-center items-center max-md:px-[30px]"
         >
           {beneficios.map((beneficio, index) => (
             <div
               key={index}
-              className={`reveal ${isCardsVisible ? "is-visible" : ""} flex flex-col justify-center items-center w-[400px] md:h-[308px] lg:h-[347px] px-[40px]  lg:p-[40px] gap-[25px] rounded-tl-[50px] bg-verde-confianza`}
+              className={`reveal ${isCardsVisible ? "is-visible" : ""} flex flex-col justify-center items-center w-full max-w-[400px] min-h-[227px] md:h-[308px] lg:h-[347px] px-[40px] py-[30px] lg:p-[40px] gap-[25px] rounded-tl-[50px] bg-verde-confianza`}
               style={{
                 transitionDelay: isCardsVisible ? `${index * 0.15}s` : "0s",
               }}

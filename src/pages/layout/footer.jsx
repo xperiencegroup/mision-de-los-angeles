@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <div className="flex flex-col  justify-end items-center w-full pt-[60px] bg-verde-confianza">
       {/* Info */}
-      <div className="flex flex-col justify-center items-center pb-[30px] gap-[30px]">
+      <div className="flex flex-col justify-center items-center pb-[30px] px-[44px] gap-[30px]">
         <img src={misionLogo} alt="Logo Misión d elos Ángeles Serafines" />
 
         {/* Social media */}
@@ -55,12 +55,12 @@ export default function Footer() {
         {/* Teléfono */}
         <div className="flex gap-[20px] px-3 py-1 rounded hover:bg-black/20 hover:cursor-pointer">
           <img src={phoneIcon} alt="Ícono del teléfono" />
-          <p className="text-[25px] text-beige-hogar">81 29 10 4413</p>
+          <p className="parrafos text-beige-hogar">81 29 10 4413</p>
         </div>
 
-        <div className="flex gap-[20px]">
-          <img src={pinIcon} alt="Ícono de pin" />
-          <p className="text-[25px] text-beige-hogar">
+        <div className="flex flex-col justify-center items-center min-[840px]:flex-row gap-[10px] min-[840px]:gap-[20px]">
+          <img src={pinIcon} alt="Ícono de pin" className="w-[25px]" />
+          <p className="parrafos text-center text-beige-hogar">
             Av. Mision de Los Angeles, sector serafines, 66609 Cdad. Apodaca,
             N.L.
           </p>

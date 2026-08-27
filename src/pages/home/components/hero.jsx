@@ -36,7 +36,7 @@ export default function Hero() {
           <span className="animate-hero-1 delay-400">Trasciende.</span>
         </h1>
 
-        <p className="titulos font-woodland text-beige-hogar animate-hero-3 delay-600">
+        <p className="titulos text-beige-hogar animate-hero-3 delay-600">
           Vive en Misión de los Ángeles: <br />
           Sector Serafines
         </p>

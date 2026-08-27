@@ -62,6 +62,12 @@ body {
 .boton {
   @apply text-[13px] md:text-[12px] lg:text-[17px];
 }
+.boton-label {
+  @apply text-[13px] md:text-[14px] lg:text-[16px];
+}
+.input {
+  @apply text-[13px] md:text-[18px];
+}
 
 /* ---------- Animaciones -------- */
 

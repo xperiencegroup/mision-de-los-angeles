@@ -1,4 +1,5 @@
-import mapa from "../../../assets/images/mapa.svg";
+// import mapa from "../../../assets/images/mapa.svg";
+import mapa from "../../../assets/images/mapa2.svg";
 import { useInView } from "../../../hooks/useInView";
 
 export default function Ubicacion() {
@@ -8,11 +9,11 @@ export default function Ubicacion() {
   return (
     <div
       id="ubicacion"
-      className="w-full flex flex-col justify-center items-center py-[32px] gap-[20px]"
+      className="w-full flex flex-col justify-center items-center px-[44px] py-[40px] md:py-[32px] gap-[20px]"
     >
       <h2
         ref={titleRef}
-        className={`reveal ${isTitleVisible ? "is-visible" : ""} text-[30px] text-center font-woodland font-bold text-verde-confianza`}
+        className={`reveal ${isTitleVisible ? "is-visible" : ""} titulos text-center font-woodland font-bold text-verde-confianza`}
       >
         Visítanos
       </h2>
@@ -28,7 +29,7 @@ export default function Ubicacion() {
         <img
           src={mapa}
           alt="Mapa de Misión de los Ángeles"
-          className="w-[686px] h-[386px]"
+          className="w-[686px] md:h-[386px]"
         />
       </a>
     </div>

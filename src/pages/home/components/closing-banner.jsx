@@ -23,12 +23,13 @@ export default function ClosingBanner() {
           ref={textRef}
           className={`reveal ${isTextInView ? "is-visible" : ""} flex flex-col items-center gap-[20px]`}
         >
-          <h3 className="text-[40px] font-woodland font-bold leading-[110%] text-beige-hogar text-center">
+          <h3 className="titulos font-woodland font-bold leading-[110%] text-beige-hogar text-center">
             ¿Listo para conocer Misión de los Ángeles?
           </h3>
 
-          <p className="text-[30px] text-center font-woodland leading-[110%] text-beige-hogar">
-            Descubre sus espacios, amenidades y modelos disponibles. <br />
+          <p className="subtitulos text-center font-woodland leading-[110%] text-beige-hogar">
+            Descubre sus espacios, amenidades y modelos disponibles.{" "}
+            <br className="max-md:hidden" />
             Nuestro equipo está listo para acompañarte y resolver todas tus
             dudas.
           </p>
@@ -36,13 +37,13 @@ export default function ClosingBanner() {
 
         <div
           ref={buttonsRef}
-          className={`reveal-scale ${isButtonsInView ? "is-visible" : ""} flex gap-[24px]`}
+          className={`reveal-scale ${isButtonsInView ? "is-visible" : ""} flex flex-wrap justify-center items-center gap-[24px]`}
           style={{ transitionDelay: isButtonsInView ? "0.25s" : "0s" }}
         >
-          <button className="w-[150px] text-[17px] px-[24px] py-[15px] text-verde-confianza bg-beige-hogar">
+          <button className="w-[150px] boton px-[24px] py-[15px] text-verde-confianza bg-beige-hogar">
             Amenidades
           </button>
-          <button className="w-[150px] text-[17px] px-[24px] py-[15px] text-verde-confianza bg-beige-hogar">
+          <button className="w-[150px] boton px-[24px] py-[15px] text-verde-confianza bg-beige-hogar">
             Modelos
           </button>
         </div>
