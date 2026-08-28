@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useSearchParams } from "react-router";
 import logo from "../../assets/logos/logo-mision-angeles.svg";
 import logoBeneva from "../../assets/logos/beneva-logo.svg";
 import menuIcon from "../../assets/icons/menu.svg";
+import closeIcon from "../../assets/icons/close.svg";
 
 const BUTTONS = [
   {
@@ -43,8 +45,10 @@ const BUTTONS = [
 
 export default function Navbar() {
   const [, setSearchParams] = useSearchParams();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <div className="navbar-enter fixed top-0 right-0 z-10 w-full flex justify-center bg-verde-confianza">
+    <div className="navbar-enter fixed z-50 top-0 right-0 z-10 w-full flex justify-center bg-verde-confianza">
       <div className="w-full flex max-md:h-[76px] justify-between md:justify-around items-center max-w-[1280px] p-[20px] md:px-[20px] md:py-[15px]">
         {/* Logo de misión de los ángeles desktop*/}
         <a
@@ -97,8 +101,52 @@ export default function Navbar() {
         })}
 
         {/* Menu mobile */}
-        <div className="md:hidden flex justify-center items-center size-[42px] bg-beige-hogar">
-          <img src={menuIcon} alt="Ícono de menu" className="w-[22px] h-fit" />
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className={`md:hidden flex justify-center items-center size-[42px] transition-colors ${isMenuOpen ? "bg-celeste-bienestar" : "bg-beige-hogar"}`}
+        >
+          <img
+            src={isMenuOpen ? closeIcon : menuIcon}
+            alt="Ícono de menu"
+            className="w-[22px] h-fit"
+          />
+        </button>
+
+        {/* Panel mobile */}
+        <div
+          inert={!isMenuOpen}
+          className={`absolute top-[76px] left-0 w-full h-fit bg-verde-confianza md:hidden flex flex-col justify-start items-center p-[20px] pt-[30px] gap-[10px] transition-opacity ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        >
+          {BUTTONS.map((button, index) => {
+            if (button.id === "financiamiento")
+              return (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setSearchParams({ modal: "financiamiento" });
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full boton font-woodland text-center px-[24px] py-[15px] text-beige-hogar hover:cursor-pointer"
+                >
+                  {button.label}
+                </button>
+              );
+
+            return (
+              <a
+                key={index}
+                href={button.to}
+                onClick={() => setIsMenuOpen(false)}
+                className={`w-full boton font-woodland text-center px-[24px] py-[15px] hover:cursor-pointer ${
+                  button.id === "cotiza"
+                    ? "text-verde-confianza bg-celeste-bienestar"
+                    : "text-beige-hogar"
+                }`}
+              >
+                {button.label}
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>

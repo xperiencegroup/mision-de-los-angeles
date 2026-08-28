@@ -53,7 +53,7 @@ export default function Modelos() {
       <div className="flex flex-col w-full h-full justify-center items-center gap-[20px] md:gap-[40px]">
         <div
           ref={titleRef}
-          className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[20px] px-[51px]`}
+          className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[20px]`}
         >
           <h2 className="titulos text-center font-woodland font-bold leading-[110%] text-verde-confianza">
             Modelos

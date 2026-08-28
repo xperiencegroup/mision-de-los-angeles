@@ -22,7 +22,7 @@ export default function Hero() {
         href="https://wa.me/528129104413"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed z-50 flex justify-center items-center size-[56px] bg-verde-dinamico bottom-[20px] right-[34px] hover:cursor-pointer"
+        className="fixed z-30 flex justify-center items-center size-[56px] bg-verde-dinamico bottom-[20px] right-[34px] hover:cursor-pointer"
       >
         <img
           src={whatsappIcon}
