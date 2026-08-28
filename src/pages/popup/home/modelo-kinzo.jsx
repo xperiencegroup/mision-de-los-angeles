@@ -15,6 +15,7 @@ import comedor from "../../../assets/icons/modelos/comedor.svg";
 import lavadora from "../../../assets/icons/modelos/lavadora.svg";
 import cama from "../../../assets/icons/modelos/cama.svg";
 import regadera from "../../../assets/icons/modelos/regadera.svg";
+import { ModeloCarousel } from "../../../components/carousel/modelo-carousel";
 
 const CARACTERISITCAS = {
   "primer-nivel": [
@@ -94,105 +95,84 @@ export default function ModeloKinzo() {
     };
   }, []);
 
+  const niveles = [
+    {
+      titulo: "Primer Nivel:",
+      image: plantaBaja,
+      imageLabel: "Planta Baja",
+      caracteristicas: CARACTERISITCAS["primer-nivel"],
+    },
+    {
+      titulo: "Segundo Nivel:",
+      image: plantaAlta,
+      imageLabel: "2a Planta",
+      caracteristicas: CARACTERISITCAS["segundo-nivel"],
+    },
+  ];
+
+  const slides = niveles.map((nivel) => (
+    <div
+      key={nivel.titulo}
+      className="flex flex-col md:flex-row w-full h-full justify-center items-center pr-[5px]"
+    >
+      {/* Imagen */}
+      <div className="flex flex-col items-center">
+        <div className="relative w-[400px] h-[500px]">
+          <img
+            src={nivel.image}
+            alt={`Modelo Kinzo Plus ${nivel.imageLabel}`}
+            className="absolute inset-0 w-full h-full object-contain"
+          />
+        </div>
+      </div>
+
+      {/* Características */}
+      <div className="flex flex-col grow max-w-[650px] h-full px-[30px] py-[40px] gap-[20px] rounded-t-[50px] bg-verde-confianza">
+        <h3 className="subtitulos font-woodland font-bold text-verde-dinamico">
+          {nivel.titulo}
+        </h3>
+
+        <ul className="flex flex-col gap-[20px]">
+          {nivel.caracteristicas.map((item, index) => {
+            return (
+              <li key={index} className="flex items-center gap-[20px]">
+                <div className="shrink-0 flex justify-center items-center size-[60px] rounded-t-[30px] bg-beige-hogar">
+                  <img src={item.icon} alt={`${item.icon}-image`} />
+                </div>
+                <p className="parrafos text-beige-hogar">{item.label}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </div>
+  ));
+
   return (
-    <div className="fixed inset-0 z-50 flex justify-center w-full bg-black/30 backdrop-blur-sm overflow-y-auto">
-      <div className="relative flex flex-col w-full max-w-[1280px] h-fit p-[60px] gap-[17px] bg-beige-hogar">
+    <div className="fixed inset-0 z-50 flex justify-center w-full min-h-fit bg-black/30 backdrop-blur-sm overflow-y-auto">
+      <div className="relative flex flex-col w-full min-h-lvh p-[60px] gap-[17px] bg-beige-hogar overflow-y-auto">
         {/* Boton de cerrar */}
         <button
           onClick={handleCloseModal}
-          className="absolute right-[38px] top-[36px] flex justify-center items-center size-[60px] hover:cursor-pointer bg-celeste-bienestar"
+          className="absolute right-[14px] top-[14px] md:right-[38px] md:top-[36px] flex justify-center items-center size-[42px] md:size-[60px] hover:cursor-pointer bg-celeste-bienestar"
         >
-          <img src={closeIcon} className="size-[45px]" />
+          <img src={closeIcon} className="size-[30px] md:size-[45px]" />
         </button>
 
         {/* Texts */}
-        <div className="flex flex-col gap-5">
-          <h2 className="text-display2 text-center font-woodland font-bold text-verde-confianza">
+        <div className="flex flex-col w-full h-fit gap-5">
+          <h2 className="titulos text-center font-woodland font-bold text-verde-confianza">
             Modelo Kinzo Plus
           </h2>
-          <p className="text-paragraph4 text-center leading-[110%] text-gris-profundo">
+          <p className="parrafos text-center text-gris-profundo">
             Dos plantas diseñadas para disfrutar cada espacio en familia. Kinzo
             integra áreas sociales amplias en la planta baja y tres recámaras en
             el segundo nivel, cada una con baño completo, además de estancia y
             lavandería.
           </p>
 
-          {/* Images */}
-          <div className="flex justify-center items-center py-[30px]">
-            {/* Planta baja */}
-            <div className="flex flex-col">
-              <div className="relative w-[423px] h-[607px]">
-                <img
-                  src={plantaBaja}
-                  alt="Modelo Kinzo Plus planta baja"
-                  className="absolute inset-0 w-full h-full object-fill"
-                />
-              </div>
-              <p className="text-center font-woodland font-bold text-[30px] text-verde-confianza">
-                Planta Baja
-              </p>
-            </div>
-
-            {/* Planta alta */}
-            <div className="flex flex-col">
-              <div className="relative w-[423px] h-[607px]">
-                <img
-                  src={plantaAlta}
-                  alt="Modelo Kinzo Plus planta baja"
-                  className="absolute inset-0 w-full h-full object-fill"
-                />
-              </div>
-              <p className="text-center font-woodland font-bold text-[30px] text-verde-confianza">
-                2a Planta
-              </p>
-            </div>
-          </div>
-
-          {/* Características */}
-          <div className="flex justify-between">
-            {/* Primer nivel */}
-            <div className="flex flex-col w-[550px] h-[668px] px-[30px] py-[40px] gap-[20px] rounded-t-[50px] bg-verde-confianza">
-              <h3 className="text-[30px] font-woodland font-bold leading-none text-verde-dinamico">
-                Primer Nivel:
-              </h3>
-
-              <ul className="flex flex-col gap-[20px]">
-                {CARACTERISITCAS["primer-nivel"].map((item, index) => {
-                  return (
-                    <li key={index} className="flex items-center gap-[20px]">
-                      <div className="flex justify-center items-center size-[60px] rounded-t-[30px] bg-beige-hogar">
-                        <img src={item.icon} alt={`${item.icon}-image`} />
-                      </div>
-                      <p className="text-[25px] text-beige-hogar">
-                        {item.label}
-                      </p>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            {/* Segundo Nivel */}
-            <div className="flex flex-col w-[550px] h-[668px] px-[30px] py-[40px] gap-[20px] rounded-t-[50px] bg-verde-confianza">
-              <h3 className="text-[30px] font-woodland font-bold leading-none text-verde-dinamico">
-                Segundo Nivel:
-              </h3>
-
-              <ul className="flex flex-col gap-[20px]">
-                {CARACTERISITCAS["segundo-nivel"].map((item, index) => {
-                  return (
-                    <li key={index} className="flex items-center gap-[20px]">
-                      <div className="flex shrink-0 justify-center items-center size-[60px] rounded-t-[30px] bg-beige-hogar">
-                        <img src={item.icon} alt={`${item.icon}-image`} />
-                      </div>
-                      <p className="text-[25px] leading-[110%] text-beige-hogar">
-                        {item.label}
-                      </p>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+          <div className="flex w-full h-full overflow-hidden">
+            <ModeloCarousel slides={slides} />
           </div>
         </div>
       </div>
