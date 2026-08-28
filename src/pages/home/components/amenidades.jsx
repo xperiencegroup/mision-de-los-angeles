@@ -64,7 +64,7 @@ export default function Amenidades() {
 
   const slides = amenidades.map((amenidad) => {
     return (
-      <div className="w-[clamp(261px,69.61vw,891px)] h-[clamp(144px,38.34vw,491px)] px-[10px] overflow-hidden">
+      <div className="w-[clamp(261px,69.61vw,891px)] h-[clamp(280px,38.34vw,491px)] px-[25px] min-[362px]:px-[10px] overflow-hidden">
         <div className="relative w-full h-full">
           {/* Background image */}
           <img
@@ -80,9 +80,9 @@ export default function Amenidades() {
               <img
                 src={amenidad.icon}
                 alt={amenidad.id + "icon"}
-                className="h-[35px] brightness-0 invert"
+                className="h-[20px] md:h-[35px] brightness-0 invert"
               />
-              <p className="parrafos font-woodland leading-none text-beige-hogar">
+              <p className="text-[14px] min-[490px]:parrafos font-woodland leading-none text-beige-hogar whitespace-nowrap">
                 {amenidad.label}
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function Amenidades() {
       {/* Texto */}
       <div
         ref={titleRef}
-        className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[20px]`}
+        className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col max-md:px-[44px] gap-[20px]`}
       >
         <h2 className="titulos text-center font-woodland font-bold leading-[110%] text-verde-confianza">
           Amenidades
@@ -125,7 +125,7 @@ export default function Amenidades() {
       {/* Amenidades */}
       <div
         ref={iconsRef}
-        className="flex justify-center items-center gap-[20px]"
+        className="self-center grid grid-cols-3 w-fit place-items-center md:flex md:justify-center md:items-center gap-y-[10px] gap-x-[20px] md:gap-[20px]"
       >
         {amenidades.map((amenidad, index) => (
           <AmenidadButton
@@ -142,7 +142,7 @@ export default function Amenidades() {
       {/* Carrusel */}
       <div
         ref={carouselWrapRef}
-        className={`reveal-fade ${isCarouselVisible ? "is-visible" : ""} w-full max-w-[1280px] h-[570px] overflow-hidden`}
+        className={`reveal-fade ${isCarouselVisible ? "is-visible" : ""} w-full max-w-[1280px] h-[clamp(320px,45vw,500px)] overflow-hidden`}
       >
         <Carousel
           ref={carouselRef}
