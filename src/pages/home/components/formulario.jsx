@@ -39,6 +39,7 @@ export default function Formulario() {
         throw new Error("Error en la respuesta del servidor");
       }
 
+      alert("Formulario enviado");
       setIsLoading(false);
       reset();
     } catch (error) {

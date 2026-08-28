@@ -40,12 +40,18 @@ export default function ClosingBanner() {
           className={`reveal-scale ${isButtonsInView ? "is-visible" : ""} flex flex-wrap justify-center items-center gap-[24px]`}
           style={{ transitionDelay: isButtonsInView ? "0.25s" : "0s" }}
         >
-          <button className="w-[150px] boton px-[24px] py-[15px] text-verde-confianza bg-beige-hogar">
+          <a
+            href="#amenidades"
+            className="relative w-[150px] boton px-[24px] py-[15px] font-woodland text-center text-verde-confianza bg-beige-hogar before:absolute before:bottom-0 before:left-0 hover:before:h-[3px] before:w-full before:bg-celeste-bienestar active:bg-celeste-bienestar"
+          >
             Amenidades
-          </button>
-          <button className="w-[150px] boton px-[24px] py-[15px] text-verde-confianza bg-beige-hogar">
+          </a>
+          <a
+            href="#modelo"
+            className="relative w-[150px] boton px-[24px] py-[15px] font-woodland text-center text-verde-confianza bg-beige-hogar before:absolute before:bottom-0 before:left-0 hover:before:h-[3px] before:w-full before:bg-celeste-bienestar active:bg-celeste-bienestar"
+          >
             Modelos
-          </button>
+          </a>
         </div>
       </div>
     </div>

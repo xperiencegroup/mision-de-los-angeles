@@ -55,15 +55,22 @@ export default function Footer() {
         {/* Teléfono */}
         <div className="flex gap-[20px] px-3 py-1 rounded hover:bg-black/20 hover:cursor-pointer">
           <img src={phoneIcon} alt="Ícono del teléfono" />
-          <p className="parrafos text-beige-hogar">81 29 10 4413</p>
+          <a href="tel:+528129104413" className="parrafos text-beige-hogar">
+            81 29 10 4413
+          </a>
         </div>
 
-        <div className="flex flex-col justify-center items-center min-[840px]:flex-row gap-[10px] min-[840px]:gap-[20px]">
+        <div className="flex flex-col justify-center items-center min-[840px]:flex-row gap-[10px] min-[840px]:gap-[20px] py-2 px-4 rounded-2xl hover:bg-black/20">
           <img src={pinIcon} alt="Ícono de pin" className="w-[25px]" />
-          <p className="parrafos text-center text-beige-hogar">
+          <a
+            href="https://www.google.com/maps/place/Misi%C3%B3n+de+Los+%C3%81ngeles,+Sector+Serafines/@25.7710356,-100.2189019,279m/data=!3m1!1e3!4m6!3m5!1s0x8662eb002db01cc1:0xdcaefe4fe80a727e!8m2!3d25.7710345!4d-100.2185753!16s%2Fg%2F11mdb62g9_?entry=ttu&g_ep=EgoyMDI2MDcyNy4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="parrafos text-center text-beige-hogar"
+          >
             Av. Mision de Los Angeles, sector serafines, 66609 Cdad. Apodaca,
             N.L.
-          </p>
+          </a>
         </div>
 
         <img src={xperienceGroup} alt="Desarrollado por Xperience Group" />
