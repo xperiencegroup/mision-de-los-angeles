@@ -82,7 +82,7 @@ export default function Amenidades() {
                 alt={amenidad.id + "icon"}
                 className="h-[20px] md:h-[35px] brightness-0 invert"
               />
-              <p className="text-[14px] min-[490px]:parrafos font-woodland leading-none text-beige-hogar whitespace-nowrap">
+              <p className="parrafos min-[490px]:parrafos font-woodland leading-none text-beige-hogar whitespace-nowrap">
                 {amenidad.label}
               </p>
             </div>
@@ -142,7 +142,7 @@ export default function Amenidades() {
       {/* Carrusel */}
       <div
         ref={carouselWrapRef}
-        className={`reveal-fade ${isCarouselVisible ? "is-visible" : ""} w-full max-w-[1280px] h-[clamp(320px,45vw,500px)] overflow-hidden`}
+        className={`reveal-fade ${isCarouselVisible ? "is-visible" : ""} flex flex-col w-full max-w-[1280px] h-fit gap-[20px] overflow-hidden`}
       >
         <Carousel
           ref={carouselRef}
@@ -150,6 +150,11 @@ export default function Amenidades() {
           variant="card"
           onSlideChange={setActiveIndex}
         />
+
+        {/* Leyenda */}
+        <p className="text-[12px] text-center">
+          Imágenes con fines ilustrativos*
+        </p>
       </div>
     </div>
   );

@@ -1,4 +1,6 @@
 import banner from "../../../assets/images/hero-banner.jpg";
+import logoSerafines from "../../../assets/images/hero-title-serafines.svg";
+import heroTitle from "../../../assets/images/hero-title-vtt.svg";
 import whatsappIcon from "../../../assets/icons/whatsapp.svg";
 
 export default function Hero() {
@@ -11,7 +13,7 @@ export default function Hero() {
       <img
         src={banner}
         alt="Imagen ilustrativa de Misión de los Ángeles"
-        className="absolute w-full h-full inset-0 object-cover object-right md:object-center object-bottom"
+        className="absolute w-full h-full inset-0 object-cover object-center"
       />
 
       {/* Overlay */}
@@ -32,19 +34,23 @@ export default function Hero() {
       </a>
 
       {/* Texto */}
-      <div className="relative flex flex-col w-full h-full justify-end items-start px-[44px] md:px-[80px] pb-[120px] gap-[clamp(24px,4.063vw,52px)]">
-        <h1 className="titulos-grandes font-woodland font-bold text-beige-hogar animate-hero-1">
-          <span className="animate-hero-1 delay-100">Visualiza.</span>
-          <br />
-          <span className="animate-hero-1 delay-250">Transforma.</span>
-          <br />
-          <span className="animate-hero-1 delay-400">Trasciende.</span>
-        </h1>
+      <div className="relative flex w-full h-full justify-center items-end px-[clamp(24px,6vw,80px)] pb-[120px] md:pb-[80px]">
+        <div className="flex flex-col md:flex-row items-start justify-center md:justify-center md:items-center gap-[32px] md:gap-[65px] w-fit md:w-full max-w-[800px]">
+          <img
+            src={logoSerafines}
+            alt="Misión de los Ángeles Serafines"
+            className="h-[95px] md:w-[clamp(220px,40vw,395px)] md:h-auto"
+          />
 
-        <p className="titulos text-beige-hogar animate-hero-3 delay-600">
-          Vive en Misión de los Ángeles: <br />
-          Sector Serafines
-        </p>
+          {/* divider */}
+          <div className="bg-beige-hogar w-full h-[1.5px] md:w-[1.5px] md:h-[clamp(140px,25vw,193px)]" />
+
+          <img
+            src={heroTitle}
+            alt="Visualiza. Transforma. Trasciende."
+            className="h-[95px] md:w-[clamp(160px,28vw,274px)] md:h-auto"
+          />
+        </div>
       </div>
     </div>
   );

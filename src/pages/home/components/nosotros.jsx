@@ -49,30 +49,29 @@ export default function Nosotros() {
       className="flex flex-col w-full justify-center items-center"
     >
       {/* Bloque "Licencias y permisos" */}
-      <div
-        ref={certRef}
-        className="relative flex flex-col md:flex-row justify-center items-center p-[30px] gap-[20px] w-full"
-      >
-        <div className="absolute -z-10 w-full h-full inset-0">
-          <div className="relative w-full h-full overflow-hidden">
-            <img
-              src={backgroundTexture}
-              className="absolute w-full h-full inset-0 object-cover scale-200 object-bottom"
-            />
+      <div ref={certRef} className="w-full py-[40px] md:py-[30px]">
+        <div className="relative flex flex-col md:flex-row justify-center items-center p-[30px] gap-[20px] w-full">
+          <div className="absolute -z-10 w-full h-full inset-0">
+            <div className="relative w-full h-full overflow-hidden">
+              <img
+                src={backgroundTexture}
+                className="absolute w-full h-full inset-0 object-cover scale-200 object-bottom"
+              />
+            </div>
           </div>
-        </div>
 
-        <img
-          src={benevaCertified}
-          className={`reveal-fade ${isCertVisible ? "is-visible" : ""} size-[81px] md:size-[122px]`}
-        />
-        <p
-          className={`reveal-fade ${isCertVisible ? "is-visible" : ""} titulos text-center font-woodland font-bold text-verde-confianza`}
-          style={{ transitionDelay: isCertVisible ? "0.2s" : "0s" }}
-        >
-          Este proyecto cuenta con todas <br className="max-md:hidden" /> las
-          licencias y permisos de construcción
-        </p>
+          <img
+            src={benevaCertified}
+            className={`reveal-fade ${isCertVisible ? "is-visible" : ""} size-[81px] md:size-[122px]`}
+          />
+          <p
+            className={`reveal-fade ${isCertVisible ? "is-visible" : ""} titulos text-center font-woodland font-bold text-verde-confianza`}
+            style={{ transitionDelay: isCertVisible ? "0.2s" : "0s" }}
+          >
+            Este proyecto cuenta con todas <br className="max-md:hidden" /> las
+            licencias y permisos de construcción
+          </p>
+        </div>
       </div>
 
       {/* Stats bloque */}

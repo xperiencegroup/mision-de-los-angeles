@@ -17,6 +17,31 @@
   --color-rosa-bienestar: #f8b7a5;
 }
 
+@layer components {
+  /* -------- Tamaños de textos -------- */
+  .titulos-grandes {
+    @apply text-[35px] md:text-[45px] lg:text-[60px] leading-[110%];
+  }
+  .titulos {
+    @apply text-[25px] md:text-[35px] lg:text-[40px] leading-[110%];
+  }
+  .subtitulos {
+    @apply text-[20px] md:text-[25px] lg:text-[30px] leading-[95%] tracking-tight;
+  }
+  .parrafos {
+    @apply text-[20px] md:text-[22px] lg:text-[24px] leading-[110%];
+  }
+  .boton {
+    @apply text-[13px] md:text-[12px] lg:text-[17px];
+  }
+  .boton-label {
+    @apply text-[13px] md:text-[14px] lg:text-[16px];
+  }
+  .input {
+    @apply text-[13px] md:text-[18px];
+  }
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,6 +54,7 @@ html {
 body {
   background-color: var(--color-beige-hogar);
   font-family: var(--font-founders);
+  text-wrap: pretty;
 }
 
 /* EMBLA Carousel */
@@ -44,29 +70,6 @@ body {
 .embla__slide {
   flex: 0 0 70%;
   min-width: 0;
-}
-
-/* -------- Tamaños de textos -------- */
-.titulos-grandes {
-  @apply text-[35px] md:text-[45px] lg:text-[60px] leading-[110%];
-}
-.titulos {
-  @apply text-[25px] md:text-[35px] lg:text-[40px] leading-[110%];
-}
-.subtitulos {
-  @apply text-[20px] md:text-[25px] lg:text-[30px] leading-[95%] tracking-tight;
-}
-.parrafos {
-  @apply text-[20px] md:text-[22px] lg:text-[24px] leading-[130%];
-}
-.boton {
-  @apply text-[13px] md:text-[12px] lg:text-[17px];
-}
-.boton-label {
-  @apply text-[13px] md:text-[14px] lg:text-[16px];
-}
-.input {
-  @apply text-[13px] md:text-[18px];
 }
 
 /* ---------- Animaciones -------- */

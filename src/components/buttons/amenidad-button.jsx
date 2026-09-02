@@ -24,7 +24,7 @@ export function AmenidadButton({
         transition={{ layout: { duration: 0.3, ease: [0.4, 0, 0.2, 1] } }}
         className={`relative flex justify-center items-center px-[17px] py-[10px] hover:cursor-pointer overflow-hidden ${
           isExpanded
-            ? "size-[56px] md:h-[56px] md:gap-[7px] before:absolute before:w-full before:h-[3px] before:bg-verde-confianza before:bottom-0"
+            ? "size-[56px] md:w-auto md:h-[56px] md:gap-[7px] before:absolute before:w-full before:h-[3px] before:bg-verde-confianza before:bottom-0"
             : "size-[56px] bg-celeste-bienestar"
         }`}
       >

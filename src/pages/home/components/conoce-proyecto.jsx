@@ -10,7 +10,7 @@ const beneficios = [
       "Cada acabado, cada espacio, cada detalle fue elegido pensando en lo que tu familia vivirá a diario.",
   },
   {
-    titulo: "Diseño que evoluciona contigo",
+    titulo: "Diseño que\n evoluciona contigo",
     descripcion:
       "Disfruta de cómodas áreas verdes, parques y una comunidad segura para tu familia.",
   },
@@ -30,7 +30,7 @@ export default function ConoceProyecto() {
       className="relative flex justify-center items-center w-full min-h-[640px] py-[60px]"
     >
       {/* Imagenes decorativas */}
-      <div className="absolute -top-48 w-full h-fit max-w-[1280px] hidden lg:block">
+      <div className="absolute -top-45 w-full h-fit max-w-[1280px] hidden min-[1220px]:block">
         <div className="flex justify-between relative w-full h-full">
           <img
             src={decorationLeft}
@@ -58,12 +58,12 @@ export default function ConoceProyecto() {
       <div className="flex flex-col w-full h-full justify-center items-center gap-[30px] md:gap-[40px]">
         <div
           ref={titleRef}
-          className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[20px] px-[51px]`}
+          className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[5px] px-[51px]`}
         >
           <h2 className="titulos text-center font-woodland font-bold text-verde-confianza">
-            Conoce Misión de los Ángeles:
+            Conoce
             <br />
-            Sector Serafines
+            Misión de los Ángeles: Serafines
           </h2>
 
           <p className="parrafos text-center text-gris-profundo">
@@ -81,12 +81,12 @@ export default function ConoceProyecto() {
           {beneficios.map((beneficio, index) => (
             <div
               key={index}
-              className={`reveal ${isCardsVisible ? "is-visible" : ""} flex flex-col justify-center items-center w-full max-w-[400px] min-h-[227px] md:h-[308px] lg:h-[347px] px-[40px] py-[30px] lg:p-[40px] gap-[25px] rounded-tl-[50px] bg-verde-confianza`}
+              className={`reveal ${isCardsVisible ? "is-visible" : ""} flex flex-col justify-center items-center w-full min-[400px]:max-w-[330px] lg:max-w-[400px] min-h-[227px] min-[400px]:h-[271px] lg:h-[313px] p-[30px] lg:px-[20px] lg:py-[60px] gap-[5px] rounded-tl-[50px] bg-verde-confianza`}
               style={{
                 transitionDelay: isCardsVisible ? `${index * 0.15}s` : "0s",
               }}
             >
-              <h3 className="subtitulos text-center font-woodland font-bold tracking-tight text-beige-hogar">
+              <h3 className="subtitulos text-center font-woodland font-bold tracking-tight whitespace-pre-wrap text-beige-hogar">
                 {beneficio.titulo}
               </h3>
               <p className="parrafos text-center text-beige-hogar">
