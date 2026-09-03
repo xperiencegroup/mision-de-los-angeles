@@ -33,26 +33,26 @@ export default function Financiamiento() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-center w-full bg-black/30 backdrop-blur-sm overflow-y-auto">
-      <div className="relative flex flex-col w-full max-w-[1280px] h-fit px-[44px] md:px-[51px] py-[60px] gap-[26px] bg-verde-confianza">
+    <div className="fixed inset-0 z-50 flex justify-center w-full overflow-y-auto bg-verde-confianza">
+      <div className="relative flex flex-col w-full justify-center items-center max-w-[1280px] h-fit lg:h-svh px-[44px] md:px-[51px] py-[100px] min-[500px]:py-[50px] gap-[10px] lg:gap-[20px]">
         {/* Boton de cerrar */}
         <button
           onClick={handleCloseModal}
-          className="absolute right-[22px] md:right-[38px] top-[36px] flex justify-center items-center size-[47px] md:size-[60px] hover:cursor-pointer bg-celeste-bienestar"
+          className="absolute right-[20px] md:right-[38px] top-[20px] flex justify-center items-center size-[47px] md:size-[60px] hover:cursor-pointer bg-celeste-bienestar"
         >
           <img src={closeIcon} className="size-[30px] md:size-[45px]" />
         </button>
 
         {/* Texts */}
-        <div className="flex flex-col gap-5">
+        <div className="max-[500px]:hidden flex flex-col">
           <h2 className="titulos text-center font-woodland text-verde-dinamico">
             Financiamiento
           </h2>
           <p className="parrafos text-center text-beige-hogar">
             En Misión de los Ángeles creemos que encontrar tu hogar ideal
-            también debe ser un proceso claro y accesible. Por ello, contamos
-            con distintas opciones de financiamiento y asesoría especializada
-            para acompañarte en cada paso.
+            también debe ser un proceso claro y accesible. <br /> Por ello,
+            contamos con distintas opciones de financiamiento y asesoría
+            especializada para acompañarte en cada paso.
             <br /> <br />
             Nuestro equipo te ayudará a identificar la alternativa de crédito
             que mejor se adapte a tu perfil, para que puedas enfocarte en lo más
@@ -61,15 +61,15 @@ export default function Financiamiento() {
         </div>
 
         {/* Créditos */}
-        <div className="flex flex-col min-[924px]:flex-row justify-between gap-[20px] min-[924px]:gap-[44px]">
+        <div className="flex flex-col min-[924px]:flex-row justify-between gap-[10px]">
           {/* Infonavit */}
-          <div className="flex-1 flex flex-col min-h-[615px] justify-center items-center px-[30px] py-[40px] gap-[20px] rounded-t-[50px] bg-beige-hogar">
+          <div className="flex-1 flex flex-col min-h-[332px] justify-center items-center px-[30px] py-[30px] min-[500px]:py-[40px] gap-[5px] rounded-t-[50px] bg-beige-hogar">
             {/* Imagen */}
-            <div className="flex justify-center items-center py-[40px]">
+            <div className="flex justify-center items-center">
               <img
                 src={infonavitLogo}
                 alt="Lofo infonavit"
-                className="w-[125px] h-[88px]"
+                className="w-[50px] h-[50px]"
               />
             </div>
             <p className="parrafos text-gris-profundo">
@@ -78,28 +78,28 @@ export default function Financiamiento() {
             </p>
 
             {/* Lista */}
-            <ul className="flex flex-col gap-[20px]">
-              <li className="flex gap-[20px]">
+            <ul className="flex flex-col gap-[5px]">
+              <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
                 <div className="flex justify-center items-center">
-                  <div className="size-[33px] rounded-full bg-verde-confianza" />
+                  <div className="size-[15px] rounded-full bg-verde-confianza" />
                 </div>
                 <p className="parrafos text-verde-confianza">
                   El monto de tu crédito se calcula en función al plazo que
                   elijas para pagarlo y tu capacidad de pago.
                 </p>
               </li>
-              <li className="flex gap-[20px]">
+              <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
                 <div className="flex justify-center items-center">
-                  <div className="size-[33px] rounded-full bg-verde-confianza" />
+                  <div className="size-[15px] rounded-full bg-verde-confianza" />
                 </div>
                 <p className="parrafos text-verde-confianza">
                   Los gastos de titulación, financieros y de operación son del
                   5% respecto al monto de tu crédito.
                 </p>
               </li>
-              <li className="flex gap-[20px]">
+              <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
                 <div className="flex justify-center items-center">
-                  <div className="size-[33px] rounded-full bg-verde-confianza" />
+                  <div className="size-[15px] rounded-full bg-verde-confianza" />
                 </div>
                 <p className="parrafos text-verde-confianza">
                   La tasa de interés es fija.
@@ -109,13 +109,13 @@ export default function Financiamiento() {
           </div>
 
           {/* Infonavit Total*/}
-          <div className="flex-1 flex flex-col min-h-[615px] justify-center items-center px-[30px] py-[40px] gap-[20px] rounded-t-[50px] bg-beige-hogar">
+          <div className="flex-1 flex flex-col min-h-[332px] justify-center items-center px-[30px] py-[30px] min-[500px]:py-[40px] gap-[5px] rounded-t-[50px] bg-beige-hogar">
             {/* Imagen */}
-            <div className="flex justify-center items-center py-[40px]">
+            <div className="flex justify-center items-center">
               <img
                 src={infonavitTotal}
                 alt="Lofo infonavit"
-                className="w-[272px] h-[71px]"
+                className="h-[50px]"
               />
             </div>
             <p className="parrafos text-gris-profundo">
@@ -125,19 +125,19 @@ export default function Financiamiento() {
             </p>
 
             {/* Lista */}
-            <ul className="flex flex-col gap-[20px]">
-              <li className="flex gap-[20px]">
+            <ul className="flex flex-col gap-[5px]">
+              <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
                 <div className="flex justify-center items-center">
-                  <div className="size-[33px] rounded-full bg-verde-confianza" />
+                  <div className="size-[15px] rounded-full bg-verde-confianza" />
                 </div>
                 <p className="parrafos text-verde-confianza">
                   Financian hasta el 90% del valor de la casa en plazos desde 5
                   hasta 20 años.
                 </p>
               </li>
-              <li className="flex gap-[20px]">
+              <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
                 <div className="flex justify-center items-center">
-                  <div className="size-[33px] rounded-full bg-verde-confianza" />
+                  <div className="size-[15px] rounded-full bg-verde-confianza" />
                 </div>
                 <p className="parrafos text-verde-confianza">
                   Los créditos son en pesos.
@@ -148,12 +148,12 @@ export default function Financiamiento() {
         </div>
 
         {/* Bancos */}
-        <div className="flex flex-wrap w-full h-fit justify-center items-center px-[30px] py-[60px] gap-[40px] rounded-b-[50px] bg-beige-hogar">
-          <img src={bbvaLogo} className="h-[35px]" />
-          <img src={hsbcLogo} className="h-[35px]" />
-          <img src={santanderLogo} className="h-[35px]" />
-          <img src={banorteLogo} className="h-[35px]" />
-          <img src={banregioLogo} className="h-[35px]" />
+        <div className="flex flex-col min-[500px]:flex-row flex-wrap w-full h-fit justify-center min-[969px]:justify-between items-center px-[30px] py-[30px] min-[500px]:py-[40px] lg:py-[60px] gap-[20px] min-[500px]:gap-[40px] rounded-b-[50px] bg-beige-hogar">
+          <img src={bbvaLogo} className="h-[29px]" />
+          <img src={hsbcLogo} className="h-[29px]" />
+          <img src={santanderLogo} className="h-[29px]" />
+          <img src={banorteLogo} className="h-[29px]" />
+          <img src={banregioLogo} className="h-[29px]" />
         </div>
       </div>
     </div>
