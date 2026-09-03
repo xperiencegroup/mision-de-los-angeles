@@ -11,13 +11,14 @@ import Hero from "./components/hero";
 import Modelos from "./components/modelos";
 import Nosotros from "./components/nosotros";
 import Ubicacion from "./components/ubicacion";
-import ModeloKinzo from "../popup/home/modelo-kinzo";
-import ModeloReve from "../popup/home/modelo-reve";
+import ModeloPopup from "../popup/home/modelo-popup";
+import { MODELOS } from "../../data/modelos";
 
 export default function Home() {
   const [params] = useSearchParams();
   const activeModal = params.get("modal");
   const id = params.get("id");
+  const modelData = MODELOS[id];
 
   return (
     <div className="flex flex-col items-center w-full overflow-hidden">
@@ -45,8 +46,9 @@ export default function Home() {
       </div>
 
       {activeModal === "financiamiento" && <Financiamiento />}
-      {activeModal === "modelo" && id === "kinzo" && <ModeloKinzo />}
-      {activeModal === "modelo" && id === "reve" && <ModeloReve />}
+      {activeModal === "modelo" && MODELOS[id] && (
+        <ModeloPopup {...modelData} />
+      )}
     </div>
   );
 }

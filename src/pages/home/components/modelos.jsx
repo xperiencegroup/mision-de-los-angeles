@@ -56,7 +56,7 @@ const modelos = [
     nombre: "Modelo Revé Plus",
     detalle: (
       <>
-        2 Niveles -{" "}
+        3 Niveles -{" "}
         <span className="font-bold">
           213m<sup>2</sup>
         </span>
