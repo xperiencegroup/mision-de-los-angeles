@@ -6,6 +6,65 @@ import decorationRight from "../../../assets/images/decoration/modelos-right.svg
 import { useSearchParams } from "react-router";
 import { useInView } from "../../../hooks/useInView";
 
+const modelos = [
+  {
+    id: "kinzo",
+    image: kinzoImage,
+    alt: "Imagen del Modelo Kinzo",
+    nombre: "Modelo Kinzo",
+    detalle: (
+      <>
+        2 Niveles -{" "}
+        <span className="font-bold">
+          158m<sup>2</sup>
+        </span>
+      </>
+    ),
+  },
+  {
+    id: "reve",
+    image: reveImage,
+    alt: "Imagen del Modelo Revé",
+    nombre: "Modelo Revé",
+    detalle: (
+      <>
+        3 Niveles -{" "}
+        <span className="font-bold">
+          198m<sup>2</sup>
+        </span>
+      </>
+    ),
+  },
+  {
+    id: "kinzo-plus",
+    image: kinzoImage,
+    alt: "Imagen del Modelo Kinzo Plus",
+    nombre: "Modelo Kinzo Plus",
+    detalle: (
+      <>
+        2 Niveles -{" "}
+        <span className="font-bold">
+          170m<sup>2</sup>
+        </span>
+      </>
+    ),
+  },
+  {
+    id: "reve-plus",
+    image: reveImage,
+    alt: "Imagen del Modelo Revé Plus",
+    nombre: "Modelo Revé Plus",
+    detalle: (
+      <>
+        2 Niveles -{" "}
+        <span className="font-bold">
+          213m<sup>2</sup>
+        </span>
+      </>
+    ),
+  },
+];
+
 export default function Modelos() {
   const [, setSearchParams] = useSearchParams();
   const handleOpenModel = (model) => {
@@ -24,7 +83,7 @@ export default function Modelos() {
       {/* Imagenes decorativas */}
       <div
         ref={decorRef}
-        className="absolute w-full max-w-[1280px] h-fit top-0 max-lg:hidden"
+        className="absolute w-full max-w-[1280px] h-fit -top-17 max-lg:hidden"
       >
         <div className="flex justify-between relative w-full h-full">
           <img
@@ -64,73 +123,46 @@ export default function Modelos() {
             familia
           </h3>
 
-          <p className="text-paragraph4 text-center leading-[115%] text-gris-profundo">
-            Dos opciones diseñadas con inteligencia: desde la cochera{" "}
-            <br className="max-md:hidden" />
-            hasta la terraza, cada espacio tiene una razón de ser.
+          <p className="parrafos text-center text-gris-profundo">
+            Dos opciones diseñadas con inteligencia: desde la cochera hasta la
+            terraza, cada espacio tiene una razón de ser.
           </p>
         </div>
 
         {/* Cuadros */}
         <div
           ref={cardsRef}
-          className="flex flex-row flex-wrap justify-center items-center gap-[40px] md:gap-[60px]"
+          className="flex flex-row flex-wrap justify-center items-center gap-[40px] md:gap-x-[60px]"
         >
-          {/* Modelo Kinzo */}
-          <div
-            className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-full max-w-[546px] lg:w-[546px] bg-verde-confianza rounded-br-[80px] lg:rounded-br-[100px] overflow-hidden`}
-          >
-            <div className="relative w-full h-[326px]">
-              <img
-                src={kinzoImage}
-                alt="Imagen del Modelo Revé"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-            {/* Texto */}
-            <div className="flex flex-col w-full justify-center items-center px-[24px] py-[30px] gap-[20px]">
-              <h4 className="titulos font-woodland font-bold text-center text-beige-hogar">
-                Modelo Kinzo Plus
-              </h4>
-              <p className="subtitulos font-woodland text-beige-hogar">
-                Casa de 2 Niveles
-              </p>
-              <button
-                onClick={() => handleOpenModel("kinzo")}
-                className="px-[24px] py-[15px] text-button text-verde-confianza bg-celeste-bienestar"
+          {modelos.map((modelo, index) => {
+            return (
+              <div
+                key={index}
+                className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-full max-w-[546px] lg:w-[546px] bg-verde-confianza rounded-br-[80px] lg:rounded-br-[100px] overflow-hidden`}
               >
-                Ver modelo
-              </button>
-            </div>
-          </div>
-
-          {/* Modelo Revé */}
-          <div
-            className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-full max-w-[546px] lg:w-[546px] bg-verde-confianza rounded-br-[80px] md:rounded-br-[100px] overflow-hidden`}
-          >
-            <div className="relative w-full h-[326px]">
-              <img
-                src={reveImage}
-                alt="Imagen del Modelo Revé"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-            {/* Texto */}
-            <div className="flex flex-col w-full justify-center items-center px-[24px] py-[30px] gap-[20px]">
-              <h4 className="titulos font-woodland font-bold text-center text-beige-hogar">
-                Modelo Revé Plus
-              </h4>
-              <p className="subtitulos font-woodland text-beige-hogar">
-                Casa de 3 Niveles
-              </p>
-              <button
-                onClick={() => handleOpenModel("reve")}
-                className="px-[24px] py-[15px] text-button text-verde-confianza bg-celeste-bienestar"
-              >
-                Ver modelo
-              </button>
-            </div>
-          </div>
+                <div className="relative w-full h-[326px]">
+                  <img
+                    src={modelo.image}
+                    alt={modelo.alt}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+                {/* Texto */}
+                <div className="flex flex-col w-full justify-center items-center px-[24px] py-[30px] gap-[10px]">
+                  <h4 className="titulos font-woodland font-bold text-center leading-[50%] text-beige-hogar">
+                    {modelo.nombre}
+                  </h4>
+                  <p className="parrafos text-beige-hogar">{modelo.detalle}</p>
+                  <button
+                    onClick={() => handleOpenModel(modelo.id)}
+                    className="px-[24px] py-[15px] text-button font-woodland text-verde-confianza bg-celeste-bienestar"
+                  >
+                    Ver modelo
+                  </button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

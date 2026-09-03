@@ -47,19 +47,9 @@ export const ModeloCarousel = forwardRef(function ModeloCarousel(
   }, [emblaApi, onSlideChange, slides.length]);
 
   return (
-    <div className="flex flex-col-reverse sm:flex-col items-center gap-[10px] md:gap-[24px] w-full h-full">
-      <div className="embla w-full overflow-hidden h-full" ref={emblaRef}>
-        <div className="embla__container flex h-full">
-          {slides.map((slide, index) => (
-            <div key={index} className="min-w-0 flex-[0_0_100%] h-full">
-              {slide}
-            </div>
-          ))}
-        </div>
-      </div>
-
+    <div className="flex flex-col items-center lg:items-start gap-[15px] w-full h-full">
       {/* Dots numerados */}
-      <div className="flex items-center gap-[10px]">
+      <div className="flex items-start gap-[15px]">
         {slides.map((_, index) => {
           const isActive = index === currentIndex;
           return (
@@ -76,6 +66,17 @@ export const ModeloCarousel = forwardRef(function ModeloCarousel(
             </button>
           );
         })}
+      </div>
+
+      {/* Slides */}
+      <div className="embla w-full overflow-hidden" ref={emblaRef}>
+        <div className="embla__container flex">
+          {slides.map((slide, index) => (
+            <div key={index} className="min-w-0 flex-[0_0_100%]">
+              {slide}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

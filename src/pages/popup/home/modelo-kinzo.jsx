@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
+import { motion, AnimatePresence } from "motion/react";
 import closeIcon from "../../../assets/icons/close.svg";
 import plantaBaja from "../../../assets/images/modelos/kinzo/planta-baja.png";
 import plantaAlta from "../../../assets/images/modelos/kinzo/planta-alta.png";
@@ -72,8 +73,24 @@ const CARACTERISITCAS = {
   ],
 };
 
+const niveles = [
+  {
+    titulo: "Primer Nivel:",
+    image: plantaBaja,
+    imageLabel: "Planta Baja",
+    caracteristicas: CARACTERISITCAS["primer-nivel"],
+  },
+  {
+    titulo: "Segundo Nivel:",
+    image: plantaAlta,
+    imageLabel: "2a Planta",
+    caracteristicas: CARACTERISITCAS["segundo-nivel"],
+  },
+];
+
 export default function ModeloKinzo() {
   const [, setSearchParams] = useSearchParams();
+  const [selectedNivel, setSelectedNivel] = useState(niveles[0]);
 
   const handleCloseModal = () => {
     setSearchParams({});
@@ -95,49 +112,27 @@ export default function ModeloKinzo() {
     };
   }, []);
 
-  const niveles = [
-    {
-      titulo: "Primer Nivel:",
-      image: plantaBaja,
-      imageLabel: "Planta Baja",
-      caracteristicas: CARACTERISITCAS["primer-nivel"],
-    },
-    {
-      titulo: "Segundo Nivel:",
-      image: plantaAlta,
-      imageLabel: "2a Planta",
-      caracteristicas: CARACTERISITCAS["segundo-nivel"],
-    },
-  ];
-
   const slides = niveles.map((nivel) => (
     <div
       key={nivel.titulo}
-      className="flex flex-col md:flex-row w-full h-full justify-center items-center pr-[5px]"
+      className="flex w-full h-full justify-start items-start px-[4px] lg:pr-[20px]"
     >
-      {/* Imagen */}
-      <div className="flex flex-col items-center">
-        <div className="relative w-[400px] h-[500px]">
-          <img
-            src={nivel.image}
-            alt={`Modelo Kinzo Plus ${nivel.imageLabel}`}
-            className="absolute inset-0 w-full h-full object-contain"
-          />
-        </div>
-      </div>
-
       {/* Características */}
-      <div className="flex flex-col grow max-w-[650px] h-full px-[30px] py-[40px] gap-[20px] rounded-t-[50px] bg-verde-confianza">
+      <div className="flex flex-col grow w-full h-fit p-[29px] gap-[10px] rounded-t-[50px] bg-verde-confianza">
         <h3 className="subtitulos font-woodland font-bold text-verde-dinamico">
           {nivel.titulo}
         </h3>
 
-        <ul className="flex flex-col gap-[20px]">
+        <ul className="flex flex-col gap-[10px]">
           {nivel.caracteristicas.map((item, index) => {
             return (
               <li key={index} className="flex items-center gap-[20px]">
-                <div className="shrink-0 flex justify-center items-center size-[60px] rounded-t-[30px] bg-beige-hogar">
-                  <img src={item.icon} alt={`${item.icon}-image`} />
+                <div className="shrink-0 flex justify-center items-center size-[45px] rounded-t-[30px] bg-beige-hogar">
+                  <img
+                    src={item.icon}
+                    alt={`${item.icon}-image`}
+                    className="size-[26.5px]"
+                  />
                 </div>
                 <p className="parrafos text-beige-hogar">{item.label}</p>
               </li>
@@ -149,8 +144,8 @@ export default function ModeloKinzo() {
   ));
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-center w-full min-h-fit bg-black/30 backdrop-blur-sm overflow-y-auto">
-      <div className="relative flex flex-col w-full min-h-lvh p-[60px] gap-[17px] bg-beige-hogar overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex justify-center items-start w-full overflow-y-auto">
+      <div className="relative flex flex-col justify-center items-center w-full min-h-svh lg:h-svh px-[44px] py-[60px] md:px-[60px] lg:p-0 bg-beige-hogar">
         {/* Boton de cerrar */}
         <button
           onClick={handleCloseModal}
@@ -159,20 +154,45 @@ export default function ModeloKinzo() {
           <img src={closeIcon} className="size-[30px] md:size-[45px]" />
         </button>
 
-        {/* Texts */}
-        <div className="flex flex-col w-full h-fit gap-5">
-          <h2 className="titulos text-center font-woodland font-bold text-verde-confianza">
-            Modelo Kinzo Plus
-          </h2>
-          <p className="parrafos text-center text-gris-profundo">
-            Dos plantas diseñadas para disfrutar cada espacio en familia. Kinzo
-            integra áreas sociales amplias en la planta baja y tres recámaras en
-            el segundo nivel, cada una con baño completo, además de estancia y
-            lavandería.
-          </p>
+        {/* Content */}
+        <div className="flex flex-col justify-center items-center lg:flex-row w-full h-full">
+          {/* Image */}
+          <div className="w-full shrink-0 h-[480px] lg:h-full max-w-[425px] lg:flex-1 relative">
+            <AnimatePresence mode="sync">
+              <motion.img
+                key={selectedNivel.image}
+                src={selectedNivel.image}
+                alt={selectedNivel.imageLabel}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="absolute inset-0 w-full h-full object-contain"
+              />
+            </AnimatePresence>
+          </div>
+          {/* Text and slider */}
+          <div className="w-full max-w-[735px] h-fit lg:flex-2 flex flex-col justify-center gap-[15px]">
+            {/* title & description */}
+            <div className="flex flex-col">
+              <h2 className="titulos font-woodland font-bold leading-none text-center lg:text-left text-verde-confianza">
+                Modelo Kinzo
+              </h2>
+              <p className="parrafos text-left text-gris-profundo">
+                Dos plantas diseñadas para disfrutar cada espacio en familia.
+                Kinzo integra áreas sociales amplias en la planta baja y tres
+                recámaras en el segundo nivel, cada una con baño completo,
+                además de estancia y lavandería.
+              </p>
+            </div>
 
-          <div className="flex w-full h-full overflow-hidden">
-            <ModeloCarousel slides={slides} />
+            {/* Slider */}
+            <div className="flex w-full h-fit">
+              <ModeloCarousel
+                slides={slides}
+                onSlideChange={(index) => setSelectedNivel(niveles[index])}
+              />
+            </div>
           </div>
         </div>
       </div>
