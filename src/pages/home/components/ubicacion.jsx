@@ -1,5 +1,5 @@
-// import mapa from "../../../assets/images/mapa.svg";
-import mapa from "../../../assets/images/mapa2.svg";
+// import mapa from "../../../assets/images/mapa2.svg";
+import mapa from "../../../assets/images/mapa-updated.svg";
 import { useInView } from "../../../hooks/useInView";
 
 export default function Ubicacion() {

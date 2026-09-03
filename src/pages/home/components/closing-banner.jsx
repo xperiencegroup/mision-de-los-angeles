@@ -21,13 +21,13 @@ export default function ClosingBanner() {
       <div className="relative flex flex-col w-full h-full justify-end items-center p-[60px] gap-[20px]">
         <div
           ref={textRef}
-          className={`reveal ${isTextInView ? "is-visible" : ""} flex flex-col items-center gap-[20px]`}
+          className={`reveal ${isTextInView ? "is-visible" : ""} flex flex-col items-center gap-[5px]`}
         >
           <h3 className="titulos font-woodland font-bold leading-[110%] text-beige-hogar text-center">
             ¿Listo para conocer Misión de los Ángeles?
           </h3>
 
-          <p className="subtitulos text-center font-woodland leading-[110%] text-beige-hogar">
+          <p className="parrafos text-center text-beige-hogar">
             Descubre sus espacios, amenidades y modelos disponibles.{" "}
             <br className="max-md:hidden" />
             Nuestro equipo está listo para acompañarte y resolver todas tus
@@ -54,6 +54,11 @@ export default function ClosingBanner() {
           </a>
         </div>
       </div>
+
+      {/* Leyenda */}
+      <p className="absolute bottom-5 right-5 text-[12px] text-center text-beige-hogar">
+        Imágenes con fines ilustrativos*
+      </p>
     </div>
   );
 }

@@ -54,12 +54,13 @@ export default function Formulario() {
       {/* Texto */}
       <div
         ref={titleRef}
-        className={`reveal ${isTitleInView ? "is-visible" : ""} flex flex-col gap-[20px]`}
+        className={`reveal ${isTitleInView ? "is-visible" : ""} flex flex-col gap-[5px]`}
       >
         <h2 className="titulos text-center font-woodland font-bold text-verde-confianza">
-          Conoce tu próximo hogar en Misión de los Ángeles
+          Conoce tu próximo hogar en <br className="max-[481px]:hidden" />{" "}
+          Misión de los Ángeles: Serafines
         </h2>
-        <p className="parrafos text-center leading-[115%]">
+        <p className="parrafos text-center">
           Déjanos tus datos y recibe información sobre modelos, disponibilidad y
           opciones para encontrar el <br className="max-sm:hidden" /> espacio
           ideal para tu familia.
@@ -70,14 +71,14 @@ export default function Formulario() {
       <form
         ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
-        className={`reveal ${isFormInView ? "is-visible" : ""} flex flex-col w-full gap-[20px] mt-[40px]`}
+        className={`reveal ${isFormInView ? "is-visible" : ""} flex flex-col w-full gap-[10px] mt-[40px]`}
         noValidate
       >
         {/* Nombre completo */}
         <div className="flex flex-col gap-[8px]">
           <label
             htmlFor="name"
-            className="boton-label font-bold text-verde-confianza"
+            className="boton-label leading-none font-bold text-verde-confianza"
           >
             Nombre completo *
           </label>
@@ -98,7 +99,10 @@ export default function Formulario() {
         {/* Correo y Teléfono */}
         <div className="flex flex-col md:flex-row w-full gap-[20px] lg:gap-[44px]">
           <div className="flex flex-col flex-1 gap-[8px]">
-            <label htmlFor="email" className="boton-label font-bold">
+            <label
+              htmlFor="email"
+              className="boton-label leading-none font-bold"
+            >
               Correo electrónico *
             </label>
             <input
@@ -122,7 +126,10 @@ export default function Formulario() {
           </div>
 
           <div className="flex flex-col flex-1 gap-[8px]">
-            <label htmlFor="phone" className="boton-label font-bold">
+            <label
+              htmlFor="phone"
+              className="boton-label leading-none font-bold"
+            >
               Teléfono *
             </label>
             <input
@@ -148,7 +155,10 @@ export default function Formulario() {
 
         {/* Mensaje */}
         <div className="flex flex-col gap-[8px]">
-          <label htmlFor="message" className="boton-label font-bold">
+          <label
+            htmlFor="message"
+            className="boton-label leading-none font-bold"
+          >
             Mensaje
           </label>
           <textarea

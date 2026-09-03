@@ -19,7 +19,7 @@ export default function Cotiza() {
       {/* Horario de atención */}
       <div
         ref={scheduleRef}
-        className={`reveal ${isScheduleInView ? "is-visible" : ""} relative flex flex-col w-full justify-center items-center text-center px-[44px] py-[30px] gap-[20px] md:gap-[10px] bg-verde-confianza`}
+        className={`reveal ${isScheduleInView ? "is-visible" : ""} relative flex flex-col w-full justify-center items-center text-center px-[44px] py-[30px] gap-[5px] bg-verde-confianza`}
       >
         {/* decoración */}
         <div className="flex absolute w-full h-full inset-0 justify-center max-[1120px]:hidden">
@@ -81,8 +81,8 @@ export default function Cotiza() {
           ref={textRef}
           className={`reveal-right ${isTextInView ? "is-visible" : ""} flex flex-1 flex-col w-full h-full justify-center`}
         >
-          <div className="flex flex-col gap-[20px]">
-            <h2 className="titulos text-left font-woodland font-bold leading-[110%] text-verde-confianza">
+          <div className="flex flex-col gap-[10px]">
+            <h2 className="titulos text-left font-woodland font-bold leading-[80%] text-verde-confianza">
               Cotiza y aprovecha <br /> tu promoción
             </h2>
 
