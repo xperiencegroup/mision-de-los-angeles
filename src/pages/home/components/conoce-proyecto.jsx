@@ -1,7 +1,9 @@
+import { useInView } from "../../../hooks/useInView";
 import background from "../../../assets/images/background-texture.jpg";
 import decorationRight from "../../../assets/images/decoration/conoce-right.svg";
 import decorationLeft from "../../../assets/images/decoration/conoce-left.svg";
-import { useInView } from "../../../hooks/useInView";
+
+import banner from "../../../assets/images/banner-conoce.jpg";
 
 const beneficios = [
   {
@@ -27,20 +29,20 @@ export default function ConoceProyecto() {
   return (
     <div
       id="conoce"
-      className="relative flex justify-center items-center w-full min-h-[640px] py-[60px]"
+      className="relative flex flex-col justify-center items-center w-full min-h-[640px] pt-[60px] gap-[40px]"
     >
       {/* Imagenes decorativas */}
-      <div className="absolute -top-45 w-full h-fit max-w-[1280px] hidden min-[1220px]:block">
+      <div className="absolute -top-26 w-full h-fit max-w-[1280px] hidden min-[1220px]:block">
         <div className="flex justify-between relative w-full h-full">
           <img
             src={decorationLeft}
             alt="Imagen decorativa"
-            className="h-[333px]"
+            className="h-[300px]"
           />
           <img
             src={decorationRight}
             alt="Imagen decorativa"
-            className="h-[333px]"
+            className="h-[300px]"
           />
         </div>
       </div>
@@ -61,15 +63,13 @@ export default function ConoceProyecto() {
           className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col gap-[5px] px-[51px]`}
         >
           <h2 className="titulos text-center font-woodland font-bold text-verde-confianza">
-            Conoce
-            <br />
-            Misión de los Ángeles: Serafines
+            Conoce Misión de los Ángeles: <br /> Serafines
           </h2>
 
           <p className="parrafos text-center text-gris-profundo">
-            Áreas verdes, amenidades de primer nivel y una comunidad segura,
-            <br className="max-md:hidden" /> todo en uno de los sectores con
-            mayor proyección de Apodaca.
+            Áreas verdes, amenidades de primer nivel y una comunidad segura,{" "}
+            <br className="max-md:hidden" />
+            todo en uno de los sectores con mayor proyección de Apodaca.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export default function ConoceProyecto() {
           {beneficios.map((beneficio, index) => (
             <div
               key={index}
-              className={`reveal ${isCardsVisible ? "is-visible" : ""} flex flex-col justify-center items-center w-full min-[400px]:max-w-[330px] lg:max-w-[400px] min-h-[227px] min-[400px]:h-[271px] lg:h-[313px] p-[30px] lg:px-[20px] lg:py-[60px] gap-[5px] rounded-tl-[50px] bg-verde-confianza`}
+              className={`reveal ${isCardsVisible ? "is-visible" : ""} flex flex-col justify-center items-center w-full min-[400px]:max-w-[330px] lg:max-w-[400px] min-h-[227px] min-[400px]:h-[271px] lg:h-[240px] p-[30px] lg:px-[20px] lg:py-[60px] gap-[5px] rounded-tl-[50px] bg-verde-confianza`}
               style={{
                 transitionDelay: isCardsVisible ? `${index * 0.15}s` : "0s",
               }}
@@ -95,6 +95,19 @@ export default function ConoceProyecto() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* banner */}
+      <div className="relative w-full h-[40svh] rounded-tl-[120px] overflow-hidden">
+        <img
+          src={banner}
+          alt="Imágen de salón social"
+          className="absolute inset-0 w-full h-full object-cover object-[0%_40%]"
+        />
+
+        <p className="absolute bottom-3 left-1/2 -translate-x-[50%] text-[12px] text-beige-hogar">
+          Imágenes con fines ilustrativos*
+        </p>
       </div>
     </div>
   );

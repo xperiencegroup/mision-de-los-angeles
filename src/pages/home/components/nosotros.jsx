@@ -3,6 +3,7 @@ import { useInView } from "../../../hooks/useInView";
 import { motion, useMotionValue, useTransform, animate } from "motion/react";
 import benevaCertified from "../../../assets/images/beneva-certificate.png";
 import backgroundTexture from "../../../assets/images/background-texture.jpg";
+import banner from "../../../assets/images/nosotros-banner.jpg";
 
 const stats = [
   { end: 5, label: "Etapas del proyecto" },
@@ -46,7 +47,7 @@ export default function Nosotros() {
   return (
     <div
       id="nosotros"
-      className="flex flex-col w-full justify-center items-center"
+      className="flex flex-col gap-[30px] w-full justify-center items-center"
     >
       {/* Bloque "Licencias y permisos" */}
       <div ref={certRef} className="w-full py-[40px] md:py-[30px]">
@@ -75,7 +76,7 @@ export default function Nosotros() {
       </div>
 
       {/* Stats bloque */}
-      <div className="flex flex-col w-full max-w-[1280px] justify-center items-center px-[44px] py-[40px] md:py-[60px] md:p-[60px] gap-[40px]">
+      <div className="flex flex-col w-full max-w-[1280px] justify-center items-center px-[44px] md:px-[60px] gap-[40px]">
         <div ref={titleRef} className="flex flex-col w-full gap-[20px]">
           <h2
             className={`reveal ${isTitleVisible ? "is-visible" : ""} font-woodland font-bold text-center subtitulos text-verde-confianza`}
@@ -124,6 +125,19 @@ export default function Nosotros() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* imagen */}
+      <div className="relative w-full h-[40svh] bg-red-500 rounded-tl-[120px] overflow-hidden">
+        <img
+          src={banner}
+          alt="Imágen de salón social"
+          className="absolute inset-0 w-full h-full object-cover object-[0%_40%]"
+        />
+
+        <p className="absolute bottom-3 left-1/2 -translate-x-[50%] text-[12px] text-beige-hogar">
+          Imágenes con fines ilustrativos*
+        </p>
       </div>
     </div>
   );

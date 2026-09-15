@@ -2,6 +2,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useInView } from "../../../hooks/useInView";
 
+import userIcon from "../../../assets/icons/form/user.svg";
+import mailIcon from "../../../assets/icons/form/mail.svg";
+import phoneIcon from "../../../assets/icons/form/phone.svg";
+import messageIcon from "../../../assets/icons/form/message.svg";
+
 export default function Formulario() {
   const {
     register,
@@ -50,7 +55,7 @@ export default function Formulario() {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-[1280px] justify-center items-center px-[44px] md:px-[60px] py-[34px] gap-[20px]">
+    <div className="flex flex-col w-full max-w-[1280px] justify-center items-center px-[44px] md:px-[60px] py-[34px] gap-[16px] min-h-svh">
       {/* Texto */}
       <div
         ref={titleRef}
@@ -71,7 +76,7 @@ export default function Formulario() {
       <form
         ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
-        className={`reveal ${isFormInView ? "is-visible" : ""} flex flex-col w-full gap-[10px] mt-[40px]`}
+        className={`reveal ${isFormInView ? "is-visible" : ""} flex flex-col w-full gap-[15px] mt-[40px]`}
         noValidate
       >
         {/* Nombre completo */}
@@ -82,22 +87,30 @@ export default function Formulario() {
           >
             Nombre completo *
           </label>
-          <input
-            id="name"
-            type="text"
-            placeholder="Tu nombre completo"
-            className="input placeholder:input w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
-            {...register("name", { required: "El nombre es obligatorio" })}
-          />
-          {errors.nombre && (
-            <span className="text-red-500 text-[12px]">
-              {errors.nombre.message}
-            </span>
-          )}
+
+          <div className="flex items-center gap-4 px-[16px] rounded-[10px] bg-verde-confianza">
+            <img
+              src={userIcon}
+              alt="Ícono de usuario"
+              className="shrink-0 h-[20px]"
+            />
+            <input
+              id="name"
+              type="text"
+              placeholder="Tu nombre completo"
+              className="input placeholder:input w-full h-[52px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
+              {...register("name", { required: "El nombre es obligatorio" })}
+            />
+            {errors.nombre && (
+              <span className="text-red-500 text-[12px]">
+                {errors.nombre.message}
+              </span>
+            )}
+          </div>
         </div>
 
         {/* Correo y Teléfono */}
-        <div className="flex flex-col md:flex-row w-full gap-[20px] lg:gap-[44px]">
+        <div className="flex flex-col md:flex-row w-full gap-[20px]">
           <div className="flex flex-col flex-1 gap-[8px]">
             <label
               htmlFor="email"
@@ -105,24 +118,31 @@ export default function Formulario() {
             >
               Correo electrónico *
             </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="tu@email.com"
-              className="input placeholder:input w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
-              {...register("email", {
-                required: "El correo es obligatorio",
-                pattern: {
-                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: "Correo inválido",
-                },
-              })}
-            />
-            {errors.email && (
-              <span className="text-red-500 text-[12px]">
-                {errors.email.message}
-              </span>
-            )}
+            <div className="flex items-center gap-4 px-[16px] rounded-[10px] bg-verde-confianza">
+              <img
+                src={mailIcon}
+                alt="Ícono de correo"
+                className="shrink-0 h-[20px]"
+              />
+              <input
+                id="email"
+                type="email"
+                placeholder="tu@email.com"
+                className="input placeholder:input w-full h-[52px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
+                {...register("email", {
+                  required: "El correo es obligatorio",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Correo inválido",
+                  },
+                })}
+              />
+              {errors.email && (
+                <span className="text-red-500 text-[12px]">
+                  {errors.email.message}
+                </span>
+              )}
+            </div>
           </div>
 
           <div className="flex flex-col flex-1 gap-[8px]">
@@ -132,24 +152,31 @@ export default function Formulario() {
             >
               Teléfono *
             </label>
-            <input
-              id="phone"
-              type="tel"
-              placeholder="81 1234 5678"
-              className="input placeholder:input w-full h-[52px] px-[16px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
-              {...register("phone", {
-                required: "El teléfono es obligatorio",
-                pattern: {
-                  value: /^[0-9\s]{10,}$/,
-                  message: "Teléfono inválido",
-                },
-              })}
-            />
-            {errors.telefono && (
-              <span className="text-red-500 text-[12px]">
-                {errors.telefono.message}
-              </span>
-            )}
+            <div className="flex items-center gap-4 px-[16px] rounded-[10px] bg-verde-confianza">
+              <img
+                src={phoneIcon}
+                alt="Ícono de teléfono"
+                className="shrink-0 h-[20px]"
+              />
+              <input
+                id="phone"
+                type="tel"
+                placeholder="81 1234 5678"
+                className="input placeholder:input w-full h-[52px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
+                {...register("phone", {
+                  required: "El teléfono es obligatorio",
+                  pattern: {
+                    value: /^[0-9\s]{10,}$/,
+                    message: "Teléfono inválido",
+                  },
+                })}
+              />
+              {errors.telefono && (
+                <span className="text-red-500 text-[12px]">
+                  {errors.telefono.message}
+                </span>
+              )}
+            </div>
           </div>
         </div>
 
@@ -161,22 +188,30 @@ export default function Formulario() {
           >
             Mensaje
           </label>
-          <textarea
-            id="message"
-            rows={5}
-            placeholder="Cuéntanos más sobre lo que estás buscando..."
-            className="input placeholder:input w-full px-[16px] py-[12px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none resize-none"
-            {...register("message")}
-          />
+
+          <div className="flex items-start gap-4 px-[16px] py-[12px] rounded-[10px] bg-verde-confianza">
+            <img
+              src={messageIcon}
+              alt="Ícono de mensaje"
+              className="shrink-0 h-[25px] pt-[5px]"
+            />
+            <textarea
+              id="message"
+              rows={5}
+              placeholder="Cuéntanos más sobre lo que estás buscando..."
+              className="input placeholder:input w-full bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none resize-none"
+              {...register("message")}
+            />
+          </div>
         </div>
 
         {/* Botón */}
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full py-[20px] bg-celeste-bienestar boton text-verde-confianza hover:cursor-pointer transition-colors disabled:opacity-80 disabled:cursor-not-allowed"
+          className="w-full py-[18px] bg-celeste-bienestar boton text-verde-confianza hover:cursor-pointer transition-colors disabled:opacity-80 disabled:cursor-not-allowed"
         >
-          {isLoading ? "Enviando..." : "Quiero recibir información"}
+          {isLoading ? "Enviando..." : "Quiero enterarme primero"}
         </button>
       </form>
     </div>

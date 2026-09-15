@@ -108,7 +108,7 @@ export default function Amenidades() {
       {/* Texto */}
       <div
         ref={titleRef}
-        className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col max-md:px-[44px] gap-[20px]`}
+        className={`reveal ${isTitleVisible ? "is-visible" : ""} flex flex-col max-md:px-[44px] gap-[5px]`}
       >
         <h2 className="titulos text-center font-woodland font-bold leading-[110%] text-verde-confianza">
           Amenidades
@@ -116,7 +116,7 @@ export default function Amenidades() {
         <h3 className="subtitulos text-center font-woodland font-bold leading-[110%] text-verde-confianza">
           Más que propiedades, construimos patrimonio
         </h3>
-        <p className="text-paragraph4 text-center leading-[115%] text-gris-profundo">
+        <p className="parrafos text-center leading-[115%] text-gris-profundo">
           Disfruta de cómodas áreas verdes, parques y una comunidad segura para
           tu familia.
         </p>

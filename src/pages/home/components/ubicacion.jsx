@@ -1,5 +1,5 @@
 // import mapa from "../../../assets/images/mapa2.svg";
-import mapa from "../../../assets/images/mapa-updated.svg";
+import mapa from "../../../assets/images/mapa-v1.svg";
 import { useInView } from "../../../hooks/useInView";
 
 export default function Ubicacion() {
@@ -9,7 +9,7 @@ export default function Ubicacion() {
   return (
     <div
       id="ubicacion"
-      className="w-full flex flex-col justify-center items-center px-[44px] py-[40px] md:py-[32px] gap-[20px]"
+      className="w-full flex flex-col justify-center items-center px-[44px] py-[40px] md:py-[32px] gap-[20px] min-h-[70svh]"
     >
       <h2
         ref={titleRef}
