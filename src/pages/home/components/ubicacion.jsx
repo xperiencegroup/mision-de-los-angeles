@@ -29,7 +29,7 @@ export default function Ubicacion() {
         <img
           src={mapa}
           alt="Mapa de Misión de los Ángeles"
-          className="w-[686px] md:h-[386px]"
+          className="w-fit md:h-[386px] xl:h-[460px]"
         />
       </a>
     </div>
