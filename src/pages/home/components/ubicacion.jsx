@@ -9,7 +9,7 @@ export default function Ubicacion() {
   return (
     <div
       id="ubicacion"
-      className="w-full flex flex-col justify-center items-center px-[44px] py-[40px] md:py-[32px] gap-[20px] min-h-[70svh]"
+      className="w-full flex flex-col justify-center items-center px-[44px] py-[40px] md:py-[32px] gap-[20px] min-h-[40svh] md:min-h-[70svh]"
     >
       <h2
         ref={titleRef}
