@@ -42,13 +42,13 @@ export default function ClosingBanner() {
         >
           <a
             href="#amenidades"
-            className="relative w-[150px] boton px-[24px] py-[15px] font-woodland text-center text-verde-confianza bg-beige-hogar before:absolute before:bottom-0 before:left-0 hover:before:h-[3px] before:w-full before:bg-celeste-bienestar active:bg-celeste-bienestar"
+            className="relative w-[150px] boton px-[24px] py-[15px] font-woodland text-center text-verde-confianza bg-celeste-bienestar before:absolute before:bottom-0 before:left-0 hover:before:h-[3px] before:w-full before:bg-celeste-bienestar active:bg-celeste-bienestar"
           >
             Amenidades
           </a>
           <a
             href="#modelo"
-            className="relative w-[150px] boton px-[24px] py-[15px] font-woodland text-center text-verde-confianza bg-beige-hogar before:absolute before:bottom-0 before:left-0 hover:before:h-[3px] before:w-full before:bg-celeste-bienestar active:bg-celeste-bienestar"
+            className="relative w-[150px] boton px-[24px] py-[15px] font-woodland text-center text-verde-confianza bg-celeste-bienestar before:absolute before:bottom-0 before:left-0 hover:before:h-[3px] before:w-full before:bg-celeste-bienestar active:bg-celeste-bienestar"
           >
             Modelos
           </a>
@@ -56,7 +56,7 @@ export default function ClosingBanner() {
       </div>
 
       {/* Leyenda */}
-      <p className="absolute bottom-5 right-5 text-[12px] text-center text-beige-hogar">
+      <p className="absolute bottom-10 left-10 text-[12px] text-center text-beige-hogar">
         Imágenes con fines ilustrativos*
       </p>
     </div>

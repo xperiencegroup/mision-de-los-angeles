@@ -101,9 +101,9 @@ export default function Formulario() {
               className="input placeholder:input w-full h-[52px] bg-verde-confianza text-beige-hogar placeholder:text-beige-hogar outline-none"
               {...register("name", { required: "El nombre es obligatorio" })}
             />
-            {errors.nombre && (
-              <span className="text-red-500 text-[12px]">
-                {errors.nombre.message}
+            {errors.name && (
+              <span className="text-white text-[12px]">
+                {errors.name.message}
               </span>
             )}
           </div>
@@ -138,7 +138,7 @@ export default function Formulario() {
                 })}
               />
               {errors.email && (
-                <span className="text-red-500 text-[12px]">
+                <span className="text-white text-[12px]">
                   {errors.email.message}
                 </span>
               )}
@@ -171,9 +171,9 @@ export default function Formulario() {
                   },
                 })}
               />
-              {errors.telefono && (
-                <span className="text-red-500 text-[12px]">
-                  {errors.telefono.message}
+              {errors.phone && (
+                <span className="text-white text-[12px]">
+                  {errors.phone.message}
                 </span>
               )}
             </div>
