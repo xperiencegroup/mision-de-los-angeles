@@ -17,7 +17,7 @@ export const reveData = {
   title: "Modelo Revé",
   subtitle: "Sueños Tangibles",
   description:
-    "Estos dos nombres vienen del mismo concepto, cada uno se inspira de una palabra en francés y en vasco que significa “sueño”. Lo relacionamos con la idea de que esta desarrolladora no solamente vende casas, ayudan a que sueños se hagan realidad por medio de sus proyectos excepcionales.",
+    "Inspirados en palabras del francés y el vasco que significan “sueño”, estos nombres representan una visión que va más allá de construir hogares. \n Una idea que refleja la esencia de la desarrolladora: crear mucho más que espacios para vivir, convertir proyectos excepcionales en el lugar donde los sueños toman forma y se hacen realidad.",
   secondDescription:
     "Tres plantas que ofrecen mayor amplitud y versatilidad para la vida familiar. \n\n Revé cuenta con tres recámaras con baño completo, estancia, sala de juegos, doble terraza y cuarto de servicio.",
   niveles: [

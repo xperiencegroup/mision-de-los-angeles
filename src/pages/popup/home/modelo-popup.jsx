@@ -63,7 +63,7 @@ export default function ModeloPopup({
                     className="size-[26.5px]"
                   />
                 </div>
-                <p className="parrafos text-beige-hogar">{item.label}</p>
+                <p className="descripcion text-beige-hogar">{item.label}</p>
               </li>
             );
           })}
@@ -110,7 +110,7 @@ export default function ModeloPopup({
               <h3 className="parrafos italic uppercase font-semibold leading-none text-azul-integro">
                 {subtitle}
               </h3>
-              <p className="parrafos text-left leading-none text-gris-profundo">
+              <p className="descripcion text-left leading-none text-gris-profundo whitespace-pre-line">
                 {description}
               </p>
             </div>
@@ -137,11 +137,9 @@ export default function ModeloPopup({
                 })}
               </div>
 
-              <div className="flex flex-col xl:flex-row w-full h-[418px] gap-[15px]">
-                <div className="flex w-full xl:max-w-[272px] parrafos xl:whitespace-pre-line text-gris-profundo">
-                  {secondDescription}
-                </div>
-                <div className="flex w-full xl:max-w-[448px]">
+              <div className="flex flex-col xl:flex-row w-full h-[418px] gap-[30px]">
+                {/* Niveles */}
+                <div className="flex w-full xl:max-w-[390px]">
                   <ModeloCarousel
                     ref={carouselRef}
                     slides={slides}
@@ -153,6 +151,11 @@ export default function ModeloPopup({
                       });
                     }}
                   />
+                </div>
+
+                {/* Descripción 2 */}
+                <div className="flex justify-center items-center w-full xl:max-w-[316px] parrafos text-center xl:whitespace-pre-line text-gris-profundo">
+                  {secondDescription}
                 </div>
               </div>
             </div>

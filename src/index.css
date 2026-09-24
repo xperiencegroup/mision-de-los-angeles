@@ -40,6 +40,9 @@
   .input {
     @apply text-[13px] md:text-[18px];
   }
+  .descripcion {
+    @apply text-[16px] md:text-[18px] lg:text-[20px];
+  }
 }
 
 @layer base {

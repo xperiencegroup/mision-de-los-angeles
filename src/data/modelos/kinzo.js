@@ -14,7 +14,7 @@ export const kinzoData = {
   title: "Modelo Kinzo",
   subtitle: "Para toda la vida",
   description:
-    "Este nombre viene de una palabra que en húngaro quiere decir tesoro, lo relacionamos con la idea de que al encontrar esta propiedad encuentras algo único, de calidad, que no es fácil de encontrar pero que te va a durar toda la vida, un tesoro.",
+    "Inspirado en una palabra húngara que significa “tesoro”, el nombre nace de la idea de descubrir algo extraordinario: único, valioso y difícil de encontrar.\n Un lugar que va más allá de una propiedad; una elección para quienes buscan calidad, exclusividad y un valor que perdure toda la vida.",
   secondDescription:
     "Dos plantas diseñadas para disfrutar cada espacio en familia. \n\n Kinzo integra áreas sociales amplias en la planta baja y tres recámaras en el segundo nivel, cada una con baño completo, además de estancia y lavandería. ",
   niveles: [
