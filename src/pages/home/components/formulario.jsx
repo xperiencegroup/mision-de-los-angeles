@@ -6,6 +6,8 @@ import userIcon from "../../../assets/icons/form/user.svg";
 import mailIcon from "../../../assets/icons/form/mail.svg";
 import phoneIcon from "../../../assets/icons/form/phone.svg";
 import messageIcon from "../../../assets/icons/form/message.svg";
+import { track } from "../../../analytics/track";
+import { TRACK } from "../../../analytics/track.constants";
 
 export default function Formulario() {
   const {
@@ -44,11 +46,17 @@ export default function Formulario() {
         throw new Error("Error en la respuesta del servidor");
       }
 
+      track(TRACK.home.contacto.formSubmit);
+
       alert("Formulario enviado");
       setIsLoading(false);
       reset();
     } catch (error) {
       console.log("Error: ", error);
+      track(TRACK.home.contacto.formSubmitError, {
+        error_type: error.message.startsWith("HTTP") ? "server" : "network",
+        error_message: error.message,
+      });
     } finally {
       setIsLoading(false);
     }

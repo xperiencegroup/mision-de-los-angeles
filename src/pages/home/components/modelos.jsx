@@ -5,6 +5,8 @@ import decorationLeft from "../../../assets/images/decoration/modelos-left.svg";
 import decorationRight from "../../../assets/images/decoration/modelos-right.svg";
 import { useSearchParams } from "react-router";
 import { useInView } from "../../../hooks/useInView";
+import { track } from "../../../analytics/track";
+import { TRACK } from "../../../analytics/track.constants";
 
 const modelos = [
   {
@@ -67,7 +69,9 @@ const modelos = [
 
 export default function Modelos() {
   const [, setSearchParams] = useSearchParams();
+
   const handleOpenModel = (model) => {
+    track(TRACK.home.modelos.card, { item_id: model });
     setSearchParams({ modal: "modelo", id: model });
   };
 

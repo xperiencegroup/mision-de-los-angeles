@@ -1,11 +1,14 @@
 import { useInView } from "../../../hooks/useInView";
+import { useSearchParams } from "react-router";
+import { track } from "../../../analytics/track";
+import { TRACK } from "../../../analytics/track.constants";
+
 import background from "../../../assets/images/background-texture.jpg";
 import cotizaImg from "../../../assets/images/cotiza.jpg";
 
 // decoracion
 import decorationRight from "../../../assets/images/decoration/horario-right.svg";
 import decorationLeft from "../../../assets/images/decoration/horario-left.svg";
-import { useSearchParams } from "react-router";
 
 export default function Cotiza() {
   const [scheduleRef, isScheduleInView] = useInView();
@@ -93,7 +96,10 @@ export default function Cotiza() {
             </p>
 
             <button
-              onClick={() => setSearchParams({ modal: "financiamiento" })}
+              onClick={() => {
+                track(TRACK.home.cotiza.cta);
+                setSearchParams({ modal: "financiamiento" });
+              }}
               className="w-fit px-[24px] py-[15px] text-azul-integro bg-celeste-bienestar hover:cursor-pointer"
             >
               Cotiza

@@ -4,6 +4,8 @@ import logo from "../../assets/logos/logo-mision-angeles.svg";
 import logoBeneva from "../../assets/logos/beneva-logo.svg";
 import menuIcon from "../../assets/icons/menu.svg";
 import closeIcon from "../../assets/icons/close.svg";
+import { track } from "../../analytics/track";
+import { TRACK } from "../../analytics/track.constants";
 
 const BUTTONS = [
   {
@@ -53,6 +55,7 @@ export default function Navbar() {
         {/* Logo de misión de los ángeles desktop*/}
         <a
           href="#hero"
+          onClick={() => track(TRACK.home.logo.home, { device: "desktop" })}
           className="max-md:hidden relative w-[54px] h-[24px] lg:w-[122px] lg:h-[40px] hover:cursor-pointer"
         >
           <img
@@ -66,6 +69,7 @@ export default function Navbar() {
         {/* Logo mobile */}
         <a
           href="#hero"
+          onClick={() => track(TRACK.home.logo.home, { device: "mobile" })}
           className="md:hidden relative w-[122px] h-[19px] hover:cursor-pointer"
         >
           <img
@@ -82,7 +86,13 @@ export default function Navbar() {
           if (button.id === "financiamiento")
             return (
               <button
-                onClick={() => setSearchParams({ modal: "financiamiento" })}
+                onClick={() => {
+                  track(TRACK.home.menu.item, {
+                    item_id: button.id,
+                    device: "desktop",
+                  });
+                  setSearchParams({ modal: "financiamiento" });
+                }}
                 key={index}
                 className={`max-md:hidden px-[15px] lg:px-[24px] py-[15px] boton text-beige-hogar hover:cursor-pointer leading-[115%]`}
               >
@@ -93,6 +103,12 @@ export default function Navbar() {
             <a
               href={button.to}
               key={index}
+              onClick={() => {
+                track(TRACK.home.menu.item, {
+                  item_id: button.id,
+                  device: "desktop",
+                });
+              }}
               className={`max-md:hidden px-[15px] lg:px-[24px] py-[15px] text-button text-beige-hogar hover:cursor-pointer whitespace-nowrap leading-[115%] ${button.id === "cotiza" && "text-verde-confianza bg-celeste-bienestar"}`}
             >
               {button.label}
@@ -102,7 +118,12 @@ export default function Navbar() {
 
         {/* Menu mobile */}
         <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => {
+            track(TRACK.home.menu.toggle, {
+              action: isMenuOpen ? "close" : "open",
+            });
+            setIsMenuOpen(!isMenuOpen);
+          }}
           className={`md:hidden flex justify-center items-center size-[42px] transition-colors ${isMenuOpen ? "bg-celeste-bienestar" : "bg-beige-hogar"}`}
         >
           <img
@@ -123,6 +144,10 @@ export default function Navbar() {
                 <button
                   key={index}
                   onClick={() => {
+                    track(TRACK.home.menu.item, {
+                      item_id: button.id,
+                      device: "mobile",
+                    });
                     setSearchParams({ modal: "financiamiento" });
                     setIsMenuOpen(false);
                   }}
@@ -136,7 +161,13 @@ export default function Navbar() {
               <a
                 key={index}
                 href={button.to}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  track(TRACK.home.menu.item, {
+                    item_id: button.id,
+                    device: "mobile",
+                  });
+                  setIsMenuOpen(false);
+                }}
                 className={`w-full boton font-woodland text-center px-[24px] py-[15px] hover:cursor-pointer ${
                   button.id === "cotiza"
                     ? "text-verde-confianza bg-celeste-bienestar"

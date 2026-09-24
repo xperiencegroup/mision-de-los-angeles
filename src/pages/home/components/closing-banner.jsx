@@ -1,5 +1,7 @@
-import bgImage from "../../../assets/images/closing-banner-bg.jpg";
 import { useInView } from "../../../hooks/useInView";
+import { track } from "../../../analytics/track";
+import { TRACK } from "../../../analytics/track.constants";
+import bgImage from "../../../assets/images/closing-banner-bg.jpg";
 
 export default function ClosingBanner() {
   const [textRef, isTextInView] = useInView();
@@ -42,12 +44,18 @@ export default function ClosingBanner() {
         >
           <a
             href="#amenidades"
+            onClick={() =>
+              track(TRACK.home.closingBanner.cta, { item_id: "amenidades" })
+            }
             className="relative w-[150px] boton px-[24px] py-[15px] font-woodland text-center text-verde-confianza bg-celeste-bienestar before:absolute before:bottom-0 before:left-0 hover:before:h-[3px] before:w-full before:bg-celeste-bienestar active:bg-celeste-bienestar"
           >
             Amenidades
           </a>
           <a
             href="#modelo"
+            onClick={() =>
+              track(TRACK.home.closingBanner.cta, { item_id: "modelos" })
+            }
             className="relative w-[150px] boton px-[24px] py-[15px] font-woodland text-center text-verde-confianza bg-celeste-bienestar before:absolute before:bottom-0 before:left-0 hover:before:h-[3px] before:w-full before:bg-celeste-bienestar active:bg-celeste-bienestar"
           >
             Modelos

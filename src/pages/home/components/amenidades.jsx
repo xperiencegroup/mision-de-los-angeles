@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { useInView } from "../../../hooks/useInView";
 import { Carousel } from "../../../components/carousel/Carousel";
+import { track } from "../../../analytics/track";
+import { TRACK } from "../../../analytics/track.constants";
 
 // Images
 import casetaImage from "../../../assets/images/amenidades/caseta.jpg";
@@ -93,6 +95,7 @@ export default function Amenidades() {
   });
 
   const handleAmenidadClick = (index) => {
+    track(TRACK.home.amenidades.item, { item_id: amenidades[index].id });
     carouselRef.current?.scrollTo(index);
   };
 
@@ -149,6 +152,11 @@ export default function Amenidades() {
           slides={slides}
           variant="card"
           onSlideChange={setActiveIndex}
+          onUserSlide={(index) =>
+            track(TRACK.home.amenidades.swipe, {
+              item_id: amenidades[index].id,
+            })
+          }
         />
 
         {/* Leyenda */}

@@ -10,9 +10,10 @@ import Autoplay from "embla-carousel-autoplay";
 import RowIcon from "../../assets/icons/row-icon";
 
 export const Carousel = forwardRef(function Carousel(
-  { slides = [], variant, onSlideChange },
+  { slides = [], variant, onSlideChange, onUserSlide },
   ref,
 ) {
+  const isDragging = useRef(false);
   const autoplay = useRef(Autoplay({ delay: 10000, stopOnInteraction: true }));
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -34,20 +35,30 @@ export const Carousel = forwardRef(function Carousel(
   useEffect(() => {
     if (!emblaApi) return;
 
+    const onPointerDown = () => (isDragging.current = true);
+    const onSettle = () => (isDragging.current = false);
+
     const onSelect = () => {
       const index = emblaApi.selectedScrollSnap();
       setCurrentIndex(index);
-      onSlideChange?.(index); // 👈 avisamos al padre
+      onSlideChange?.(index);
+      if (isDragging.current) onUserSlide?.(index);
     };
 
-    emblaApi.on("select", onSelect);
+    emblaApi
+      .on("select", onSelect)
+      .on("pointerDown", onPointerDown)
+      .on("settle", onSettle);
 
     autoplay.current.play();
 
     return () => {
-      emblaApi.off("select", onSelect);
+      emblaApi
+        .off("select", onSelect)
+        .off("pointerDown", onPointerDown)
+        .off("settle", onSettle);
     };
-  }, [emblaApi, onSlideChange]);
+  }, [emblaApi, onSlideChange, onUserSlide]);
 
   useEffect(() => {
     if (!emblaApi) return;

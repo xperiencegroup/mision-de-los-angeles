@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "motion/react";
 import closeIcon from "../../../assets/icons/close.svg";
 
 import { ModeloCarousel } from "../../../components/carousel/modelo-carousel";
+import { track } from "../../../analytics/track";
+import { TRACK } from "../../../analytics/track.constants";
 
 export default function ModeloPopup({
   title,
@@ -12,12 +14,14 @@ export default function ModeloPopup({
   secondDescription,
   niveles,
 }) {
-  const [, setSearchParams] = useSearchParams();
+  const [params, setSearchParams] = useSearchParams();
+  const modeloId = params.get("id");
   const carouselRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedNivel = niveles[selectedIndex];
 
   const handleCloseModal = () => {
+    track(TRACK.home.popup.modelo.close, { item_id: modeloId });
     setSearchParams({});
   };
 
@@ -141,7 +145,13 @@ export default function ModeloPopup({
                   <ModeloCarousel
                     ref={carouselRef}
                     slides={slides}
-                    onSlideChange={setSelectedIndex}
+                    onSlideChange={(index) => {
+                      setSelectedIndex(index);
+                      track(TRACK.home.popup.modelo.nivel, {
+                        item_id: modeloId,
+                        nivel: niveles[index].titulo,
+                      });
+                    }}
                   />
                 </div>
               </div>
