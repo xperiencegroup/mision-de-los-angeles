@@ -150,7 +150,7 @@ export default function Modelos() {
                 <div className="flex flex-col min-[480px]:flex-row w-full justify-center items-center px-[24px] py-[20px] gap-[16px] min-[480px]:gap-[30px]">
                   <button
                     onClick={() => handleOpenModel(modelo.id)}
-                    className="px-[24px] py-[15px] text-button font-woodland text-verde-confianza bg-celeste-bienestar"
+                    className="px-[24px] py-[15px] text-button font-woodland text-verde-confianza bg-celeste-bienestar hover:cursor-pointer"
                   >
                     Ver modelo
                   </button>

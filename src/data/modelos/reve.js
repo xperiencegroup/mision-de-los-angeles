@@ -4,21 +4,22 @@ import planta3 from "../../assets/images/modelos/reve/planta-3.png";
 
 import cochera from "../../assets/icons/modelos/parking.svg";
 import bano from "../../assets/icons/modelos/bano.svg";
-import social from "../../assets/icons/modelos/social.svg";
 import patio from "../../assets/icons/modelos/patio.svg";
 import cocina from "../../assets/icons/modelos/cocina.svg";
 import sala from "../../assets/icons/modelos/sala.svg";
 import comedor from "../../assets/icons/modelos/comedor.svg";
 import lavadora from "../../assets/icons/modelos/lavadora.svg";
 import cama from "../../assets/icons/modelos/cama.svg";
-import regadera from "../../assets/icons/modelos/regadera.svg";
 import lavanderia from "../../assets/icons/modelos/lavanderia.svg";
 import terraza from "../../assets/icons/modelos/terraza.svg";
 
 export const reveData = {
   title: "Modelo Revé",
+  subtitle: "Sueños Tangibles",
   description:
-    "Tres plantas que ofrecen mayor amplitud y versatilidad para la vida familiar. Revé cuenta con tres recámaras con baño completo, estancia, sala de juegos, doble terraza y cuarto de servicio.",
+    "Estos dos nombres vienen del mismo concepto, cada uno se inspira de una palabra en francés y en vasco que significa “sueño”. Lo relacionamos con la idea de que esta desarrolladora no solamente vende casas, ayudan a que sueños se hagan realidad por medio de sus proyectos excepcionales.",
+  secondDescription:
+    "Tres plantas que ofrecen mayor amplitud y versatilidad para la vida familiar. \n\n Revé cuenta con tres recámaras con baño completo, estancia, sala de juegos, doble terraza y cuarto de servicio.",
   niveles: [
     {
       titulo: "Primer Nivel:",
@@ -27,7 +28,6 @@ export const reveData = {
       caracteristicas: [
         { label: "Cochera techada para 2 autos", icon: cochera },
         { label: "Medio baño", icon: bano },
-        { label: "Área Social", icon: social },
         { label: "Patio", icon: patio },
         { label: "Cocina", icon: cocina },
         { label: "Sala", icon: sala },
@@ -49,7 +49,6 @@ export const reveData = {
           label: "2 recámaras secundarias, cada una con baño completo",
           icon: cama,
         },
-        { label: "3 Baños completos", icon: regadera },
       ],
     },
     {

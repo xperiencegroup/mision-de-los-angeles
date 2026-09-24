@@ -8,14 +8,12 @@ import plantaAlta from "../../../assets/images/modelos/kinzo/planta-alta.png";
 // íconos
 import cochera from "../../../assets/icons/modelos/parking.svg";
 import bano from "../../../assets/icons/modelos/bano.svg";
-import social from "../../../assets/icons/modelos/social.svg";
 import patio from "../../../assets/icons/modelos/patio.svg";
 import cocina from "../../../assets/icons/modelos/cocina.svg";
 import sala from "../../../assets/icons/modelos/sala.svg";
 import comedor from "../../../assets/icons/modelos/comedor.svg";
 import lavadora from "../../../assets/icons/modelos/lavadora.svg";
 import cama from "../../../assets/icons/modelos/cama.svg";
-import regadera from "../../../assets/icons/modelos/regadera.svg";
 import { ModeloCarousel } from "../../../components/carousel/modelo-carousel";
 
 const CARACTERISITCAS = {
@@ -27,10 +25,6 @@ const CARACTERISITCAS = {
     {
       label: "Medio baño",
       icon: bano,
-    },
-    {
-      label: "Área Social",
-      icon: social,
     },
     {
       label: "Patio",
@@ -65,10 +59,6 @@ const CARACTERISITCAS = {
     {
       label: "2 recámaras secundarias, cada una con baño completo",
       icon: cama,
-    },
-    {
-      label: "3 Baños completos",
-      icon: regadera,
     },
   ],
 };

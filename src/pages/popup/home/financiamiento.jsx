@@ -33,8 +33,8 @@ export default function Financiamiento() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-center w-full overflow-y-auto bg-verde-confianza">
-      <div className="relative flex flex-col w-full justify-center items-center max-w-[1280px] h-fit lg:h-svh px-[44px] md:px-[51px] py-[100px] min-[500px]:py-[50px] gap-[10px] lg:gap-[20px]">
+    <div className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-verde-confianza">
+      <div className="mx-auto flex min-h-svh w-full max-w-[1280px] px-[44px] py-[100px] md:px-[51px] min-[500px]:py-[50px]">
         {/* Boton de cerrar */}
         <button
           onClick={handleCloseModal}
@@ -43,117 +43,120 @@ export default function Financiamiento() {
           <img src={closeIcon} className="size-[30px] md:size-[45px]" />
         </button>
 
-        {/* Texts */}
-        <div className="max-[500px]:hidden flex flex-col">
-          <h2 className="titulos text-center font-woodland text-verde-dinamico">
-            Financiamiento
-          </h2>
-          <p className="parrafos text-center text-beige-hogar">
-            En Misión de los Ángeles creemos que encontrar tu hogar ideal
-            también debe ser un proceso claro y accesible. <br /> Por ello,
-            contamos con distintas opciones de financiamiento y asesoría
-            especializada para acompañarte en cada paso.
-            <br /> <br />
-            Nuestro equipo te ayudará a identificar la alternativa de crédito
-            que mejor se adapte a tu perfil, para que puedas enfocarte en lo más
-            importante: comenzar una nueva etapa junto a tu familia.
-          </p>
-        </div>
-
-        {/* Créditos */}
-        <div className="flex flex-col min-[924px]:flex-row justify-between gap-[10px]">
-          {/* Infonavit */}
-          <div className="flex-1 flex flex-col min-h-[332px] justify-center items-center px-[30px] py-[30px] min-[500px]:py-[40px] gap-[5px] rounded-t-[50px] bg-beige-hogar">
-            {/* Imagen */}
-            <div className="flex justify-center items-center">
-              <img
-                src={infonavitLogo}
-                alt="Lofo infonavit"
-                className="w-[50px] h-[50px]"
-              />
-            </div>
-            <p className="parrafos text-gris-profundo">
-              Es un crédito en pesos que te otorga el INFONAVIT en
-              coparticipación con otra entidad financiera.
+        <div className="self-center flex flex-col items-center justify-center gap-[10px] lg:gap-[20px]">
+          {/* Texts */}
+          <div className="max-[500px]:hidden flex flex-col">
+            <h2 className="titulos text-center font-woodland text-verde-dinamico">
+              Financiamiento
+            </h2>
+            <p className="parrafos text-center text-beige-hogar">
+              En Misión de los Ángeles creemos que encontrar tu hogar ideal
+              también debe ser un proceso claro y accesible. <br /> Por ello,
+              contamos con distintas opciones de financiamiento y asesoría
+              especializada para acompañarte en cada paso.
+              <br /> <br />
+              Nuestro equipo te ayudará a identificar la alternativa de crédito
+              que mejor se adapte a tu perfil, para que puedas enfocarte en lo
+              más importante: comenzar una nueva etapa junto a tu familia.
             </p>
-
-            {/* Lista */}
-            <ul className="flex flex-col gap-[5px]">
-              <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
-                <div className="flex justify-center items-center">
-                  <div className="size-[15px] rounded-full bg-verde-confianza" />
-                </div>
-                <p className="parrafos text-verde-confianza">
-                  El monto de tu crédito se calcula en función al plazo que
-                  elijas para pagarlo y tu capacidad de pago.
-                </p>
-              </li>
-              <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
-                <div className="flex justify-center items-center">
-                  <div className="size-[15px] rounded-full bg-verde-confianza" />
-                </div>
-                <p className="parrafos text-verde-confianza">
-                  Los gastos de titulación, financieros y de operación son del
-                  5% respecto al monto de tu crédito.
-                </p>
-              </li>
-              <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
-                <div className="flex justify-center items-center">
-                  <div className="size-[15px] rounded-full bg-verde-confianza" />
-                </div>
-                <p className="parrafos text-verde-confianza">
-                  La tasa de interés es fija.
-                </p>
-              </li>
-            </ul>
           </div>
 
-          {/* Infonavit Total*/}
-          <div className="flex-1 flex flex-col min-h-[332px] justify-center items-center px-[30px] py-[30px] min-[500px]:py-[40px] gap-[5px] rounded-t-[50px] bg-beige-hogar">
-            {/* Imagen */}
-            <div className="flex justify-center items-center">
-              <img
-                src={infonavitTotal}
-                alt="Lofo infonavit"
-                className="h-[50px]"
-              />
+          {/* Créditos */}
+          <div className="flex flex-col min-[924px]:flex-row justify-between gap-[10px]">
+            {/* Infonavit */}
+            <div className="flex-1 flex flex-col min-h-[332px] justify-center items-center px-[30px] py-[30px] min-[500px]:py-[40px] gap-[5px] rounded-t-[50px] bg-beige-hogar">
+              {/* Imagen */}
+              <div className="flex justify-center items-center">
+                <img
+                  src={infonavitLogo}
+                  alt="Lofo infonavit"
+                  className="w-[50px] h-[50px]"
+                />
+              </div>
+              <p className="parrafos text-gris-profundo">
+                Es un crédito en pesos que te otorga el INFONAVIT en
+                coparticipación con otra entidad financiera.
+              </p>
+
+              {/* Lista */}
+              <ul className="flex flex-col gap-[5px]">
+                <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
+                  <div className="flex justify-center items-center">
+                    <div className="size-[15px] rounded-full bg-verde-confianza" />
+                  </div>
+                  <p className="parrafos text-verde-confianza">
+                    El monto de tu crédito se calcula en función al plazo que
+                    elijas para pagarlo y tu capacidad de pago.
+                  </p>
+                </li>
+                <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
+                  <div className="flex justify-center items-center">
+                    <div className="size-[15px] rounded-full bg-verde-confianza" />
+                  </div>
+                  <p className="parrafos text-verde-confianza">
+                    Los gastos de titulación, financieros y de operación son del
+                    5% respecto al monto de tu crédito.
+                  </p>
+                </li>
+                <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
+                  <div className="flex justify-center items-center">
+                    <div className="size-[15px] rounded-full bg-verde-confianza" />
+                  </div>
+                  <p className="parrafos text-verde-confianza">
+                    La tasa de interés es fija.
+                  </p>
+                </li>
+              </ul>
             </div>
-            <p className="parrafos text-gris-profundo">
-              Crédito administrado por el INFONAVIT, que otorga todos los
-              beneficios que ofrece, además de obtener los servicios y productos
-              bancarios de la institución crediticia que complete el crédito.
-            </p>
 
-            {/* Lista */}
-            <ul className="flex flex-col gap-[5px]">
-              <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
-                <div className="flex justify-center items-center">
-                  <div className="size-[15px] rounded-full bg-verde-confianza" />
-                </div>
-                <p className="parrafos text-verde-confianza">
-                  Financian hasta el 90% del valor de la casa en plazos desde 5
-                  hasta 20 años.
-                </p>
-              </li>
-              <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
-                <div className="flex justify-center items-center">
-                  <div className="size-[15px] rounded-full bg-verde-confianza" />
-                </div>
-                <p className="parrafos text-verde-confianza">
-                  Los créditos son en pesos.
-                </p>
-              </li>
-            </ul>
+            {/* Infonavit Total*/}
+            <div className="flex-1 flex flex-col min-h-[332px] justify-center items-center px-[30px] py-[30px] min-[500px]:py-[40px] gap-[5px] rounded-t-[50px] bg-beige-hogar">
+              {/* Imagen */}
+              <div className="flex justify-center items-center">
+                <img
+                  src={infonavitTotal}
+                  alt="Lofo infonavit"
+                  className="h-[50px]"
+                />
+              </div>
+              <p className="parrafos text-gris-profundo">
+                Crédito administrado por el INFONAVIT, que otorga todos los
+                beneficios que ofrece, además de obtener los servicios y
+                productos bancarios de la institución crediticia que complete el
+                crédito.
+              </p>
+
+              {/* Lista */}
+              <ul className="flex flex-col gap-[5px]">
+                <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
+                  <div className="flex justify-center items-center">
+                    <div className="size-[15px] rounded-full bg-verde-confianza" />
+                  </div>
+                  <p className="parrafos text-verde-confianza">
+                    Financian hasta el 90% del valor de la casa en plazos desde
+                    5 hasta 20 años.
+                  </p>
+                </li>
+                <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
+                  <div className="flex justify-center items-center">
+                    <div className="size-[15px] rounded-full bg-verde-confianza" />
+                  </div>
+                  <p className="parrafos text-verde-confianza">
+                    Los créditos son en pesos.
+                  </p>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
 
-        {/* Bancos */}
-        <div className="flex flex-col min-[500px]:flex-row flex-wrap w-full h-fit justify-center min-[969px]:justify-between items-center px-[30px] py-[30px] min-[500px]:py-[40px] lg:py-[60px] gap-[20px] min-[500px]:gap-[40px] rounded-b-[50px] bg-beige-hogar">
-          <img src={bbvaLogo} className="h-[29px]" />
-          <img src={hsbcLogo} className="h-[29px]" />
-          <img src={santanderLogo} className="h-[29px]" />
-          <img src={banorteLogo} className="h-[29px]" />
-          <img src={banregioLogo} className="h-[29px]" />
+          {/* Bancos */}
+          <div className="flex flex-col min-[500px]:flex-row flex-wrap w-full h-fit justify-center min-[969px]:justify-between items-center px-[30px] py-[30px] min-[500px]:py-[40px] lg:py-[60px] gap-[20px] min-[500px]:gap-[40px] rounded-b-[50px] bg-beige-hogar">
+            <img src={bbvaLogo} className="h-[29px]" />
+            <img src={hsbcLogo} className="h-[29px]" />
+            <img src={santanderLogo} className="h-[29px]" />
+            <img src={banorteLogo} className="h-[29px]" />
+            <img src={banregioLogo} className="h-[29px]" />
+          </div>
         </div>
       </div>
     </div>

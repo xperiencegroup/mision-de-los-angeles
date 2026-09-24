@@ -8,14 +8,12 @@ import planta3 from "../../../assets/images/modelos/reve/planta-3.png";
 // íconos
 import cochera from "../../../assets/icons/modelos/parking.svg";
 import bano from "../../../assets/icons/modelos/bano.svg";
-import social from "../../../assets/icons/modelos/social.svg";
 import patio from "../../../assets/icons/modelos/patio.svg";
 import cocina from "../../../assets/icons/modelos/cocina.svg";
 import sala from "../../../assets/icons/modelos/sala.svg";
 import comedor from "../../../assets/icons/modelos/comedor.svg";
 import lavadora from "../../../assets/icons/modelos/lavadora.svg";
 import cama from "../../../assets/icons/modelos/cama.svg";
-import regadera from "../../../assets/icons/modelos/regadera.svg";
 import lavanderia from "../../../assets/icons/modelos/lavanderia.svg";
 import terraza from "../../../assets/icons/modelos/terraza.svg";
 import { ModeloCarousel } from "../../../components/carousel/modelo-carousel";
@@ -24,7 +22,6 @@ const CARACTERISITCAS = {
   "primer-nivel": [
     { label: "Cochera techada para 2 autos", icon: cochera },
     { label: "Medio baño", icon: bano },
-    { label: "Área Social", icon: social },
     { label: "Patio", icon: patio },
     { label: "Cocina", icon: cocina },
     { label: "Sala", icon: sala },
@@ -41,7 +38,6 @@ const CARACTERISITCAS = {
       label: "2 recámaras secundarias, cada una con baño completo",
       icon: cama,
     },
-    { label: "3 Baños completos", icon: regadera },
   ],
   "tercer-nivel": [
     { label: "Sala de juegos", icon: sala },

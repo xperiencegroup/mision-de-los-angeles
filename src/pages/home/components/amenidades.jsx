@@ -4,7 +4,7 @@ import { Carousel } from "../../../components/carousel/Carousel";
 
 // Images
 import casetaImage from "../../../assets/images/amenidades/caseta.jpg";
-import albercaImage from "../../../assets/images/amenidades/alberca.jpg";
+import albercaImage from "../../../assets/images/amenidades/alberca.png";
 import casaClubImage from "../../../assets/images/amenidades/casa.jpg";
 import parqueImage from "../../../assets/images/amenidades/park.jpg";
 import parqueCentralImage from "../../../assets/images/amenidades/parque-central.jpg";

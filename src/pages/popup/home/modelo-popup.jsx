@@ -1,13 +1,21 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSearchParams } from "react-router";
 import { motion, AnimatePresence } from "motion/react";
 import closeIcon from "../../../assets/icons/close.svg";
 
 import { ModeloCarousel } from "../../../components/carousel/modelo-carousel";
 
-export default function ModeloPopup({ title, description, niveles }) {
+export default function ModeloPopup({
+  title,
+  subtitle,
+  description,
+  secondDescription,
+  niveles,
+}) {
   const [, setSearchParams] = useSearchParams();
-  const [selectedNivel, setSelectedNivel] = useState(niveles[0]);
+  const carouselRef = useRef(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const selectedNivel = niveles[selectedIndex];
 
   const handleCloseModal = () => {
     setSearchParams({});
@@ -32,10 +40,10 @@ export default function ModeloPopup({ title, description, niveles }) {
   const slides = niveles.map((nivel) => (
     <div
       key={nivel.titulo}
-      className="flex w-full h-full justify-start items-start px-[4px] lg:pr-[20px]"
+      className="flex w-full h-full justify-start items-start px-[4px] lg:pr-[10px]"
     >
       {/* Características */}
-      <div className="flex flex-col grow w-full h-fit p-[29px] gap-[10px] rounded-t-[50px] bg-verde-confianza">
+      <div className="flex flex-col grow w-full h-full p-[29px] gap-[10px] rounded-t-[50px] bg-verde-confianza">
         <h3 className="subtitulos font-woodland font-bold text-verde-dinamico">
           {nivel.titulo}
         </h3>
@@ -61,8 +69,8 @@ export default function ModeloPopup({ title, description, niveles }) {
   ));
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-center items-start w-full overflow-y-auto">
-      <div className="relative flex flex-col justify-center items-center w-full min-h-svh lg:h-svh px-[44px] py-[60px] md:px-[60px] lg:p-0 bg-beige-hogar">
+    <div className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-beige-hogar">
+      <div className="relative mx-auto flex min-h-svh w-full flex-col items-center justify-center px-[44px] py-[60px] md:px-[60px]">
         {/* Boton de cerrar */}
         <button
           onClick={handleCloseModal}
@@ -72,9 +80,9 @@ export default function ModeloPopup({ title, description, niveles }) {
         </button>
 
         {/* Content */}
-        <div className="flex flex-col justify-center items-center lg:flex-row w-full h-full gap-[20px]">
+        <div className="flex w-full flex-col items-center justify-center gap-[20px] lg:flex-row">
           {/* Image */}
-          <div className="w-full shrink-0 h-[480px] lg:h-full max-w-[425px] lg:flex-1 relative">
+          <div className="relative h-[480px] w-full max-w-[425px] shrink-0 md:h-[580px] lg:h-[700px] lg:flex-1">
             <AnimatePresence mode="sync">
               <motion.img
                 key={selectedNivel.image}
@@ -91,21 +99,52 @@ export default function ModeloPopup({ title, description, niveles }) {
           {/* Text and slider */}
           <div className="w-full max-w-[735px] h-fit lg:flex-2 flex flex-col justify-center gap-[15px]">
             {/* title & description */}
-            <div className="flex flex-col">
-              <h2 className="titulos font-woodland font-bold leading-none text-center lg:text-left text-verde-confianza">
+            <div className="flex flex-col gap-[10px]">
+              <h2 className="titulos font-woodland font-bold leading-[70%] text-center lg:text-left text-azul-integro">
                 {title}
               </h2>
-              <p className="parrafos text-left text-gris-profundo">
+              <h3 className="parrafos italic uppercase font-semibold leading-none text-azul-integro">
+                {subtitle}
+              </h3>
+              <p className="parrafos text-left leading-none text-gris-profundo">
                 {description}
               </p>
             </div>
 
             {/* Slider */}
-            <div className="flex w-full h-fit">
-              <ModeloCarousel
-                slides={slides}
-                onSlideChange={(index) => setSelectedNivel(niveles[index])}
-              />
+            <div className="flex flex-col items-center lg:items-start gap-[15px] w-full h-fit">
+              {/* Dots numerados */}
+              <div className="flex items-start gap-[15px]">
+                {niveles.map((nivel, index) => {
+                  const isActive = index === selectedIndex;
+                  return (
+                    <button
+                      key={nivel.titulo}
+                      onClick={() => carouselRef.current?.scrollTo(index)}
+                      className={`flex justify-center items-center size-[28px] text-[14px] font-basic-sans hover:cursor-pointer transition-colors ${
+                        isActive
+                          ? "bg-celeste-bienestar text-verde-confianza"
+                          : "bg-verde-confianza text-celeste-bienestar"
+                      }`}
+                    >
+                      {index + 1}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="flex flex-col xl:flex-row w-full h-[418px] gap-[15px]">
+                <div className="flex w-full xl:max-w-[272px] parrafos xl:whitespace-pre-line text-gris-profundo">
+                  {secondDescription}
+                </div>
+                <div className="flex w-full xl:max-w-[448px]">
+                  <ModeloCarousel
+                    ref={carouselRef}
+                    slides={slides}
+                    onSlideChange={setSelectedIndex}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
