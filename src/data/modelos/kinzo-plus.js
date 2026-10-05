@@ -9,6 +9,8 @@ import sala from "../../assets/icons/modelos/sala.svg";
 import comedor from "../../assets/icons/modelos/comedor.svg";
 import lavadora from "../../assets/icons/modelos/lavadora.svg";
 import cama from "../../assets/icons/modelos/cama.svg";
+import regadera from "../../assets/icons/modelos/regadera.svg";
+import balcon from "../../assets/icons/modelos/balcon.svg";
 
 export const kinzoPlusData = {
   title: "Modelo Kinzo Plus",
@@ -16,7 +18,7 @@ export const kinzoPlusData = {
   description:
     "Inspirado en una palabra húngara que significa “tesoro”, el nombre nace de la idea de descubrir algo extraordinario: único, valioso y difícil de encontrar.\n Un lugar que va más allá de una propiedad; una elección para quienes buscan calidad, exclusividad y un valor que perdure toda la vida.",
   secondDescription:
-    "Dos plantas diseñadas para disfrutar cada espacio en familia. \n\n Kinzo integra áreas sociales amplias en la planta baja y tres recámaras en el segundo nivel, cada una con baño completo, además de estancia y lavandería. ",
+    "Dos plantas diseñadas para disfrutar cada espacio en familia. \n\nKinzo integra áreas sociales amplias en la planta baja y tres recámaras en el segundo nivel, cada una con baño completo, además de estancia y lavandería. \n\nUn lote de mayor amplitud se traduce en interiores más generosos, con espacios que brindan mayor comodidad y libertad para vivir cada momento.",
   niveles: [
     {
       titulo: "Primer Nivel:",
@@ -45,6 +47,14 @@ export const kinzoPlusData = {
         {
           label: "2 recámaras secundarias, cada una con baño completo",
           icon: cama,
+        },
+        {
+          label: "3 Baños completos",
+          icon: regadera,
+        },
+        {
+          label: "Balcón",
+          icon: balcon,
         },
       ],
     },

@@ -56,11 +56,11 @@ export default function ModeloPopup({
           {nivel.caracteristicas.map((item, index) => {
             return (
               <li key={index} className="flex items-center gap-[20px]">
-                <div className="shrink-0 flex justify-center items-center size-[45px] rounded-t-[30px] bg-beige-hogar">
+                <div className="shrink-0 flex justify-center items-center size-[35px] rounded-t-[30px] bg-beige-hogar">
                   <img
                     src={item.icon}
                     alt={`${item.icon}-image`}
-                    className="size-[26.5px]"
+                    className="size-[20.5px]"
                   />
                 </div>
                 <p className="descripcion text-beige-hogar">{item.label}</p>
@@ -74,7 +74,7 @@ export default function ModeloPopup({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-beige-hogar">
-      <div className="relative mx-auto flex min-h-svh w-full flex-col items-center justify-center px-[44px] py-[60px] md:px-[60px]">
+      <div className="relative mx-auto flex min-h-svh w-full flex-col items-center justify-center px-[20px] py-[10px] xl:p-[10px]">
         {/* Boton de cerrar */}
         <button
           onClick={handleCloseModal}
@@ -86,7 +86,7 @@ export default function ModeloPopup({
         {/* Content */}
         <div className="flex w-full flex-col items-center justify-center gap-[20px] lg:flex-row">
           {/* Image */}
-          <div className="relative h-[480px] w-full max-w-[425px] shrink-0 md:h-[580px] lg:h-[700px] lg:flex-1">
+          <div className="relative h-[480px] w-full max-w-[425px] shrink-0 md:h-[580px] lg:h-[700px] lg:flex-1 max-lg:mb-4">
             <AnimatePresence mode="sync">
               <motion.img
                 key={selectedNivel.image}
@@ -99,6 +99,10 @@ export default function ModeloPopup({
                 className="absolute inset-0 w-full h-full object-contain"
               />
             </AnimatePresence>
+
+            <p className="absolute -bottom-5 left-1/2 -translate-x-[50%] text-[12px]">
+              Imágenes con fines ilustrativos*
+            </p>
           </div>
           {/* Text and slider */}
           <div className="w-full max-w-[735px] h-fit lg:flex-2 flex flex-col justify-center gap-[15px]">

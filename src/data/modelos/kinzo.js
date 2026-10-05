@@ -9,6 +9,7 @@ import sala from "../../assets/icons/modelos/sala.svg";
 import comedor from "../../assets/icons/modelos/comedor.svg";
 import lavadora from "../../assets/icons/modelos/lavadora.svg";
 import cama from "../../assets/icons/modelos/cama.svg";
+import balcon from "../../assets/icons/modelos/balcon.svg";
 
 export const kinzoData = {
   title: "Modelo Kinzo",
@@ -45,6 +46,10 @@ export const kinzoData = {
         {
           label: "2 recámaras secundarias, cada una con baño completo",
           icon: cama,
+        },
+        {
+          label: "Balcón",
+          icon: balcon,
         },
       ],
     },
