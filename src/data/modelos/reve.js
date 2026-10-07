@@ -13,7 +13,6 @@ import cama from "../../assets/icons/modelos/cama.svg";
 import lavanderia from "../../assets/icons/modelos/lavanderia.svg";
 import terraza from "../../assets/icons/modelos/terraza.svg";
 import balcon from "../../assets/icons/modelos/balcon.svg";
-import regadera from "../../assets/icons/modelos/regadera.svg";
 
 export const reveData = {
   title: "Modelo Revé",
@@ -54,10 +53,6 @@ export const reveData = {
         {
           label: "Balcón",
           icon: balcon,
-        },
-        {
-          label: "3 Baños completos",
-          icon: regadera,
         },
       ],
     },

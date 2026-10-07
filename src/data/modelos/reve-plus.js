@@ -12,7 +12,6 @@ import lavadora from "../../assets/icons/modelos/lavadora.svg";
 import cama from "../../assets/icons/modelos/cama.svg";
 import lavanderia from "../../assets/icons/modelos/lavanderia.svg";
 import terraza from "../../assets/icons/modelos/terraza.svg";
-import regadera from "../../assets/icons/modelos/regadera.svg";
 import balcon from "../../assets/icons/modelos/balcon.svg";
 
 export const revePlusData = {
@@ -50,10 +49,6 @@ export const revePlusData = {
         {
           label: "2 recámaras secundarias, cada una con baño completo",
           icon: cama,
-        },
-        {
-          label: "3 Baños completos",
-          icon: regadera,
         },
         {
           label: "Balcón",
