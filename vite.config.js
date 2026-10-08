@@ -5,6 +5,10 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/misiondelosangeles/",
+  build: {
+    outDir: "dist/misiondelosangeles",
+  },
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] }),
