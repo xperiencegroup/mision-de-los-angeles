@@ -1,8 +1,19 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/misiondelosangeles",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/"
+      "source": "/misiondelosangeles",
+      "destination": "/misiondelosangeles/index.html"
+    },
+    {
+      "source": "/misiondelosangeles/(.*)",
+      "destination": "/misiondelosangeles/index.html"
     }
   ]
 }
