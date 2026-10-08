@@ -8,6 +8,8 @@ import phoneIcon from "../../../assets/icons/form/phone.svg";
 import messageIcon from "../../../assets/icons/form/message.svg";
 import { track } from "../../../analytics/track";
 import { TRACK } from "../../../analytics/track.constants";
+import { supabase } from "../../../lib/supabase";
+import { PROJECT_ID } from "../../../const/supabase";
 
 export default function Formulario() {
   const {
@@ -25,36 +27,28 @@ export default function Formulario() {
   const onSubmit = async (values) => {
     setIsLoading(true);
     try {
-      const response = await fetch(
-        "https://beneva-backend.vercel.app/api/form",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            source: "Mision de los Ángeles",
-            page: "Inicio",
-            data: {
-              ...values,
-            },
-          }),
-        },
-      );
+      const payload = {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        message: values.message || null,
+        city: null,
+        interest: null,
+        experience: null,
+        comments: null,
+        source: "Mision de los Ángeles",
+        page: "inicio",
+      };
 
-      if (!response.ok) {
-        throw new Error("Error en la respuesta del servidor");
-      }
+      const { error } = await supabase.from(PROJECT_ID).insert(payload);
+      if (error) throw error;
 
       track(TRACK.home.contacto.formSubmit);
-
-      alert("Formulario enviado");
-      setIsLoading(false);
       reset();
     } catch (error) {
       console.log("Error: ", error);
       track(TRACK.home.contacto.formSubmitError, {
-        error_type: error.message.startsWith("HTTP") ? "server" : "network",
+        error_type: "server",
         error_message: error.message,
       });
     } finally {
