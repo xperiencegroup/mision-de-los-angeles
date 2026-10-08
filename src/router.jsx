@@ -3,7 +3,7 @@ import Home from "./pages/home/home";
 
 export default function Router() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/misiondelosangeles">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
