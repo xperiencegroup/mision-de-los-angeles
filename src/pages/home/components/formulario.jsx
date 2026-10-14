@@ -49,7 +49,6 @@ export default function Formulario() {
       console.log("Error: ", error);
       track(TRACK.home.contacto.formSubmitError, {
         error_type: "server",
-        error_message: error.message,
       });
     } finally {
       setIsLoading(false);

@@ -205,7 +205,7 @@ Los scripts de tracking se cargan directamente en `index.html`:
 
 - **`src/analytics/track.js`:** función `track(event, params)` que llama a `window.gtag("event", event, params)`. No hace nada si `gtag` no está definido (por ejemplo, en SSR, en local sin el script de GA o si un adblock lo bloquea).
 - **`src/analytics/track.constants.js`:** objeto `TRACK` con un nombre de evento por interacción. Define una constante `PROJECT = "misiondelosangeles"` que se usa como prefijo, y el formato de nombre es `misiondelosangeles:<seccion>:<elemento>:<accion>` (ej. `misiondelosangeles:menu:item:click`).
-- **Parámetros comunes:** `item_id` (qué elemento se tocó), `action` (para toggles, `"open"`/`"close"`), `error_type` / `error_message` (en errores de formulario).
+- **Parámetros comunes:** `item_id` (qué elemento se tocó), `action` (para toggles, `"open"`/`"close"`), `error_type` (en errores de formulario).
 - **Regla importante:** nunca se envían datos personales (nombre, correo, teléfono) como parámetros de evento. Los formularios solo registran el evento de envío/error, sin el contenido.
 - Antes de agregar o modificar un evento, verificar en **GA4 DebugView** que el nombre (con los `:`) llegue correctamente; si GA4 lo rechaza, el formato cambia a guiones bajos (`_`) en lugar de `:`.
   Uso:
