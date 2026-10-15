@@ -45,15 +45,16 @@ export default function Cotiza() {
         <h3 className="titulos text-center font-woodland font-bold text-beige-hogar">
           Horario de atención
         </h3>
-        <p className="parrafos font-light text-beige-hogar">
+        <p className="parrafos font-light font-[Arial] text-beige-hogar">
           Lunes a Viernes:{" "}
           <span className="whitespace-nowrap">11:00 AM - 7:00 PM</span>
         </p>
-        <p className="parrafos font-light text-beige-hogar">
-          Sábados: <span className="whitespace-nowrap">10:00 AM - 5:00 PM</span>
+        <p className="parrafos font-light font-[Arial] text-beige-hogar">
+          Sábados: <span className="whitespace-nowrap">10:00 AM - 6:00 PM</span>
         </p>
-        <p className="parrafos font-light text-beige-hogar">
-          Domingos: Cerrado
+        <p className="parrafos font-light font-[Arial] text-beige-hogar">
+          Domingos:{" "}
+          <span className="whitespace-nowrap">10:00 AM - 5:00 PM</span>
         </p>
       </div>
 
