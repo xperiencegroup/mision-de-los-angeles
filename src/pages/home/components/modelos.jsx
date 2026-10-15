@@ -17,7 +17,7 @@ const modelos = [
     detalle: (
       <>
         2 Niveles -{" "}
-        <span className="font-bold">
+        <span>
           158m<sup>2</sup>
         </span>
       </>
@@ -31,7 +31,7 @@ const modelos = [
     detalle: (
       <>
         3 Niveles -{" "}
-        <span className="font-bold">
+        <span>
           198m<sup>2</sup>
         </span>
       </>
@@ -45,7 +45,7 @@ const modelos = [
     detalle: (
       <>
         2 Niveles -{" "}
-        <span className="font-bold">
+        <span>
           170m<sup>2</sup>
         </span>
       </>
@@ -59,7 +59,7 @@ const modelos = [
     detalle: (
       <>
         3 Niveles -{" "}
-        <span className="font-bold">
+        <span>
           213m<sup>2</sup>
         </span>
       </>
@@ -141,8 +141,9 @@ export default function Modelos() {
             return (
               <div
                 key={index}
-                className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-full max-w-[546px] lg:w-[546px] bg-verde-confianza rounded-br-[80px] lg:rounded-br-[100px] overflow-hidden`}
+                className={`reveal-scale ${isCardsVisible ? "is-visible" : ""} w-full max-w-[586px] lg:w-[586px] bg-verde-confianza rounded-br-[80px] lg:rounded-br-[100px] overflow-hidden`}
               >
+                {/* imagen */}
                 <div className="relative w-full h-[189px]">
                   <img
                     src={modelo.image}
@@ -150,19 +151,33 @@ export default function Modelos() {
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
+
                 {/* Texto */}
-                <div className="flex flex-col min-[480px]:flex-row w-full justify-center items-center px-[24px] py-[20px] gap-[16px] min-[480px]:gap-[30px]">
+                <div className="flex flex-col-reverse md:flex-row-reverse xl:flex-row w-full justify-center xl:justify-start items-center px-[24px] py-[20px] gap-[16px] min-[480px]:gap-[24px]">
+                  {/* botón ver modelo */}
                   <button
                     onClick={() => handleOpenModel(modelo.id)}
-                    className="px-[24px] py-[15px] text-button font-woodland text-verde-confianza bg-celeste-bienestar hover:cursor-pointer"
+                    className="w-full max-w-[137px] px-[24px] py-[15px] text-button font-woodland text-verde-confianza bg-beige-hogar hover:cursor-pointer"
                   >
                     Ver modelo
                   </button>
+
+                  {/* botón cotiza */}
+                  <a
+                    href="https://wa.me/528129104413"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full max-w-[137px] inline-flex px-[24px] py-[15px] justify-center items-center text-button font-woodland text-verde-confianza bg-celeste-bienestar hover:cursor-pointer"
+                  >
+                    Cotiza
+                  </a>
+
+                  {/* textp */}
                   <div className="flex flex-col">
-                    <h4 className="subtitulos font-woodland font-bold text-center leading-none text-beige-hogar">
+                    <h4 className="model-subtitulos font-woodland font-bold text-left leading-none text-beige-hogar">
                       {modelo.nombre}
                     </h4>
-                    <p className="parrafos max-[480px]:text-center text-beige-hogar">
+                    <p className="model-detail font-[Arial] max-[480px]:text-center text-beige-hogar">
                       {modelo.detalle}
                     </p>
                   </div>

@@ -28,6 +28,9 @@
   .subtitulos {
     @apply text-[20px] md:text-[25px] lg:text-[30px] leading-[95%] tracking-tight;
   }
+  .model-subtitulos {
+    @apply text-[19px] md:text-[20px] lg:text-[22px] leading-[95%] tracking-tight;
+  }
   .parrafos {
     @apply text-[20px] md:text-[22px] lg:text-[24px] leading-[110%];
   }
@@ -36,6 +39,9 @@
   }
   .boton-label {
     @apply text-[13px] md:text-[14px] lg:text-[16px];
+  }
+  .model-detail {
+    @apply text-[16px] md:text-[18px];
   }
   .input {
     @apply text-[13px] md:text-[18px];
