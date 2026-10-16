@@ -8,6 +8,8 @@ import hsbcLogo from "../../../assets/images/marcas/HSBC.png";
 import santanderLogo from "../../../assets/images/marcas/santander.png";
 import banorteLogo from "../../../assets/images/marcas/banorte.png";
 import banregioLogo from "../../../assets/images/marcas/banregio.png";
+import afirmeLogo from "../../../assets/images/marcas/afirme.svg";
+import scotiabankLogo from "../../../assets/images/marcas/scotiabank.svg";
 
 export default function Financiamiento() {
   const [, setSearchParams] = useSearchParams();
@@ -158,12 +160,14 @@ export default function Financiamiento() {
           </div>
 
           {/* Bancos */}
-          <div className="flex flex-col min-[500px]:flex-row flex-wrap w-full h-fit justify-center min-[969px]:justify-between items-center px-[30px] py-[30px] min-[500px]:py-[40px] lg:py-[60px] gap-[20px] min-[500px]:gap-[40px] rounded-b-[50px] bg-beige-hogar">
-            <img src={bbvaLogo} className="h-[29px]" />
-            <img src={hsbcLogo} className="h-[29px]" />
-            <img src={santanderLogo} className="h-[29px]" />
-            <img src={banorteLogo} className="h-[29px]" />
-            <img src={banregioLogo} className="h-[29px]" />
+          <div className="flex flex-col min-[500px]:flex-row flex-wrap w-full h-fit justify-center min-[1128px]:justify-between items-center px-[30px] py-[30px] min-[500px]:py-[40px] lg:py-[60px] gap-[20px] min-[500px]:gap-[40px] rounded-b-[50px] bg-beige-hogar">
+            <img src={bbvaLogo} className="h-[22px]" />
+            <img src={hsbcLogo} className="h-[22px]" />
+            <img src={santanderLogo} className="h-[22px]" />
+            <img src={banorteLogo} className="h-[22px]" />
+            <img src={banregioLogo} className="h-[22px]" />
+            <img src={afirmeLogo} className="h-[22px]" />
+            <img src={scotiabankLogo} className="h-[22px]" />
           </div>
         </div>
       </div>
