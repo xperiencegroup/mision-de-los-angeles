@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useSearchParams } from "react-router";
 import closeIcon from "../../../assets/icons/close.svg";
-import infonavitLogo from "../../../assets/images/marcas/Logoinfonavit.svg";
+import infonavitLogo from "../../../assets/images/marcas/logoCofinavit.svg";
 import infonavitTotal from "../../../assets/images/marcas/logoinfonavittotal.png";
 import bbvaLogo from "../../../assets/images/marcas/bbva.png";
 import hsbcLogo from "../../../assets/images/marcas/HSBC.png";
@@ -50,9 +50,9 @@ export default function Financiamiento() {
               Financiamiento
             </h2>
             <p className="parrafos text-center text-beige-hogar">
-              En Misión de los Ángeles creemos que encontrar tu hogar ideal
-              también debe ser un proceso claro y accesible. <br /> Por ello,
-              contamos con distintas opciones de financiamiento y asesoría
+              En Misión de los Ángeles Serafines creemos que encontrar tu hogar
+              ideal también debe ser un proceso claro y accesible. <br /> Por
+              ello, contamos con distintas opciones de financiamiento y asesoría
               especializada para acompañarte en cada paso.
               <br /> <br />
               Nuestro equipo te ayudará a identificar la alternativa de crédito
@@ -63,19 +63,21 @@ export default function Financiamiento() {
 
           {/* Créditos */}
           <div className="flex flex-col min-[924px]:flex-row justify-between gap-[10px]">
-            {/* Infonavit */}
+            {/* Cofinavit */}
             <div className="flex-1 flex flex-col min-h-[332px] justify-center items-center px-[30px] py-[30px] min-[500px]:py-[40px] gap-[5px] rounded-t-[50px] bg-beige-hogar">
               {/* Imagen */}
               <div className="flex justify-center items-center">
                 <img
                   src={infonavitLogo}
                   alt="Lofo infonavit"
-                  className="w-[50px] h-[50px]"
+                  className="w-[191px] h-[37px]"
                 />
               </div>
               <p className="parrafos text-gris-profundo">
-                Es un crédito en pesos que te otorga el INFONAVIT en
-                coparticipación con otra entidad financiera.
+                ¡Aceptamos tu crédito COFINAVIT!
+                <br />
+                El esquema de financiamiento que te permite complementar tu
+                presupuesto para comprar casa mediante tres componentes:
               </p>
 
               {/* Lista */}
@@ -85,8 +87,8 @@ export default function Financiamiento() {
                     <div className="size-[15px] rounded-full bg-verde-confianza" />
                   </div>
                   <p className="parrafos text-verde-confianza">
-                    El monto de tu crédito se calcula en función al plazo que
-                    elijas para pagarlo y tu capacidad de pago.
+                    Crédito Infonavit: una parte del financiamiento, con los
+                    pagos correspondientes descontados vía nómina.
                   </p>
                 </li>
                 <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
@@ -94,8 +96,8 @@ export default function Financiamiento() {
                     <div className="size-[15px] rounded-full bg-verde-confianza" />
                   </div>
                   <p className="parrafos text-verde-confianza">
-                    Los gastos de titulación, financieros y de operación son del
-                    5% respecto al monto de tu crédito.
+                    Crédito bancario: un crédito complementario otorgado por el
+                    banco de tu elección, sujeto a aprobación.
                   </p>
                 </li>
                 <li className="flex max-[500px]:flex-col gap-[5px] min-[500px]:gap-[20px]">
@@ -103,14 +105,20 @@ export default function Financiamiento() {
                     <div className="size-[15px] rounded-full bg-verde-confianza" />
                   </div>
                   <p className="parrafos text-verde-confianza">
-                    La tasa de interés es fija.
+                    Subcuenta de Vivienda: aprovecha el ahorro acumulado en tu
+                    cuenta para complementar los recursos destinados a la compra
+                    de tu casa, conforme a las reglas del programa.
                   </p>
                 </li>
               </ul>
+              <p className="parrafos text-gris-profundo">
+                ¡Aprovecha tus prestaciones y encuentra el financiamiento ideal
+                para tu nuevo hogar!
+              </p>
             </div>
 
             {/* Infonavit Total*/}
-            <div className="flex-1 flex flex-col min-h-[332px] justify-center items-center px-[30px] py-[30px] min-[500px]:py-[40px] gap-[5px] rounded-t-[50px] bg-beige-hogar">
+            <div className="flex-1 flex flex-col min-h-[332px] justify-start items-center px-[30px] py-[30px] min-[500px]:py-[40px] gap-[5px] rounded-t-[50px] bg-beige-hogar">
               {/* Imagen */}
               <div className="flex justify-center items-center">
                 <img
