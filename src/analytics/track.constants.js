@@ -22,6 +22,7 @@ export const TRACK = {
 
     modelos: {
       card: `${PROJECT}:modelos:card:click`,
+      cotiza: `${PROJECT}:modelos:cotiza:click`,
     },
 
     popup: {
