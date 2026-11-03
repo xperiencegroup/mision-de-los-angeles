@@ -167,6 +167,9 @@ export default function Modelos() {
                     href="https://wa.me/528129104413"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() =>
+                      track(TRACK.home.modelos.cotiza, { item_id: modelo.id })
+                    }
                     className="w-full max-w-[137px] inline-flex px-[24px] py-[15px] justify-center items-center text-button font-woodland text-verde-confianza bg-celeste-bienestar hover:cursor-pointer"
                   >
                     Cotiza
