@@ -78,7 +78,7 @@ export default function ModeloPopup({
         {/* Boton de cerrar */}
         <button
           onClick={handleCloseModal}
-          className="absolute right-[14px] top-[14px] md:right-[38px] md:top-[36px] flex justify-center items-center size-[42px] md:size-[60px] hover:cursor-pointer bg-celeste-bienestar"
+          className="absolute z-50 right-[14px] top-[14px] md:right-[38px] md:top-[36px] flex justify-center items-center size-[42px] md:size-[60px] hover:cursor-pointer bg-celeste-bienestar"
         >
           <img src={closeIcon} className="size-[30px] md:size-[45px]" />
         </button>
