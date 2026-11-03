@@ -24,6 +24,15 @@ export default function Formulario() {
   const [titleRef, isTitleInView] = useInView();
   const [formRef, isFormInView] = useInView();
 
+  const onInvalid = (errors) => {
+    track(TRACK.home.contacto.formInvalid, {
+      fields: Object.keys(errors).join(","),
+      error_types: Object.entries(errors)
+        .map(([field, err]) => `${field}:${err.type}`)
+        .join(","),
+    });
+  };
+
   const onSubmit = async (values) => {
     setIsLoading(true);
     try {
@@ -76,7 +85,7 @@ export default function Formulario() {
       {/* Formulario */}
       <form
         ref={formRef}
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(onSubmit, onInvalid)}
         className={`reveal ${isFormInView ? "is-visible" : ""} flex flex-col w-full gap-[15px] mt-[40px]`}
         noValidate
       >
