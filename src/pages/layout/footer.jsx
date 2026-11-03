@@ -28,7 +28,7 @@ const SOCIALS = [
     id: "whatsapp",
     label: "WhatsApp",
     icon: whatsappLogo,
-    href: "#",
+    href: "https://wa.me/528129104413",    
     event: TRACK.home.footer.contact,
   },
 ];
@@ -38,7 +38,7 @@ export default function Footer() {
     <div className="flex flex-col  justify-end items-center w-full pt-[60px] bg-verde-confianza">
       {/* Info */}
       <div className="flex flex-col justify-center items-center pb-[30px] px-[44px] gap-[30px]">
-        <img src={misionLogo} alt="Logo Misión d elos Ángeles Serafines" />
+        <img src={misionLogo} alt="Logo Misión de los Ángeles Serafines" />
 
         {/* Social media */}
         <div className="flex justify-center items-center w-full h-fit gap-[20px]">
@@ -78,7 +78,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() =>
-              track(TRACK.home.footer.contact, { item_id: "address" })
+              track(TRACK.home.ubicacion.mapClick, { item_id: "footer" })
             }
             className="parrafos text-center text-beige-hogar"
           >
