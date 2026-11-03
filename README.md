@@ -205,7 +205,7 @@ Los scripts de tracking se cargan directamente en `index.html`:
 
 - **`src/analytics/track.js`:** función `track(event, params)` que llama a `window.gtag("event", event, params)`. No hace nada si `gtag` no está definido (por ejemplo, en SSR, en local sin el script de GA o si un adblock lo bloquea). En desarrollo muestra un `console.warn` si un nombre de evento supera los 40 caracteres.
 - **`src/analytics/track.constants.js`:** objeto `TRACK` con un nombre de evento por interacción. Define una constante `PROJECT = "misiondelosangeles"` que se usa como prefijo, y el formato de nombre es `misiondelosangeles:<seccion>:<elemento>:<accion>` (ej. `misiondelosangeles:menu:item:click`).
-- **Parámetros comunes:** `item_id` (qué elemento se tocó), `action` (para toggles, `"open"`/`"close"`), `error_type` (en errores de formulario).
+- **Parámetros comunes:** `item_id` (qué elemento se tocó; registrado como dimensión personalizada en GA4 desde el 14 oct 2026), `action` (para toggles, `"open"`/`"close"`), `error_type` (en errores de formulario).
 - **Regla importante:** nunca se envían datos personales (nombre, correo, teléfono) como parámetros de evento. Los formularios solo registran el evento de envío/error, sin el contenido.
 - **Límite de 40 caracteres:** GA4 trunca en silencio cualquier nombre de evento más largo. El prefijo `misiondelosangeles:` ocupa 19, así que el resto del nombre debe medir **21 caracteres o menos**. Dos eventos distintos que comparten los primeros 40 caracteres se registran con el mismo nombre y no se pueden separar. Cada constante en `track.constants.js` lleva un comentario con su longitud.
 - Los `:` funcionan correctamente en los nombres de evento de GA4 (verificado en producción).
@@ -243,17 +243,32 @@ Catálogo de eventos (`TRACK.home.*`):
 | `footer`               | `social`          | `misiondelosangeles:footer:social:click`   |
 | `footer`               | `contact`         | `misiondelosangeles:footer:contact:click`  |
 
+`ubicacion:map:click` se dispara desde la sección de ubicación y desde la dirección del footer (`item_id: "footer"`). `footer:contact:click` solo registra contactos reales: teléfono (`item_id: "phone"`) y WhatsApp (`item_id: "whatsapp"`).
+
 **Eventos renombrados (noviembre 2026).** Estos cinco nombres superaban los 40 caracteres y GA4 los registraba truncados. Para comparar con datos anteriores al cambio, usar ambos nombres (condición *Or* en Explorar):
 
-| Nombre truncado en GA4 (histórico)         | Nombre actual                              |
-| ------------------------------------------ | ------------------------------------------ |
-| `misiondelosangeles:amenidades:carousel:s` | `misiondelosangeles:amenidades:swipe`      |
-| `misiondelosangeles:popup:modelo:nivel:ch` | `misiondelosangeles:popup:nivel:change`    |
-| `misiondelosangeles:popup:financiamiento:` | `misiondelosangeles:popup:financ:close`    |
-| `misiondelosangeles:contacto:form:submit-` | `misiondelosangeles:contacto:form:error`   |
-| `misiondelosangeles:closing-banner:cta:cl` | `misiondelosangeles:closing:cta:click`     |
+| Nombre truncado en GA4 (histórico)         | Nombre actual                            |
+| ------------------------------------------ | ---------------------------------------- |
+| `misiondelosangeles:amenidades:carousel:s` | `misiondelosangeles:amenidades:swipe`    |
+| `misiondelosangeles:popup:modelo:nivel:ch` | `misiondelosangeles:popup:nivel:change`  |
+| `misiondelosangeles:popup:financiamiento:` | `misiondelosangeles:popup:financ:close`  |
+| `misiondelosangeles:contacto:form:submit-` | `misiondelosangeles:contacto:form:error` |
+| `misiondelosangeles:closing-banner:cta:cl` | `misiondelosangeles:closing:cta:click`   |
 
-**Notas para leer los datos:**
+Antes de noviembre 2026, la dirección del footer disparaba `footer:contact:click` con `item_id: "address"`; al comparar periodos, excluir ese `item_id`.
+
+### Eventos clave (conversiones)
+
+| Evento                                    | Estado                                    |
+| ----------------------------------------- | ----------------------------------------- |
+| `misiondelosangeles:contacto:form:submit` | Marcado                                   |
+| `misiondelosangeles:whatsapp:float:click` | Marcar en cuanto aparezca en Recent events |
+| `misiondelosangeles:footer:contact:click` | Marcar después del deploy del fix del footer |
+
+- **Método de conteo:** una vez por evento (default). Varios clics en la misma visita cuentan varias veces, así que **para reportar prospectos usar usuarios, sesiones o *Session key event rate***, no el conteo bruto de *Key events*. Los embudos ya cuentan usuarios.
+- **Cómo marcar un evento:** GA4 no permite crear eventos clave a mano con `:` en el nombre (solo letras, números y `_`). El evento tiene que dispararse al menos una vez y aparecer en *Admin → Events → Recent events* (puede tardar hasta 48 h); ahí se marca con la estrella. El marcado no es retroactivo.
+
+### Notas para leer los datos
 
 - Abrir o cerrar un modal (`?modal=financiamiento`, `?modal=modelo&id=…`) cambia la URL y GA4 envía un `page_view` automático. Por eso `page_view` está inflado: para reportar visitas usar **usuarios** y **sesiones**. A cambio, filtrar `page_view` por *Page location* con `modal=` da una medida directa de aperturas de cada modal y del interés por modelo.
 - Cerrar un modal con el botón o gesto de "atrás" del navegador quita el parámetro de la URL sin pasar por el botón de cerrar, así que no dispara el evento `close`.
@@ -266,6 +281,6 @@ Para agregar un evento nuevo: añadir la constante en `track.constants.js` sigui
 
 - **Carpeta `assets/images/mision-angeles-landing_files/`:** parece un remanente de una página guardada (contiene incluso un `main.jsx` y assets duplicados de otras carpetas). Verificar si algo la importa y, de lo contrario, eliminarla para reducir peso y confusión.
 - **Assets duplicados:** varias imágenes existen tanto en la raíz de `images/` como dentro de otras carpetas (`hero-banner.jpg`, `cotiza.jpg`, `closing-banner-bg.jpg`, `background-texture.jpg`, `beneva-certificate.png`) y hay varias versiones del mapa (`mapa.svg`, `mapa2.svg`, `mapa-v1.svg`, `mapa-updated.svg`). Antes de editar una sección, confirmar cuál es el archivo realmente importado.
-- **Footer: links de redes sociales sin destino.** Instagram, Facebook y WhatsApp en `SOCIALS` (`footer.jsx`) tienen `href: "#"`, así que abren la misma landing en otra pestaña. Reemplazar por las URLs reales (WhatsApp: `https://wa.me/528129104413`, igual que el botón flotante).
-- **Footer: la dirección se registra como contacto.** El link a Google Maps dispara `footer:contact` con `item_id: "address"`, lo que mezcla aperturas del mapa con contactos. Considerar un evento propio (por ejemplo `ubicacion.mapClick` con `item_id: "footer"`).
+- **Footer: Instagram y Facebook sin destino.** En `SOCIALS` (`footer.jsx`) tienen `href: "#"` hasta que existan las cuentas; sus clics se registran en `footer:social:click` pero no llevan a ningún lado. Actualizar los `href` cuando se tengan las URLs.
+- **Footer: `alt` del logo** dice "Misión d elos Ángeles"; corregir a "Misión de los Ángeles".
 - **`index.html`:** el atributo `lang` está en `"en"` aunque el sitio es en español; considerar cambiarlo a `"es"`.
