@@ -11,10 +11,14 @@ import banregioLogo from "../../../assets/images/marcas/banregio.png";
 import afirmeLogo from "../../../assets/images/marcas/afirme.svg";
 import scotiabankLogo from "../../../assets/images/marcas/scotiabank.svg";
 
+import { track } from "../../../analytics/track";
+import { TRACK } from "../../../analytics/track.constants";
+
 export default function Financiamiento() {
   const [, setSearchParams] = useSearchParams();
 
   const handleCloseModal = () => {
+    track(TRACK.home.popup.financiamiento.close);
     setSearchParams({});
   };
 

@@ -30,6 +30,9 @@ export const TRACK = {
         nivel: `${PROJECT}:popup:modelo:nivel:change`,
         close: `${PROJECT}:popup:modelo:close`,
       },
+      financiamiento: {
+        close: `${PROJECT}:popup:financiamiento:close`,
+      },
     },
 
     ubicacion: {
