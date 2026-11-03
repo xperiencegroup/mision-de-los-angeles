@@ -2,6 +2,8 @@ import banner from "../../../assets/images/hero-banner.jpg";
 import logoSerafines from "../../../assets/images/hero-title-serafines.svg";
 import heroTitle from "../../../assets/images/hero-title-vtt.svg";
 import whatsappIcon from "../../../assets/icons/whatsapp.svg";
+import { track } from "../../../analytics/track";
+import { TRACK } from "../../../analytics/track.constants";
 
 export default function Hero() {
   return (
@@ -24,6 +26,7 @@ export default function Hero() {
         href="https://wa.me/528129104413"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => track(TRACK.home.whatsapp.float)}
         className="fixed z-30 flex justify-center items-center size-[56px] bg-verde-dinamico bottom-[20px] right-[34px] hover:cursor-pointer"
       >
         <img
