@@ -203,11 +203,13 @@ Los scripts de tracking se cargan directamente en `index.html`:
 - **Microsoft Clarity:** snippet con el proyecto `yuo0bqm61s` (grabaciones de sesión y mapas de calor).
   El tracking de eventos sigue una convención compartida con Beneva (proyecto hermano):
 
-- **`src/analytics/track.js`:** función `track(event, params)` que llama a `window.gtag("event", event, params)`. No hace nada si `gtag` no está definido (por ejemplo, en SSR, en local sin el script de GA o si un adblock lo bloquea).
+- **`src/analytics/track.js`:** función `track(event, params)` que llama a `window.gtag("event", event, params)`. No hace nada si `gtag` no está definido (por ejemplo, en SSR, en local sin el script de GA o si un adblock lo bloquea). En desarrollo muestra un `console.warn` si un nombre de evento supera los 40 caracteres.
 - **`src/analytics/track.constants.js`:** objeto `TRACK` con un nombre de evento por interacción. Define una constante `PROJECT = "misiondelosangeles"` que se usa como prefijo, y el formato de nombre es `misiondelosangeles:<seccion>:<elemento>:<accion>` (ej. `misiondelosangeles:menu:item:click`).
 - **Parámetros comunes:** `item_id` (qué elemento se tocó), `action` (para toggles, `"open"`/`"close"`), `error_type` (en errores de formulario).
 - **Regla importante:** nunca se envían datos personales (nombre, correo, teléfono) como parámetros de evento. Los formularios solo registran el evento de envío/error, sin el contenido.
-- Antes de agregar o modificar un evento, verificar en **GA4 DebugView** que el nombre (con los `:`) llegue correctamente; si GA4 lo rechaza, el formato cambia a guiones bajos (`_`) en lugar de `:`.
+- **Límite de 40 caracteres:** GA4 trunca en silencio cualquier nombre de evento más largo. El prefijo `misiondelosangeles:` ocupa 19, así que el resto del nombre debe medir **21 caracteres o menos**. Dos eventos distintos que comparten los primeros 40 caracteres se registran con el mismo nombre y no se pueden separar. Cada constante en `track.constants.js` lleva un comentario con su longitud.
+- Los `:` funcionan correctamente en los nombres de evento de GA4 (verificado en producción).
+- Antes de agregar o modificar un evento, verificarlo en **GA4 DebugView** o en DevTools → Network filtrando por `collect` (parámetro `en=`).
   Uso:
 
 ```js
@@ -219,30 +221,51 @@ track(TRACK.home.modelos.card, { item_id: "kinzo" });
 
 Catálogo de eventos (`TRACK.home.*`):
 
-| Sección         | Clave             | Evento                                          |
-| --------------- | ----------------- | ----------------------------------------------- |
-| `menu`          | `toggle`          | `misiondelosangeles:menu:toggle:click`          |
-| `menu`          | `item`            | `misiondelosangeles:menu:item:click`            |
-| `logo`          | `home`            | `misiondelosangeles:logo:hero:click`            |
-| `whatsapp`      | `float`           | `misiondelosangeles:whatsapp:float:click`       |
-| `amenidades`    | `item`            | `misiondelosangeles:amenidades:item:click`      |
-| `amenidades`    | `swipe`           | `misiondelosangeles:amenidades:carousel:swipe`  |
-| `modelos`       | `card`            | `misiondelosangeles:modelos:card:click`         |
-| `popup.modelo`  | `nivel`           | `misiondelosangeles:popup:modelo:nivel:change`  |
-| `popup.modelo`  | `close`           | `misiondelosangeles:popup:modelo:close`         |
-| `ubicacion`     | `mapClick`        | `misiondelosangeles:ubicacion:map:click`        |
-| `cotiza`        | `cta`             | `misiondelosangeles:cotiza:cta:click`           |
-| `contacto`      | `formSubmit`      | `misiondelosangeles:contacto:form:submit`       |
-| `contacto`      | `formSubmitError` | `misiondelosangeles:contacto:form:submit-error` |
-| `contacto`      | `formInvalid`     | `misiondelosangeles:contacto:form:invalid`      |
-| `closingBanner` | `cta`             | `misiondelosangeles:closing-banner:cta:click`   |
-| `footer`        | `social`          | `misiondelosangeles:footer:social:click`        |
-| `footer`        | `contact`         | `misiondelosangeles:footer:contact:click`       |
+| Sección                | Clave             | Evento                                     |
+| ---------------------- | ----------------- | ------------------------------------------ |
+| `menu`                 | `toggle`          | `misiondelosangeles:menu:toggle:click`     |
+| `menu`                 | `item`            | `misiondelosangeles:menu:item:click`       |
+| `logo`                 | `home`            | `misiondelosangeles:logo:hero:click`       |
+| `whatsapp`             | `float`           | `misiondelosangeles:whatsapp:float:click`  |
+| `amenidades`           | `item`            | `misiondelosangeles:amenidades:item:click` |
+| `amenidades`           | `swipe`           | `misiondelosangeles:amenidades:swipe`      |
+| `modelos`              | `card`            | `misiondelosangeles:modelos:card:click`    |
+| `modelos`              | `cotiza`          | `misiondelosangeles:modelos:cotiza:click`  |
+| `popup.modelo`         | `nivel`           | `misiondelosangeles:popup:nivel:change`    |
+| `popup.modelo`         | `close`           | `misiondelosangeles:popup:modelo:close`    |
+| `popup.financiamiento` | `close`           | `misiondelosangeles:popup:financ:close`    |
+| `ubicacion`            | `mapClick`        | `misiondelosangeles:ubicacion:map:click`   |
+| `cotiza`               | `cta`             | `misiondelosangeles:cotiza:cta:click`      |
+| `contacto`             | `formSubmit`      | `misiondelosangeles:contacto:form:submit`  |
+| `contacto`             | `formSubmitError` | `misiondelosangeles:contacto:form:error`   |
+| `contacto`             | `formInvalid`     | `misiondelosangeles:contacto:form:invalid` |
+| `closingBanner`        | `cta`             | `misiondelosangeles:closing:cta:click`     |
+| `footer`               | `social`          | `misiondelosangeles:footer:social:click`   |
+| `footer`               | `contact`         | `misiondelosangeles:footer:contact:click`  |
 
-Para agregar un evento nuevo: añadir la constante en `track.constants.js` siguiendo el formato de nombre y llamarla con `track()` desde el componente.
+**Eventos renombrados (noviembre 2026).** Estos cinco nombres superaban los 40 caracteres y GA4 los registraba truncados. Para comparar con datos anteriores al cambio, usar ambos nombres (condición *Or* en Explorar):
+
+| Nombre truncado en GA4 (histórico)         | Nombre actual                              |
+| ------------------------------------------ | ------------------------------------------ |
+| `misiondelosangeles:amenidades:carousel:s` | `misiondelosangeles:amenidades:swipe`      |
+| `misiondelosangeles:popup:modelo:nivel:ch` | `misiondelosangeles:popup:nivel:change`    |
+| `misiondelosangeles:popup:financiamiento:` | `misiondelosangeles:popup:financ:close`    |
+| `misiondelosangeles:contacto:form:submit-` | `misiondelosangeles:contacto:form:error`   |
+| `misiondelosangeles:closing-banner:cta:cl` | `misiondelosangeles:closing:cta:click`     |
+
+**Notas para leer los datos:**
+
+- Abrir o cerrar un modal (`?modal=financiamiento`, `?modal=modelo&id=…`) cambia la URL y GA4 envía un `page_view` automático. Por eso `page_view` está inflado: para reportar visitas usar **usuarios** y **sesiones**. A cambio, filtrar `page_view` por *Page location* con `modal=` da una medida directa de aperturas de cada modal y del interés por modelo.
+- Cerrar un modal con el botón o gesto de "atrás" del navegador quita el parámetro de la URL sin pasar por el botón de cerrar, así que no dispara el evento `close`.
+- La propiedad de GA4 es compartida con Beneva: en exploraciones, filtrar por *Page path* que contenga `/misiondelosangeles` y excluir el hostname `vercel.app` (tráfico de pruebas).
+- Las pruebas en producción deben quedar fuera de los reportes: configurar el filtro de tráfico interno en GA4 (Admin → Data streams → Configure tag settings → Define internal traffic) y no dejar leads de prueba en la tabla de Supabase.
+
+Para agregar un evento nuevo: añadir la constante en `track.constants.js` siguiendo el formato de nombre (máximo 40 caracteres, con su longitud en comentario), llamarla con `track()` desde el componente, validarla en DebugView y agregarla a este catálogo.
 
 ## Notas y pendientes conocidos
 
 - **Carpeta `assets/images/mision-angeles-landing_files/`:** parece un remanente de una página guardada (contiene incluso un `main.jsx` y assets duplicados de otras carpetas). Verificar si algo la importa y, de lo contrario, eliminarla para reducir peso y confusión.
 - **Assets duplicados:** varias imágenes existen tanto en la raíz de `images/` como dentro de otras carpetas (`hero-banner.jpg`, `cotiza.jpg`, `closing-banner-bg.jpg`, `background-texture.jpg`, `beneva-certificate.png`) y hay varias versiones del mapa (`mapa.svg`, `mapa2.svg`, `mapa-v1.svg`, `mapa-updated.svg`). Antes de editar una sección, confirmar cuál es el archivo realmente importado.
+- **Footer: links de redes sociales sin destino.** Instagram, Facebook y WhatsApp en `SOCIALS` (`footer.jsx`) tienen `href: "#"`, así que abren la misma landing en otra pestaña. Reemplazar por las URLs reales (WhatsApp: `https://wa.me/528129104413`, igual que el botón flotante).
+- **Footer: la dirección se registra como contacto.** El link a Google Maps dispara `footer:contact` con `item_id: "address"`, lo que mezcla aperturas del mapa con contactos. Considerar un evento propio (por ejemplo `ubicacion.mapClick` con `item_id: "footer"`).
 - **`index.html`:** el atributo `lang` está en `"en"` aunque el sitio es en español; considerar cambiarlo a `"es"`.
